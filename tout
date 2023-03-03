@@ -1,0 +1,33 @@
+##################   ROUTES   ##################
+
+Routes users :
+    Accueil --> /
+    Liste des mangas --> /liste-mangas
+        snk --> /liste-mangas/snk
+        one piece --> /liste-mangas/one-piece
+        dragon ball --> /liste-mangas/dragon-ball
+        naruto --> /liste-mangas/naruto
+        ...
+    Liste des types d'articles --> /liste-articles
+        mangas --> /liste-articles/mangas
+        figurines --> /liste-articles/figurines
+        cosplay --> /liste-articles/cosplay
+        posters --> /liste-articles/posters
+        ...
+    Liste des nouveautés --> /nouveautes
+    Contact --> /contact
+    Connexion --> /connexion
+    Création de compte --> /creation
+    
+
+Routes admin :
+    Liste de tous les articles --> /admin/all-articles
+    Création d'un nouvel article --> /admin/new-article
+    Modification d'un article --> /admin/update-article
+    Liste de toutes les commandes --> /admin/all-orders
+    
+##################   CLASSES   ##################
+
+users(id, username, email, first_name, last_name, password, registration_date, birthday)
+
+products(
