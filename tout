@@ -1,4 +1,4 @@
-##################   ROUTES   ##################
+#################################################   ROUTES   #################################################
 
 Routes users :
     Accueil --> /
@@ -26,11 +26,13 @@ Routes admin :
     Modification d'un article --> /admin/update-article
     Liste de toutes les commandes --> /admin/all-orders
     
-##################   CLASSES   ##################
+    
+    
+################################################   CLASSES   #################################################
 
-User(private int $id, private string $username, private string $email, private string $first_name, private string $last_name, private string $password, private date $registration_date, private date $birthday, private string $address)
+User(private int $id, private string $username, private string $email, private string $first_name, private string $last_name, private string $password, private date $registration_date, private date $birthday)
 
-Product(private int $id, private string $name, private string $description, private string $picture_URL, private float $price)
+Product(private int $id, private string $name, private string $description, private float $price)
 
 Category(private int $id, private string $title, private string $description)
 
@@ -38,7 +40,27 @@ Order(private int $id, private string $reference, private date $date, private in
 
 
 
-##################   CONTROLLERS   ##################
+############################################   BASE DE DONNEES   #############################################
+
+pictures (increment int id, int product_id, varchar(255) URL, varchar(2047) caption)
+
+categories (increment int id, varchar(255) title, varchar(2047) description)
+
+products_categories (int product_id, int category_id)
+
+products (increment int id, varchar(255) name, varchar(2047) description, float price)
+
+products_orders (int product_id, int order_id)
+
+orders (increment int id, int user_id, varchar(255) reference, date date)
+
+addresses (increment int id, int user_id, varchar(255) street, int number, int postal_code, varchar(255) city)
+
+users (increment int id, int address_id, varchar(255) username, varchar(255) first-name, varchar(255) last_name, varchar(255) email, varchar(255) password, date registration_date, date birthday)
+
+
+
+##############################################   CONTROLLERS   ###############################################
 
 UserController index() create(array $user) edit(array $user) delete(array $user)
 ProductController index() create(array $product) edit(array $product) delete(array $product)
@@ -52,11 +74,16 @@ RegisterController register() verifyUserEmail()
 
 AdminController index()
 
-##################   MANAGERS   ##################
+
+
+################################################   MANAGERS   ################################################
 
 UserManager getAllUsers() getUserById(int $id) createUser(User $user) editUser(User $user) deleteUser(User $user)
+
 ProductManager getAllProducts() getProductById(int $id) createProduct(Product $product) editProduct(Product $product) deleteProduct(Product $product)
+
 CategoryManager getAllCategories() getCategoryById(int $id) createCategory(Category $category) editCategory(Category $category) deleteCategory(Category $category)
+
 OrderManager getAllOrders() getOrderById(int $id) createOrder(Order $order) editOrder(Order $order) deleteOrder(Order $order)
 
 AbstractManager bdd
