@@ -28,6 +28,35 @@ Routes admin :
     
 ##################   CLASSES   ##################
 
-users(id, username, email, first_name, last_name, password, registration_date, birthday)
+User(private int $id, private string $username, private string $email, private string $first_name, private string $last_name, private string $password, private date $registration_date, private date $birthday, private string $address)
 
-products(
+Product(private int $id, private string $name, private string $description, private string $picture_URL, private float $price)
+
+Category(private int $id, private string $title, private string $description)
+
+Order(private int $id, private string $reference, private date $date, private int $user_id)
+
+
+
+##################   CONTROLLERS   ##################
+
+UserController index() create(array $user) edit(array $user) delete(array $user)
+ProductController index() create(array $product) edit(array $product) delete(array $product)
+CategoryController index() create(array $category) edit(array $category) delete(array $category)
+OrderController index() create(array $order) edit(array $order) delete(array $order)
+
+AbstractController render(string $view, array $values)
+
+LoginController index()
+RegisterController register() verifyUserEmail()
+
+AdminController index()
+
+##################   MANAGERS   ##################
+
+UserManager getAllUsers() getUserById(int $id) createUser(User $user) editUser(User $user) deleteUser(User $user)
+ProductManager getAllProducts() getProductById(int $id) createProduct(Product $product) editProduct(Product $product) deleteProduct(Product $product)
+CategoryManager getAllCategories() getCategoryById(int $id) createCategory(Category $category) editCategory(Category $category) deleteCategory(Category $category)
+OrderManager getAllOrders() getOrderById(int $id) createOrder(Order $order) editOrder(Order $order) deleteOrder(Order $order)
+
+AbstractManager bdd
