@@ -51,3 +51,10 @@
 - `/admin/medias`
 - `/admin/medias/ajouter`
 - `/admin/medias/:id/supprimer`
+
+### Commandes
+- `/panier`
+- `/admin/orders`
+- `/admin/orders/:id/modifier`
+- `/admin/orders/:id/details`
+- `/admin/orders/:id/supprimer`
