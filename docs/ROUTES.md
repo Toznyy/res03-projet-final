@@ -19,6 +19,13 @@
 
 ## ADMIN
 
+### Utilisateur
+- `/admin/mon-compte``
+- `/admin/mon-compte/ajouter`
+- `/admin/mon-compte/:article/modifier`
+- `/admin/mon-compte/:article/details`
+- `/admin/mon-compte/:article/supprimer`
+
 ### Categories
 - `/admin/all-categories`
 - `/admin/all-categories/ajouter`
