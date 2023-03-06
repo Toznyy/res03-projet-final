@@ -34,7 +34,7 @@
 - `/admin/all-articles/:id/modifier`
 - `/admin/all-articles/:id/supprimer`
 
-## NouveauteController
+## NewsController
 
 ### Routes publiques
 - `/nouveautes`
