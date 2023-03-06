@@ -1,4 +1,4 @@
-# Controllers
+# CONTROLLERS
 
 ## PageController
 
@@ -6,6 +6,8 @@
 - `/`
 - `/a-propos`
 - `/contact`
+- `/connexion`
+- `/creation`
 
 ## CategoryController
 
@@ -32,24 +34,43 @@
 - `/admin/all-articles/:id/modifier`
 - `/admin/all-articles/:id/supprimer`
 
-## NouveautesController
+## NouveauteController
 
 ### Routes publiques
 - `/nouveautes`
 
 ### Routes privées
-
 - `/admin/nouveautes`
 - `/admin/nouveautes/ajouter`
 - `/admin/nouveautes/:article/modifier`
 - `/admin/nouveautes/:article/details`
 - `/admin/nouveautes/:article/supprimer`
 
+## UserController
+
+### Routes privées
+- `/admin/mon-compte``
+- `/admin/mon-compte/ajouter`
+- `/admin/mon-compte/:article/modifier`
+- `/admin/mon-compte/:article/details`
+- `/admin/mon-compte/:article/supprimer`
 
 ## MediaController
 
 ### Routes privées
-
 - `/admin/medias`
 - `/admin/medias/ajouter`
+- `/admin/medias/:id/modifier`
+- `/admin/medias/:id/details`
 - `/admin/medias/:id/supprimer`
+
+## OrderController
+
+### Routes publiques
+- `/panier`
+
+### Routes privées
+- `/admin/orders`
+- `/admin/orders/:id/modifier`
+- `/admin/orders/:id/details`
+- `/admin/orders/:id/supprimer`
