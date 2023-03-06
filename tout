@@ -1,26 +1,23 @@
 #################################################   ROUTES   #################################################
 
 Routes users :
+
     Accueil --> /
+    
     Liste des mangas --> /liste-mangas
-        snk --> /liste-mangas/snk
-        one piece --> /liste-mangas/one-piece
-        dragon ball --> /liste-mangas/dragon-ball
-        naruto --> /liste-mangas/naruto
-        ...
+        par mangas --> /liste-mangas/{id}
+        
     Liste des types d'articles --> /liste-articles
-        mangas --> /liste-articles/mangas
-        figurines --> /liste-articles/figurines
-        cosplay --> /liste-articles/cosplay
-        posters --> /liste-articles/posters
-        ...
+        par articles --> /liste-articles/{id}
+        
     Liste des nouveautés --> /nouveautes
     Contact --> /contact
-    Connexion --> /connexion
+    Connexion au compte --> /connexion
     Création de compte --> /creation
     
 
 Routes admin :
+
     Liste de tous les articles --> /admin/all-articles
     Création d'un nouvel article --> /admin/new-article
     Modification d'un article --> /admin/update-article
@@ -37,27 +34,6 @@ Product(private int $id, private string $name, private string $description, priv
 Category(private int $id, private string $title, private string $description)
 
 Order(private int $id, private string $reference, private date $date, private int $user_id)
-
-
-
-############################################   BASE DE DONNEES   #############################################
-
-pictures (increment int id, int product_id, varchar(255) URL, varchar(2047) caption)
-
-categories (increment int id, varchar(255) title, varchar(2047) description)
-
-products_categories (int product_id, int category_id)
-
-products (increment int id, varchar(255) name, varchar(2047) description, float price)
-
-products_orders (int product_id, int order_id)
-
-orders (increment int id, int user_id, varchar(255) reference, date date)
-
-addresses (increment int id, int user_id, varchar(255) street, int number, int postal_code, varchar(255) city)
-
-users (increment int id, int address_id, varchar(255) username, varchar(255) first-name, varchar(255) last_name, varchar(255) email, varchar(255) password, date registration_date, date birthday)
-
 
 
 ##############################################   CONTROLLERS   ###############################################
