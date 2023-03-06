@@ -55,15 +55,6 @@
 - `/admin/mon-compte/:article/details`
 - `/admin/mon-compte/:article/supprimer`
 
-## MediaController
-
-### Routes privées
-- `/admin/medias`
-- `/admin/medias/ajouter`
-- `/admin/medias/:id/modifier`
-- `/admin/medias/:id/details`
-- `/admin/medias/:id/supprimer`
-
 ## OrderController
 
 ### Routes publiques
