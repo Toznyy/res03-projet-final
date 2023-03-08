@@ -4,7 +4,7 @@
 
 ## CategoryManager
 
-## ArticleManager
+## ProductManager
 
 ## OrderManager
 
