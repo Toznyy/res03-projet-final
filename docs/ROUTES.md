@@ -23,7 +23,7 @@
 - `/admin/mon-compte`
 - `/admin/mon-compte/modifier`
 - `/admin/mon-compte/supprimer`
-- `/admin/mon-compte/all-articles`
+- `/admin/mon-compte/your-favorites`
 
 ### Categories
 - `/admin/all-categories`
