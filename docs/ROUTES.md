@@ -21,10 +21,9 @@
 
 ### Utilisateur
 - `/admin/mon-compte`
-- `/admin/mon-compte/ajouter`
-- `/admin/mon-compte/:article/modifier`
-- `/admin/mon-compte/:article/details`
-- `/admin/mon-compte/:article/supprimer`
+- `/admin/mon-compte/modifier`
+- `/admin/mon-compte/supprimer`
+- `/admin/mon-compte/all-articles`
 
 ### Categories
 - `/admin/all-categories`
@@ -33,12 +32,12 @@
 - `/admin/all-categories/:id/modifier`
 - `/admin/all-categories/:id/supprimer`
 
-### Produits
-- `/admin/all-products`
-- `/admin/all-products/ajouter`
-- `/admin/all-products/:id/details`
-- `/admin/all-products/:id/modifier`
-- `/admin/all-products/:id/supprimer`
+### Articles
+- `/admin/all-articles`
+- `/admin/all-articles/ajouter`
+- `/admin/all-articles/:id/details`
+- `/admin/all-articles/:id/modifier`
+- `/admin/all-articles/:id/supprimer`
 
 ### Nouveautés
 - `/admin/nouveautes`
