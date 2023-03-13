@@ -39,6 +39,7 @@ class PageController extends AbstractController {
     public function error404() {
         $this->renderPublic( "404" , ["page du 404"]); 
     }
+    
 }
 
 ?>

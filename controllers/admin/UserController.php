@@ -53,6 +53,8 @@ class UserController extends AbstractController {
         $deletedUser = $user->toArray();
         return $this->getUsers;
     }
+    
+    public function favorites()
 }
 
 ?>

@@ -81,6 +81,13 @@ class UserManager extends AbstractManager {
         return $this->getAllUsers();
         
     }
+    
+    public function favorites(User $user) : array {
+        
+        $query = $this->db->prepare("SELECT * FROM users JOIN (favorites JOIN products ON favorites.product_id = products.id) ON users.id = favorites.user_id WHERE ");
+        $query->execute();
+        $users = $query->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 
 ?>

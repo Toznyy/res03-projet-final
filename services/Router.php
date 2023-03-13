@@ -81,11 +81,19 @@ class Router {
                 if($route[1] === "mon-compte") {
                     
                     if(!isset($route[2])) {
-                        $this->userController->getUser();
+                        $this->userController->getUser($route[1]);
                     }
                     
-                    else if($route[2] === "ajouter") {
-                        $this->userController->updateUser();
+                    else if($route[2] === "modifier") {
+                        $this->userController->updateUser($route[2]);
+                    }
+                    
+                    else if($route[2] === "supprimer") {
+                        $this->userController->deleteUser($route[2]);
+                    }
+                    
+                    else if($route[2] === "favorites") {
+                        $this->userController->favorites($route[2]);
                     }
                 }
                 
