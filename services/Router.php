@@ -78,7 +78,30 @@ class Router {
             
             else if($route[0] === "admin") {
                 
-                if($route[1] === "") {
+                if($route[1] === "mon-compte") {
+                    
+                    if(!isset($route[2])) {
+                        $this->userController->getUser();
+                    }
+                    
+                    else if($route[2] === "ajouter") {
+                        $this->userController->updateUser();
+                    }
+                }
+                
+                else if($route[1] === "all-categories") {
+                    
+                }
+                
+                else if($route[1] === "all-articles") {
+                    
+                }
+                
+                else if($route[1] === "nouveautes") {
+                    
+                }
+                
+                else if($route[1] === "medias") {
                     
                 }
             }
