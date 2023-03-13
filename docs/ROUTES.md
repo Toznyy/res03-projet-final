@@ -33,12 +33,12 @@
 - `/admin/all-categories/:id/modifier`
 - `/admin/all-categories/:id/supprimer`
 
-### Articles
-- `/admin/all-articles`
-- `/admin/all-articles/ajouter`
-- `/admin/all-articles/:id/details`
-- `/admin/all-articles/:id/modifier`
-- `/admin/all-articles/:id/supprimer`
+### Produits
+- `/admin/all-products`
+- `/admin/all-products/ajouter`
+- `/admin/all-products/:id/details`
+- `/admin/all-products/:id/modifier`
+- `/admin/all-products/:id/supprimer`
 
 ### Nouveautés
 - `/admin/nouveautes`
