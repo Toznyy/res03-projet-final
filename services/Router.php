@@ -36,11 +36,29 @@ class Router {
 
             // Pages publics gerer par -> PageController
             if($route[0] === "connexion") {
-                $this->pageController->connexion();
+                
+                if (!empty($_POST) && $_POST["formName"]=== "connexion") {
+                    
+                    $post = $_POST;
+                    $this->userController->connexion($post);
+                }
+                else {
+                    
+                    $this->pageController->connexion();
+                }
             }
             
             else if($route[0] === "creation") {
-                $this->pageController->creation();
+                
+                if (!empty($_POST) && $_POST["formName"]=== "creation"){
+                    
+                    $post = $_POST;
+                    $this->userController->createUser($post);
+                }
+                else {
+                    
+                    $this->pageController->creation();
+                }
             }
             
             else if($route[0] === "contact") {

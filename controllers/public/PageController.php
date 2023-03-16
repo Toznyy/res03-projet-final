@@ -9,37 +9,36 @@ class PageController extends AbstractController {
     }
     
     public function connexion() {
-        $this->renderPublic( "connexion" , ["page de connexion"]);
+        $this->render( "connexion" , ["page de connexion"]);
     }
     
     public function creation() {
-        $this->renderPublic( "creation" , ["page de la création de compte"]); 
+        $this->render( "creation" , ["page de la création de compte"]); 
     }
     
     public function contact() {
-        $this->renderPublic( "contact" , ["page de contact"]); 
+        $this->render( "contact" , ["page de contact"]); 
     }
     
     public function aPropos() {
-        $this->renderPublic( "info" , ["page d'info"]); 
+        $this->render( "info" , ["page d'info"]); 
     }
     
-    public function acceuil() {
-        $this->renderPublic( "homepage" , ["page d'acceuil"]); 
+    public function accueil() {
+        $this->render( "accueil" , ["page d'accueil"]); 
     }
     
     public function nouveautes() {
-        $this->renderPublic( "nouveautes" , ["page des nouveautes"]); 
+        $this->render( "nouveautes" , ["page des nouveautes"]); 
     }
     
     public function listeCategories() {
-        $this->renderPublic( "liste-categories" , ["page de la liste des catégories"]); 
+        $this->render( "liste-categories" , ["page de la liste des catégories"]); 
     }
     
     public function error404() {
-        $this->renderPublic( "404" , ["page du 404"]); 
+        $this->render( "404" , ["page du 404"]); 
     }
-    
 }
 
 ?>

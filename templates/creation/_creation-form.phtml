@@ -1,5 +1,5 @@
 <h1>Inscription</h1>
-<form method="post" id="user-information">
+<form method="post" action="creation">
     <fieldset>
         <label for="username">Pseudo</label>
         <input type="text" name="username" id="username" />
@@ -29,6 +29,11 @@
         <input type="date" name="birthday" id="birthday" />
     </fieldset>
     <fieldset>
+        <input type="hidden" name="formName" value="creation">
+    </fieldset>
+    <fieldset>
         <input type="submit" value="Je crée mon compte" />
     </fieldset>
+    
+    <p>Clique <a href="../connexion/connexion.phtml">ici</a> pour te connecter</p>
 </form>

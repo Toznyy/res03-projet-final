@@ -93,8 +93,8 @@ class User {
         return [
             "id" => $this->id,
             "username" => $this->username,
-            "firstName" => $this->firstName,
-            "lastName" => $this->lastName,
+            "first_name" => $this->first_name,
+            "last_name" => $this->last_name,
             "email" => $this->email,
             "password" => $this->password,
             "registration_date" => $this->registration_date,

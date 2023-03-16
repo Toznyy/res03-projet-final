@@ -82,6 +82,29 @@ class UserManager extends AbstractManager {
         
     }
     
+    public function getUsernameAndEmail(User $user) : array {
+        
+        $query = $this->db->prepare("SELECT * FROM users WHERE username = :username OR email = :email");
+        $parameters = [
+            "username" => $user->getUsername(),
+            "email" => $user->getEmail()
+            ];
+        $query->execute($parameters);
+        $user = $query->fetch(PDO::FETCH_ASSOC);
+        return $user;
+    }
+    
+    function loadUser(string $username) : User {
+        
+        $query = $this->db->prepare("SELECT * FROM users WHERE username = :username");
+        $parameters = ["username" => $username];
+        $query->execute($parameters);
+        $user = $query->fetch(PDO::FETCH_ASSOC);
+        $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday']);
+        $newUser->setId($user["id"]);
+        return $newUser;
+    }
+    
     public function favorites(User $user) : array {
         
         $query = $this->db->prepare("SELECT * FROM users JOIN (favorites JOIN products ON favorites.product_id = products.id) ON users.id = favorites.user_id WHERE ");

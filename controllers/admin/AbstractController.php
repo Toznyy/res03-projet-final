@@ -2,7 +2,7 @@
    
 abstract class AbstractController  
 {  
-    protected function renderPublic(string $view, array $values) : void {
+    protected function render(string $view, array $values) : void {
         
         $template = $view;
         $data = $values;

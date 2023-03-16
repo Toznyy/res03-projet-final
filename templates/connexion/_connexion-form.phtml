@@ -1,5 +1,5 @@
 <h1>Connexion</h1>
-<form method="post" action="">
+<form method="post" action="connexion">
     <fieldset>
         <label for="username">Pseudo</label>
         <input type="text" name="username" id="username" />
@@ -8,7 +8,12 @@
         <label for="password1">Mot de passe</label>
         <input type="password" name="password" id="password1" />
     </fieldset>
+    <Fieldset>
+        <input type="hidden" name="formName" value="connexion">
+    </Fieldset>
     <fieldset>
         <input type="submit" value="Je me connecte" />
     </fieldset>
+    
+    <p>Clique <a href="../creation/creation.phtml">ici</a> pour créer un compte</p>
 </form>

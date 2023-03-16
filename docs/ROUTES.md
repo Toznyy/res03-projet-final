@@ -3,7 +3,7 @@
 ## USERS
 
 ### Général
-- `/`
+- `/accueil`
 - `/a-propos`
 - `/contact`
 - `/connexion`
