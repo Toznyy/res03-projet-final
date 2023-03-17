@@ -10,7 +10,7 @@ class UserManager extends AbstractManager {
         
         $usersTab=[];
         foreach($users as $user){
-            $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday']);
+            $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday'], "customer");
             $newUser->setId($user['id']);
             array_push($usersTab, $newUser);
         }
@@ -25,14 +25,14 @@ class UserManager extends AbstractManager {
             ];
         $query->execute($parameters);
         $user = $query->fetch(PDO::FETCH_ASSOC);
-        $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday']);
+        $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday'], "customer");
         $newUser->setId($user['id']);
         return $newUser;
     }
 
     public function createUser(User $user) : User {
         
-        $query = $this->db->prepare("INSERT INTO users VALUES (null, :username, :first_name, :last_name, :email, :password, :registration_date, :birthday)");
+        $query = $this->db->prepare("INSERT INTO users VALUES (null, :username, :first_name, :last_name, :email, :password, :registration_date, :birthday, :role)");
         $parameters = [
             "username" => $user->getUsername(),
             "first_name" => $user->getfirstName(),
@@ -40,7 +40,8 @@ class UserManager extends AbstractManager {
             "email" => $user->getEmail(),
             "password" => $user->getPassword(),
             "registration_date" => $user->getRegistrationDate(),
-            "birthday" => $user->getBirthday()
+            "birthday" => $user->getBirthday(),
+            "role" => $user->getRole(),
             ];
         $query->execute($parameters);
         
@@ -50,7 +51,7 @@ class UserManager extends AbstractManager {
             ];
         $query->execute($parameters);
         $user = $query->fetch(PDO::FETCH_ASSOC);
-        $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday']);
+        $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday'], "customer");
         $newUser->setId($user['id']);
         return $newUser;
     }
@@ -82,7 +83,7 @@ class UserManager extends AbstractManager {
         
     }
     
-    public function getUsernameAndEmail(User $user) : array {
+    public function getUsernameAndEmail(User $user) : ?User {
         
         $query = $this->db->prepare("SELECT * FROM users WHERE username = :username OR email = :email");
         $parameters = [
@@ -91,7 +92,9 @@ class UserManager extends AbstractManager {
             ];
         $query->execute($parameters);
         $user = $query->fetch(PDO::FETCH_ASSOC);
-        return $user;
+        $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday'], "customer");
+        $newUser->setId($user["id"]);
+        return $newUser;
     }
     
     function loadUser(string $username) : User {
@@ -100,7 +103,7 @@ class UserManager extends AbstractManager {
         $parameters = ["username" => $username];
         $query->execute($parameters);
         $user = $query->fetch(PDO::FETCH_ASSOC);
-        $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday']);
+        $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday'], $user['role']);
         $newUser->setId($user["id"]);
         return $newUser;
     }

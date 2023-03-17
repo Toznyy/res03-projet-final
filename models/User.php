@@ -10,8 +10,9 @@ class User {
     private string $password;
     private string $registration_date;
     private string $birthday;
+    private string $role;
     
-    public function __construct(string $username, string $first_name, string $last_name, string $email, string $password, string $registration_date, string $birthday) {
+    public function __construct(string $username, string $first_name, string $last_name, string $email, string $password, string $registration_date, string $birthday, string $role) {
         
         $this->id = null;
         $this->username = $username;
@@ -21,6 +22,7 @@ class User {
         $this->password = $password;
         $this->registration_date = $registration_date;
         $this->birthday = $birthday;
+        $this->role = $role;
         
     }
     
@@ -86,6 +88,14 @@ class User {
     
     public function setBirthday(date $birthday) : void {
         $this->birthday = $birthday;
+    }
+    
+    public function getRole() : string {
+        return $this->role;
+    }
+    
+    public function setRole(string $role) : void {
+        $this->role = $role;
     }
     
     public function toArray() : array

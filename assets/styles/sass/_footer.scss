@@ -1,0 +1,25 @@
+#footer {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 100vw;
+    text-align: center;
+    background-color: #4471af;
+    font-family: 'Stick No Bills', sans-serif;
+    
+    section {
+        border: 1px solid #4a5589 ;
+        display: flex;
+            align-items: center;
+            justify-content: center;
+        
+        img {
+            height: 15vh;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+}

@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-    <head>
-        <meta charset="utf-8" />
-        <title>Projet Final</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Stick+No+Bills&family=Wallpoet&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="assets/styles/css/style.css" />
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <title>Projet Final</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Stick+No+Bills&family=Wallpoet&display=swap" rel="stylesheet">
+    <link rel="stylesheet " href="assets/styles/css/style.css " />
+</head>
     <body id= <?php echo $template ?>>
-
-        <?php 
+    
+    
+    <?php
+    
+    if($_SESSION) {
+        require 'partials/_userHeader.phtml';
+    }
+    
+    else {
         require 'partials/_header.phtml';
-        
-        require "templates/".$template."/".$template.".phtml";
-        
-        require 'partials/_footer.phtml';
-        ?>
-
+    }
+    
+    var_dump($_SESSION);
+    
+    require "templates/".$template."/".$template.".phtml";
+    
+    require 'partials/_footer.phtml';
+    
+    ?>
+    
+    <script type="module " src="assets/styles/js/script.js "></script>
+    
     </body>
 </html>

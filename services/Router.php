@@ -13,7 +13,8 @@ class Router {
     private UserController $userController;
     private CategoryController $categoryController;
     private OrderController $orderController;
-    private ProductController $productPublicController;
+    private ProductController $productController;
+    private LoginController $loginController;
 
     // public constructor
     
@@ -24,6 +25,7 @@ class Router {
         $this->categoryController = new CategoryController();
         $this->orderController = new OrderController();
         $this->productController = new ProductController();
+        $this->loginController = new LoginController();
 
     }
 
@@ -40,7 +42,7 @@ class Router {
                 if (!empty($_POST) && $_POST["formName"]=== "connexion") {
                     
                     $post = $_POST;
-                    $this->userController->connexion($post);
+                    $this->loginController->connexion($post);
                 }
                 else {
                     
@@ -73,6 +75,10 @@ class Router {
                 $this->pageController->nouveautes();
             }
             
+            else if($route[0] === "deconnexion") {
+                $this->userController->deconnexion();
+            }
+            
             else if($route[0] === "liste-categories") {
                 
                 if(!isset($route[1])) {
@@ -90,32 +96,36 @@ class Router {
                 }
             }
             
-            else if($route[0] === "acceuil") {
-                $this->pageController->acceuil();
+            else if($route[0] === "accueil") {
+                $this->pageController->accueil();
             }
-            
-            else if($route[0] === "admin") {
+        
+            else if($route[0] === "mon-compte") {
                 
-                if($route[1] === "mon-compte") {
-                    
-                    if(!isset($route[2])) {
-                        $this->userController->getUser($route[1]);
-                    }
-                    
-                    else if($route[2] === "modifier") {
-                        $this->userController->updateUser($route[2]);
-                    }
-                    
-                    else if($route[2] === "supprimer") {
-                        $this->userController->deleteUser($route[2]);
-                    }
-                    
-                    else if($route[2] === "favorites") {
-                        $this->userController->favorites($route[2]);
-                    }
+                if(!isset($route[1])) {
+                    $this->userController->getUser();
                 }
                 
-                else if($route[1] === "all-categories") {
+                else if($route[1] === "modifier") {
+                    $this->userController->updateUser($route[1]);
+                }
+                    
+                else if($route[1] === "supprimer") {
+                    $this->userController->deleteUser($route[1]);
+                }
+                
+                else if($route[1] === "favorites") {
+                    $this->userController->favorites($route[1]);
+                }
+                
+                else if($route[1] === "deconnexion") {
+                    $this->userController->deconnexion($route[1]);
+                }
+            }
+                
+            else if($route[0] === "admin" && isset($_SESSION) && isset($_SESSION["role"]) && $_SESSION["role"] === "admin") {
+                
+                if($route[1] === "all-categories") {
                     
                 }
                 
@@ -133,7 +143,7 @@ class Router {
             }
             
             else {
-                $this->pageController->error404();
+                header('Location: /res03-projet-final/accueil');
             }
         }
     }

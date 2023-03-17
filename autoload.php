@@ -10,6 +10,7 @@ require "models/Product.php";
 require "models/Order.php";
 
 require "controllers/public/PageController.php";
+require "controllers/public/LoginController.php";
 require "controllers/admin/UserController.php";
 require "controllers/admin/CategoryController.php";
 require "controllers/admin/ProductController.php";
