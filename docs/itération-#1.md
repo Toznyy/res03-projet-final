@@ -1,4 +1,4 @@
-# Compte Rendu d'itération #1
+# Compte Rendu d'itération #1 :
 
 Nom du projet : RESO3-Projet-Final
 
