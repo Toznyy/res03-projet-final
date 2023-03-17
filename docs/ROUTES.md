@@ -26,18 +26,18 @@
 - `/admin/mon-compte/favorites`
 
 ### Categories
-- `/admin/all-categories`
-- `/admin/all-categories/ajouter`
-- `/admin/all-categories/:id/details`
-- `/admin/all-categories/:id/modifier`
-- `/admin/all-categories/:id/supprimer`
+- `/admin/categories`
+- `/admin/categories/ajouter`
+- `/admin/categories/:id/details`
+- `/admin/categories/:id/modifier`
+- `/admin/categories/:id/supprimer`
 
 ### Articles
-- `/admin/all-articles`
-- `/admin/all-articles/ajouter`
-- `/admin/all-articles/:id/details`
-- `/admin/all-articles/:id/modifier`
-- `/admin/all-articles/:id/supprimer`
+- `/admin/articles`
+- `/admin/articles/ajouter`
+- `/admin/articles/:id/details`
+- `/admin/articles/:id/modifier`
+- `/admin/articles/:id/supprimer`
 
 ### Nouveautés
 - `/admin/nouveautes`
