@@ -36,6 +36,15 @@ class Category {
     public function setDescription(string $description) : void {
         $this->description = $description;
     }
+    
+    public function toArray() : array
+    {
+        return [
+            "id" => $this->id,
+            "title" => $this->title,
+            "description" => $this->description
+        ];
+    }
 }
 
 ?>

@@ -15,10 +15,10 @@ class CategoryController extends AbstractController {
         foreach($categories as $category) {
             
             $categoryTab = $category->toArray();
-            $categoriesTab[]=$categoryTab;
+            $categoriesTab[] = $categoryTab;
         }
         
-        $this->render($categorysTab);
+        $this->renderPrivate("admin-categories", ["categories" => $categoriesTab]);
     }
 
     public function getCategory(string $get)
@@ -27,15 +27,16 @@ class CategoryController extends AbstractController {
         $category = $this -> cm->getCategoryById($id);
         $categoryTab = $category->toArray();
         
-        $this->render($categoryTab);
+        $this->renderPrivate("admin-category", [$categoryTab]);
     }
 
     public function createCategory(array $post)
     {
-        $newCategory = new Category($category['title'], $category['description']);
+        $newCategory = new Category($post['title'], $post['description']);
         $category = $this->cm->createCategory($newCategory);
         $createdCategory = $category->toArray();
-        $this->render($createdCategory);
+        
+        $this->renderPrivate("admin-create-category", $createdCategory);
     }
 
     public function updateCategory(array $post)
@@ -43,7 +44,7 @@ class CategoryController extends AbstractController {
         $newCategory = new Category($category['title'], $category['description']);
         $category = $this->cm->updateCategory($newCategory);
         $updatedCategory = $category->toArray();
-        $this->render($updatedCategory);
+        $this->renderPrivate("admin-update-category", $updatedCategory);
     }
 
     public function deleteCategory(array $post)

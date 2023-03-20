@@ -9,6 +9,14 @@ abstract class AbstractController
         
         require 'templates/layout.phtml';
     }
+    
+    protected function renderPrivate(string $view, array $values) : void {
+        
+        $template = $view;
+        $data = $values;
+        
+        require 'templates/admin/admin-layout.phtml';
+    }
 }
 
 ?>

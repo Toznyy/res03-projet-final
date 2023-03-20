@@ -125,20 +125,99 @@ class Router {
                 
             else if($route[0] === "admin" && isset($_SESSION) && isset($_SESSION["role"]) && $_SESSION["role"] === "admin") {
                 
-                if($route[1] === "all-categories") {
+                if($route[1] === "categories") {
+                    
+                    if(!isset($route[2])) {
+                        $this->categoryController->getCategories();
+                    }
+                    
+                    else if($route[2] === "create") {
+                        
+                        if (!empty($_POST) && $_POST["formName"]=== "categories") {
+                    
+                            $post = $_POST;
+                            $this->categoryController->createCategory($post);
+                        }
+                        else {
+                            
+                            $this->pageController->createCategories();
+                        }
+                        
+                    }
+                    
+                    else if($route[2] === "update") {
+                        $this->categoryController->updateCategory($route[2]);
+                    }
+                    
+                    else if($route[2] === "delete") {
+                        $this->categoryController->deleteCategory($route[2]);
+                    }
                     
                 }
                 
-                else if($route[1] === "all-articles") {
+                else if($route[1] === "products") {
                     
+                    if(!isset($route[2])) {
+                        $this->productController->getProducts();
+                    }
+                    
+                    else if($route[2] === "create") {
+                        
+                        if (!empty($_POST) && $_POST["formName"]=== "products") {
+                    
+                            $post = $_POST;
+                            $this->productController->createProduct($post);
+                        }
+                        else {
+                            
+                            $this->pageController->createProducts();
+                        }
+                        
+                    }
+                    
+                    
+                    if(!isset($route[2])) {
+                        $this->productController->getProducts();
+                    }
+                    
+                    else if($route[2] === "ajouter") {
+                        $this->productController->createProduct($route[2]);
+                    }
+                    
+                    else if($route[2] === "modifier") {
+                        $this->productController->updateProduct($route[2]);
+                    }
+                    
+                    else if($route[2] === "supprimer") {
+                        $this->productController->deleteProduct($route[2]);
+                    }
                 }
                 
-                else if($route[1] === "nouveautes") {
-                    
-                }
+                // else if($route[1] === "nouveautes") {
+                //     $this->productController->getNouveautes();
+                // }
                 
-                else if($route[1] === "medias") {
+                // else if($route[1] === "medias") {
+                //     $this->me->getCategories();
+                // }
+                
+                else if($route[1] === "orders") {
                     
+                    if(!isset($route[2])) {
+                        $this->orderController->getOrders();
+                    }
+                    
+                    else if($route[2] === "ajouter") {
+                        $this->orderController->createOrder($route[2]);
+                    }
+                    
+                    else if($route[2] === "modifier") {
+                        $this->orderController->updateOrder($route[2]);
+                    }
+                    
+                    else if($route[2] === "supprimer") {
+                        $this->orderController->deleteOrder($route[2]);
+                    }
                 }
             }
             

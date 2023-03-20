@@ -47,6 +47,16 @@ class Product {
     public function setFirstName(float $price) : void {
         $this->price = $price;
     }
+    
+    public function toArray() : array
+    {
+        return [
+            "id" => $this->id,
+            "name" => $this->name,
+            "description" => $this->description,
+            "price" => $this->price
+        ];
+    }
 }
 
 ?>

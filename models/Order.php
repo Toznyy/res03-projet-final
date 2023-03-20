@@ -47,6 +47,15 @@ class Order {
     public function setUserId(int $id) : void {
         $this->user_id = $user_id;
     }
+    
+    public function toArray() : array
+    {
+        return [
+            "id" => $this->id,
+            "reference" => $this->reference,
+            "date" => $this->date
+        ];
+    }
 }
 
 ?>

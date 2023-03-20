@@ -39,6 +39,14 @@ class PageController extends AbstractController {
     public function error404() {
         $this->render( "404" , ["page du 404"]); 
     }
+    
+    public function createCategories() {
+        $this->renderPrivate( "admin-categories-create" , ["page de la création d'une catégorie"]); 
+    }
+    
+    public function createProducts() {
+        $this->renderPrivate( "admin-products-create" , ["page de la création d'un produit"]); 
+    }
 }
 
 ?>
