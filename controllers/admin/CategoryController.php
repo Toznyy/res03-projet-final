@@ -2,23 +2,18 @@
 
 class CategoryController extends AbstractController {
     private CategoryManager $cm;
+    private PictureManager $pm;
 
     public function __construct()
     {
         $this->cm = new CategoryManager();
+        $this->pm = new PictureManager();
     }
 
     public function getCategories() {
         
-        $categories = $this -> cm->getAllCategories();
-        $categoriesTab = [];
-        foreach($categories as $category) {
-            
-            $categoryTab = $category->toArray();
-            $categoriesTab[] = $categoryTab;
-        }
-        
-        $this->renderPrivate("admin-categories", ["categories" => $categoriesTab]);
+        $categories = $this->cm->getAllCategoriesWithPictures();
+        $this->renderPrivate("admin-categories", ["categories" => $categories]);
     }
 
     public function getCategory(string $get)
@@ -33,18 +28,34 @@ class CategoryController extends AbstractController {
     public function createCategory(array $post)
     {
         $newCategory = new Category($post['title'], $post['description']);
-        $category = $this->cm->createCategory($newCategory);
-        $createdCategory = $category->toArray();
+        $newPicture = new Picture($post['URL'], $post['caption'], "categories");
         
-        $this->renderPrivate("admin-create-category", $createdCategory);
+        $category = $this->cm->createCategory($newCategory);
+        $picture = $this->pm->createPicture($newPicture);
+        $category_picture = $this->cm->CategoriesJoinPictures($picture->getId(), $category->getId());
+        $createdCategory = $category->toArray();
+        $createdPicture = $picture->toArray();
+        
+        $finishedCategory = $createdCategory + $createdPicture;
+        
+        header('Location: /res03-projet-final/admin/categories');
     }
 
     public function updateCategory(array $post)
     {
-        $newCategory = new Category($category['title'], $category['description']);
+        $id = $this->cm->getAllCategoriesWithPicturesById($post["id"]);
+        $title = $this->cm->getCategoryByTitle($post["title"]);
+        var_dump($id);
+        die;
         $category = $this->cm->updateCategory($newCategory);
-        $updatedCategory = $category->toArray();
-        $this->renderPrivate("admin-update-category", $updatedCategory);
+        $picture = $this->pm->updatePicture($newPicture);
+        $category_picture = $this->cm->CategoriesJoinPictures($picture->getId(), $category->getId());
+        $createdCategory = $category->toArray();
+        $createdPicture = $picture->toArray();
+        
+        $finishedCategory = $createdCategory + $createdPicture;
+        
+        header('Location: /res03-projet-final/admin/categories');
     }
 
     public function deleteCategory(array $post)

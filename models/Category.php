@@ -13,7 +13,7 @@ class Category {
         $this->description = $description;
     }
     
-    public function getId() : int {
+    public function getId() : ?int {
         return $this->id;
     }
 

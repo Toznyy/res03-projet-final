@@ -133,7 +133,7 @@ class Router {
                     
                     else if($route[2] === "create") {
                         
-                        if (!empty($_POST) && $_POST["formName"]=== "categories") {
+                        if (!empty($_POST) && $_POST["formName"] === "create-category") {
                     
                             $post = $_POST;
                             $this->categoryController->createCategory($post);
@@ -146,7 +146,16 @@ class Router {
                     }
                     
                     else if($route[2] === "update") {
-                        $this->categoryController->updateCategory($route[2]);
+                        
+                        if (!empty($_POST) && $_POST["formName"] === "update-category") {
+                    
+                            $post = $_POST;
+                            $this->categoryController->updateCategory($post);
+                        }
+                        else {
+                            
+                            $this->pageController->updateCategories();
+                        }
                     }
                     
                     else if($route[2] === "delete") {

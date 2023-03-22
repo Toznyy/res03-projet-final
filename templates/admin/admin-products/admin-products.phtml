@@ -1,0 +1,21 @@
+<section>
+    <h1>Liste des produits</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Price</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach($data["products"] as $product){ ?>
+            <tr>
+                <td><?= $product["name"]; ?></td>
+                <td><?= $product["price"]; ?></td>
+                <td><?= $product["description"]; ?></td>
+            </tr>
+        </tbody>
+        <?php } ?>
+    </table>
+</section>

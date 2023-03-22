@@ -9,43 +9,47 @@ class PageController extends AbstractController {
     }
     
     public function connexion() {
-        $this->render( "connexion" , ["page de connexion"]);
+        $this->render("connexion" , ["page de connexion"]);
     }
     
     public function creation() {
-        $this->render( "creation" , ["page de la création de compte"]); 
+        $this->render("creation" , ["page de la création de compte"]); 
     }
     
     public function contact() {
-        $this->render( "contact" , ["page de contact"]); 
+        $this->render("contact" , ["page de contact"]); 
     }
     
     public function aPropos() {
-        $this->render( "info" , ["page d'info"]); 
+        $this->render("info" , ["page d'info"]); 
     }
     
     public function accueil() {
-        $this->render( "accueil" , ["page d'accueil"]); 
+        $this->render("accueil" , ["page d'accueil"]); 
     }
     
     public function nouveautes() {
-        $this->render( "nouveautes" , ["page des nouveautes"]); 
+        $this->render("nouveautes" , ["page des nouveautes"]); 
     }
     
     public function listeCategories() {
-        $this->render( "liste-categories" , ["page de la liste des catégories"]); 
+        $this->render("liste-categories" , ["page de la liste des catégories"]); 
     }
     
     public function error404() {
-        $this->render( "404" , ["page du 404"]); 
+        $this->render("404" , ["page du 404"]); 
     }
     
     public function createCategories() {
         $this->renderPrivate( "admin-categories-create" , ["page de la création d'une catégorie"]); 
     }
     
+    public function updateCategories() {
+        $this->renderPrivate("admin-categories-update" , ["page de la modification d'une catégorie"]); 
+    }
+    
     public function createProducts() {
-        $this->renderPrivate( "admin-products-create" , ["page de la création d'un produit"]); 
+        $this->renderPrivate("admin-products-create" , ["page de la création d'un produit"]); 
     }
 }
 

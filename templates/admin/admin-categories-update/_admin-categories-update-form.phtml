@@ -1,0 +1,26 @@
+<h1>Formulaire de modification de catégorie</h1>
+
+<form method="post" action="/res03-projet-final/admin/categories/update">
+    <fieldset>
+        <label for="title">Titre</label>
+        <input type="text" name="title" id="title" />
+    </fieldset>
+    <fieldset>
+        <label for="description">Description</label>
+        <textarea name="description" rows="5" cols="30"></textarea>
+    </fieldset>
+    <fieldset>
+        <label for="URL">URL de l'image</label>
+        <input type="URL" name="URL" id="URL" />
+    </fieldset>
+    <fieldset>
+        <label for="caption">Caption</label>
+        <input type="text" name="caption" id="caption" />
+    </fieldset>
+    <fieldset>
+        <input type="hidden" name="formName" value="update-category">
+    </fieldset>
+    <fieldset>
+        <input type="submit" value="Je crée la licence" />
+    </fieldset>
+</form>
