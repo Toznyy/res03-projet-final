@@ -43,13 +43,21 @@ class CategoryController extends AbstractController {
 
     public function updateCategory(array $post)
     {
-        $id = $this->cm->getAllCategoriesWithPicturesById($post["id"]);
-        $title = $this->cm->getCategoryByTitle($post["title"]);
-        var_dump($id);
-        die;
+        var_dump($post);
+        
         $category = $this->cm->updateCategory($newCategory);
         $picture = $this->pm->updatePicture($newPicture);
-        $category_picture = $this->cm->CategoriesJoinPictures($picture->getId(), $category->getId());
+        var_dump($category);
+        var_dump($picture);
+        die;
+        
+        // $category_picture = $this->cm->CategoriesJoinPictures(, );
+        
+        $title = $this->cm->getCategoryByTitle($post["title"]);
+        var_dump($title);
+        $URL = $this->pm->getPictureByURL($post["URL"]);
+        var_dump($URL);
+        // $id = $this->cm->getAllCategoriesWithPicturesById($title["id"]);
         $createdCategory = $category->toArray();
         $createdPicture = $picture->toArray();
         

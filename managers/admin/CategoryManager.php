@@ -62,12 +62,14 @@ class CategoryManager extends AbstractManager {
     
     public function getCategoryByTitle(string $title) : Category {
         
+        var_dump($title);
         $query = $this->db->prepare("SELECT * FROM categories WHERE title = :title");
         $parameters = [
             "title" => $title
             ];
         $query->execute($parameters);
         $category = $query->fetch(PDO::FETCH_ASSOC);
+        var_dump($category);
         $newCategory = new Category($category["title"], $category["description"]);
         $newCategory->setId($category['id']);
         return $newCategory;

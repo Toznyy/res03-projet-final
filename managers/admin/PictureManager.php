@@ -29,6 +29,20 @@ class PictureManager extends AbstractManager {
         $newPicture->setId($picture['id']);
         return $newPicture;
     }
+    
+    public function getPictureByURL(string $URL) : Picture {
+        
+        $query = $this->db->prepare("SELECT * FROM pictures WHERE URL = :URL");
+        $parameters = [
+            "URL" => $URL
+            ];
+        $query->execute($parameters);
+        $picture = $query->fetch(PDO::FETCH_ASSOC);
+        var_dump($picture);
+        $newPicture = new Picture($picture["URL"], $picture["caption"]);
+        $newPicture->setId($picture['id']);
+        return $newPicture;
+    }
 
     public function createPicture(Picture $picture) : Picture {
         
