@@ -2,10 +2,14 @@
 
 class PageController extends AbstractController {
     private PageManager $pam;
+    private CategoryManager $cm;
+    private PictureManager $pm;
     
     public function __construct() {
         
         $this->pam = new PageManager();
+        $this->cm = new CategoryManager();
+        $this->pm = new PictureManager();
     }
     
     public function connexion() {
@@ -44,8 +48,10 @@ class PageController extends AbstractController {
         $this->renderPrivate( "admin-categories-create" , ["page de la création d'une catégorie"]); 
     }
     
-    public function updateCategories() {
-        $this->renderPrivate("admin-categories-update" , ["page de la modification d'une catégorie"]); 
+    public function updateCategories(string $id) {
+        $category = $this->cm->getCategoryById(intval($id));
+        $picture = $this->pm->getPictureById(intval($id));
+        $this->renderPrivate("admin-categories-update" , ["id" => $id, "category" => $category, "picture" => $picture]);
     }
     
     public function createProducts() {

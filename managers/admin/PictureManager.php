@@ -25,9 +25,16 @@ class PictureManager extends AbstractManager {
             ];
         $query->execute($parameters);
         $picture = $query->fetch(PDO::FETCH_ASSOC);
-        $newPicture = new Picture($picture["URL"], $picture["caption"]);
+        $newPicture = new Picture($picture["URL"], $picture["caption"], $picture["role"]);
         $newPicture->setId($picture['id']);
         return $newPicture;
+    }
+    
+    public function getPicturesByCategory(Category $category) : Picture {
+        
+        $query = $this->db->prepare("SELECT * FROM pictures JOIN (categories_pictures JOIN categories ON categories_pictures.picture_id = categories.id) ON pictures.id = categories_pictures.category_id");
+        $query->execute();
+        $categories = $query->fetchAll(PDO::FETCH_ASSOC);
     }
     
     public function getPictureByURL(string $URL) : Picture {

@@ -150,11 +150,11 @@ class Router {
                         if (!empty($_POST) && $_POST["formName"] === "update-category") {
                     
                             $post = $_POST;
-                            $this->categoryController->updateCategory($post);
+                            $this->categoryController->updateCategory($post, $route[3]);
                         }
                         else {
                             
-                            $this->pageController->updateCategories();
+                            $this->pageController->updateCategories($route[3]);
                         }
                     }
                     

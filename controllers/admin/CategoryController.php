@@ -41,29 +41,36 @@ class CategoryController extends AbstractController {
         header('Location: /res03-projet-final/admin/categories');
     }
 
-    public function updateCategory(array $post)
+    public function updateCategory(array $post, string $id)
     {
         var_dump($post);
+        if(isset($post)) {
+            
+            $category = $this->cm->getCategoryById(intval($id));
+            $picture = $this->pm->getPictureById(intval($id));
+            $newCategory = $this->cm->updateCategory($category);
+            $newPicture = $this->pm->updatePicture($picture);
+
+            
+            // $category_picture = $this->cm->CategoriesJoinPictures(, );
+            
+            $title = $this->cm->getCategoryByTitle($post["title"]);
+            var_dump($title);
+            $URL = $this->pm->getPictureByURL($post["URL"]);
+            var_dump($URL);
+            // $id = $this->cm->getAllCategoriesWithPicturesById($title["id"]);
+            $createdCategory = $category->toArray();
+            $createdPicture = $picture->toArray();
+            
+            $finishedCategory = $createdCategory + $createdPicture;
+            
+            header('Location: /res03-projet-final/admin/categories');
+        }
         
-        $category = $this->cm->updateCategory($newCategory);
-        $picture = $this->pm->updatePicture($newPicture);
-        var_dump($category);
-        var_dump($picture);
-        die;
+        else {
+            
+        }
         
-        // $category_picture = $this->cm->CategoriesJoinPictures(, );
-        
-        $title = $this->cm->getCategoryByTitle($post["title"]);
-        var_dump($title);
-        $URL = $this->pm->getPictureByURL($post["URL"]);
-        var_dump($URL);
-        // $id = $this->cm->getAllCategoriesWithPicturesById($title["id"]);
-        $createdCategory = $category->toArray();
-        $createdPicture = $picture->toArray();
-        
-        $finishedCategory = $createdCategory + $createdPicture;
-        
-        header('Location: /res03-projet-final/admin/categories');
     }
 
     public function deleteCategory(array $post)

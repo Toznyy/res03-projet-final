@@ -1,26 +1,24 @@
 <h1>Formulaire de modification de catégorie</h1>
 
-<form method="post" action="/res03-projet-final/admin/categories/update">
-    <fieldset>
+<form method="post" action="/res03-projet-final/admin/categories/update/<?= $data["id"]; ?>">
+    <fieldset class="my-3">
         <label for="title">Titre</label>
-        <input type="text" name="title" id="title" />
+        <input type="text" class="form-control" name="title" id="title" required value="<?= $data["category"]->getTitle(); ?>"/>
     </fieldset>
-    <fieldset>
+    <fieldset class="my-3">
         <label for="description">Description</label>
-        <textarea name="description" rows="5" cols="30"></textarea>
+        <textarea name="description" class="form-control" rows="5" cols="30"><?= $data["category"]->getDescription(); ?></textarea>
     </fieldset>
-    <fieldset>
+    <fieldset class="my-3">
         <label for="URL">URL de l'image</label>
-        <input type="URL" name="URL" id="URL" />
+        <input type="URL" name="URL" class="form-control" id="URL" required value="<?= $data["picture"]->getURL(); ?>"/>
     </fieldset>
-    <fieldset>
+    <fieldset class="my-3">
         <label for="caption">Caption</label>
-        <input type="text" name="caption" id="caption" />
+        <input type="text" name="caption" class="form-control" id="caption" value="<?= $data["picture"]->getCaption(); ?>"/>
     </fieldset>
     <fieldset>
         <input type="hidden" name="formName" value="update-category">
     </fieldset>
-    <fieldset>
-        <input type="submit" value="Je crée la licence" />
-    </fieldset>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -69,7 +69,6 @@ class CategoryManager extends AbstractManager {
             ];
         $query->execute($parameters);
         $category = $query->fetch(PDO::FETCH_ASSOC);
-        var_dump($category);
         $newCategory = new Category($category["title"], $category["description"]);
         $newCategory->setId($category['id']);
         return $newCategory;
@@ -95,7 +94,7 @@ class CategoryManager extends AbstractManager {
         return $newCategory;
     }
 
-    public function updateCategory(Category $category) : void {
+    public function updateCategory(Category $category) : Category {
         
         $query = $this->db->prepare("UPDATE categories SET title = :title, description = :description WHERE id = :id");
         $parameters= [
@@ -103,7 +102,13 @@ class CategoryManager extends AbstractManager {
         "title" => $category->getTitle(),
         "description" => $category->getDescription(),
         ];
-        $category = $query->execute($parameters);
+        $query->execute($parameters);
+        $categoryId = $category->getId();
+        $newCategory = new Category($category->getTitle(), $category->getDescription());
+        var_dump($newCategory);
+        $newCategory->setId($categoryId);
+        var_dump($newCategory);
+        return $newCategory;
     }
 
     public function deleteCategory(Category $category) : array {
