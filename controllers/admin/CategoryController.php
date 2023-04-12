@@ -41,44 +41,54 @@ class CategoryController extends AbstractController {
         header('Location: /res03-projet-final/admin/categories');
     }
 
-    public function updateCategory(array $post, string $id)
+    public function updateCategory(array $post, string $get)
     {
-        var_dump($post);
-        if(isset($post)) {
-            
-            $category = $this->cm->getCategoryById(intval($id));
-            $picture = $this->pm->getPictureById(intval($id));
-            $newCategory = $this->cm->updateCategory($category);
-            $newPicture = $this->pm->updatePicture($picture);
-
-            
-            // $category_picture = $this->cm->CategoriesJoinPictures(, );
-            
-            $title = $this->cm->getCategoryByTitle($post["title"]);
-            var_dump($title);
-            $URL = $this->pm->getPictureByURL($post["URL"]);
-            var_dump($URL);
-            // $id = $this->cm->getAllCategoriesWithPicturesById($title["id"]);
-            $createdCategory = $category->toArray();
-            $createdPicture = $picture->toArray();
-            
-            $finishedCategory = $createdCategory + $createdPicture;
-            
-            header('Location: /res03-projet-final/admin/categories');
-        }
+        $id = intval($get);
+        $category = $this->cm->getCategoryById($id);
+        $picture = $this->pm->getPictureById($id);
         
-        else {
-            
+        $tab = [];
+        
+        $tab["category"] = $category;
+        $tab["picture"] = $picture;
+        
+        
+        if(isset($post["formName"]))
+        {
+            if(isset($post['title']) && isset($post['description']) && isset($post['URL']) && isset($post['caption']) && !empty($post['title']) && !empty($post['description']) && !empty($post['URL']) && !empty($post['caption'])) {
+                
+                $categoryToUpdate = $this->cm->getCategoryById($id);
+                $pictureToUpdate = $this->pm->getPictureById($id);
+                $categoryToUpdate->setTitle($post['title']);
+                $categoryToUpdate->setDescription($post['description']);
+                $pictureToUpdate->setURL($post['URL']);
+                $pictureToUpdate->setCaption($post['caption']);
+                $this->cm->updateCategory($categoryToUpdate);
+                $this->pm->updatePicture($pictureToUpdate);
+                header("Location: /res03-projet-final/admin/categories");
+            }
+            else {
+                echo "ca marche paaaaaaas<br>";
+            }
+        }
+        else
+        {
+            $this->renderPrivate("admin-categories-update", $tab);
         }
         
     }
 
-    public function deleteCategory(array $post)
+    public function deleteCategory(string $get) : void
     {
-        $newCategory = new Category($category['title'], $category['description']);
-        $category = $this->cm->deleteCategory($newCategory);
-        $deletedCategory = $category->toArray();
-        return $this->getCategories;
+        $id = intval($get);
+        $categoryToDelete = $this->cm->getCategoryById($id);
+        $pictureToDelete = $this->pm->getPictureById($id);
+        
+        $category_picture = $this ->cm->deleteCategoryPicture($id);
+        $picture = $this->pm->deletePicture($pictureToDelete);
+        $category = $this->cm->deleteCategory($categoryToDelete);
+
+        header("Location: /res03-projet-final/admin/categories");
     }
 }
 

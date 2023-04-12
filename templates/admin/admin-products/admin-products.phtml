@@ -1,21 +1,37 @@
 <section>
     <h1>Liste des produits</h1>
+    <a href="/res03-projet-final/admin/products/create" class="btn btn-primary">Créer un produit</a>
     <table class="table">
         <thead>
             <tr>
+                <th scope="col">Id</th>
                 <th scope="col">Nom</th>
-                <th scope="col">Price</th>
+                <th scope="col">Image</th>
+                <th scope="col">Caption</th>
                 <th scope="col">Description</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
-        <?php foreach($data["products"] as $product){ ?>
+            <?php foreach($data['products'] as $product) { ?>
             <tr>
-                <td><?= $product["name"]; ?></td>
-                <td><?= $product["price"]; ?></td>
-                <td><?= $product["description"]; ?></td>
+                <td><?= $product['id']; ?></td>
+                <td><?= $product['name']; ?></td>
+                <td>
+                    <figure>
+                        <img src="<?= $product['URL']; ?>" alt="image du produit">
+                    </figure>
+                </td>
+                <td><?= $product['caption']; ?></td>
+                <td><?= $product['description']; ?></td>
+                <td><?= $product['price']; ?></td>
+                <td>
+                    <a href="/res03-projet-final/admin/products/update/<?= $product['id']; ?>" class="btn btn-primary">Modifier</a>
+                    <a href="/res03-projet-final/admin/products/delete/<?= $product['id']; ?>" class="btn btn-danger">Supprimer</a>
+                </td>
             </tr>
+            <?php } ?>
         </tbody>
-        <?php } ?>
     </table>
 </section>

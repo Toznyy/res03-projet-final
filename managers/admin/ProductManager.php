@@ -11,11 +11,41 @@ class ProductManager extends AbstractManager {
         $productsTab=[];
         foreach($products as $product){
             $newProduct = new Product($product['name'], $product['description'],$product['price']);
-            $newProduct->setId($user['id']);
+            $newProduct->setId($product['id']);
             array_push($productsTab, $newProduct);
         }
         return $productsTab;
     }
+
+    public function ProductsJoinPictures($picture_id, $product_id) {
+        
+        $query = $this->db->prepare("INSERT INTO products_pictures VALUES (:product_id, :picture_id)");
+        $parameters = [
+            "product_id" => $product_id,
+            "picture_id" => $picture_id
+            ];
+        $query->execute($parameters);
+    }
+    
+    public function getAllProductsWithPictures() : array {
+        
+        $query = $this->db->prepare("SELECT * FROM products JOIN (products_pictures JOIN pictures ON products_pictures.picture_id = pictures.id) ON products.id = products_pictures.product_id");
+        $query->execute();
+        $products = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $products;
+    }
+    
+    public function getAllProductsWithPicturesById(int $id) : array {
+        
+        $query = $this->db->prepare("SELECT * FROM products JOIN (products_pictures JOIN pictures ON products_pictures.picture_id = pictures.id) ON products.id = products_pictures.product_id WHERE id = :id");
+        $parameters = [
+            "id" => $id
+            ];
+        $query->execute($parameters);
+        $products = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $products;
+    }
+    
 
     public function getProductById(int $id) : Product {
         
@@ -25,56 +55,74 @@ class ProductManager extends AbstractManager {
             ];
         $query->execute($parameters);
         $product = $query->fetch(PDO::FETCH_ASSOC);
-        $newProduct = new Product($product['name'], $product['description'],$product['price']);
+        $newProduct = new Product($product["name"], $product["description"], $product["price"]);
+        $newProduct->setId($product['id']);
+        return $newProduct;
+    }
+    
+    public function getProductByName(string $name) : Product {
+        
+        $query = $this->db->prepare("SELECT * FROM products WHERE name = :name");
+        $parameters = [
+            "name" => $name
+            ];
+        $query->execute($parameters);
+        $product = $query->fetch(PDO::FETCH_ASSOC);
+        $newProduct = new Product($product["name"], $product["description"], $product['price']);
+        $newProduct->setId($product['id']);
         return $newProduct;
     }
 
     public function createProduct(Product $product) : Product {
         
-        $query = $this->db->prepare("INSERT INTO products VALUES (null, :username, :first_name, :last_name, :email)");
+        $query = $this->db->prepare("INSERT INTO products VALUES (null, :name, :description, :price)");
         $parameters = [
-            "username" => $product->getusername(),
-            "first_name" => $product->getfirstName(),
-            "last_name" => $product->getlastName(),
-            "email" => $product->getEmail()
+            "name" => $product->getName(),
+            "description" => $product->getDescription(),
+            "price" => $product->getPrice(),
             ];
         $query->execute($parameters);
         
-        $query = $this->db->prepare("SELECT * FROM products WHERE username = :username");
+        $query = $this->db->prepare("SELECT * FROM products WHERE name = :name");
         $parameters= [
-            "username" => $product->getusername()
+            "name" => $product->getName()
             ];
         $query->execute($parameters);
         $product = $query->fetch(PDO::FETCH_ASSOC);
         $newProduct = new Product($product['name'], $product['description'],$product['price']);
+        $newProduct->setId($product['id']);
         return $newProduct;
     }
 
-    public function updateProduct(Product $Product) : Product {
+    public function updateProduct(Product $product) : Product {
         
-        $query = $this->db->prepare("UPDATE products SET username = :username, first_name = :first_name, last_name = :last_name, email = :email WHERE id = :id");
+        $query = $this->db->prepare("UPDATE products SET name = :name, description = :description, price = :price WHERE id = :id");
         $parameters= [
         "id" => $product->getId(),
-        "username"=>$product->getusername(),
-        "first_name"=> $product->getFirstName(),
-        "last_name" =>$product->getLastName(),
-        "email" => $product->getEmail()
+        "name"=>$product->getName(),
+        "description"=> $product->getDescription(),
+        "price" =>$product->getPrice(),
         ];
         $query->execute($parameters);
-        $query = $this->db->prepare("SELECT * FROM products WHERE username = :username");
-        $parameters = ["username" => $product->getusername()];
+        $query = $this->db->prepare("SELECT * FROM products WHERE name = :name");
+        $parameters = ["name" => $product->getName()];
         $query->execute($parameters);
         $product = $query->fetch(PDO::FETCH_ASSOC);
         $newProduct = new Product($product['name'], $product['description'],$product['price']);
         return $newProduct;
     }
 
-    public function deleteProduct(Product $Product) : array {
+    public function deleteProduct(Product $product) : void {
         
         $query = $this->db->prepare("DELETE FROM products WHERE id = :id");
         $parameters = ["id" => $product->getId()];
         $query->execute($parameters);
-        return $this->getAllProducts();
+    }
+    
+    public function deleteProductPicture(int $id) : void {
+        $query= $this->db->prepare("DELETE FROM products_pictures WHERE product_id = :product_id");
+        $parameters = ["product_id" => $id ];
+        $query->execute($parameters);
     }
 }
 

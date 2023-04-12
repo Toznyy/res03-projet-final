@@ -16,6 +16,35 @@ class UserManager extends AbstractManager {
         }
         return $usersTab;
     }
+    
+    public function UsersJoinAddresses($user_id, $address_id) {
+        
+        $query = $this->db->prepare("INSERT INTO users_addresses VALUES (:user_id, :address_id)");
+        $parameters = [
+            "user_id" => $user_id,
+            "address_id" => $address_id
+            ];
+        $query->execute($parameters);
+    }
+    
+    public function getAllUsersWithAddresses() : array {
+        
+        $query = $this->db->prepare("SELECT * FROM users JOIN (users_addresses JOIN addresses ON users_addresses.address_id = addresses.id) ON users.id = users_addresses.user_id");
+        $query->execute();
+        $users = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
+    }
+    
+    public function getAllUsersWithAddressesById(int $id) : array {
+        
+        $query = $this->db->prepare("SELECT * FROM users JOIN (users_addresses JOIN addresses ON users_addresses.address_id = addresses.id) ON users.id = users_addresses.user_id WHERE id = :id");
+        $parameters = [
+            "id" => $id
+            ];
+        $query->execute($parameters);
+        $users = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
+    }
 
     public function getUserById(int $id) : User {
         
@@ -23,9 +52,9 @@ class UserManager extends AbstractManager {
         $parameters = [
             "id" => $id
             ];
-        $query->execute($parameters);
+        $exe = $query->execute($parameters);
         $user = $query->fetch(PDO::FETCH_ASSOC);
-        $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday'], "customer");
+        $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday'], $user['role']);
         $newUser->setId($user['id']);
         return $newUser;
     }
@@ -56,7 +85,7 @@ class UserManager extends AbstractManager {
         return $newUser;
     }
 
-    public function updateUser(User $user) : User {
+    public function updateUser(User $user) : void {
         
         $query = $this->db->prepare("UPDATE users SET username = :username, first_name = :first_name, last_name = :last_name, email = :email, password = :password, registration_date = :registration_date, birthday = :birthday WHERE id = :id");
         $parameters= [
@@ -70,8 +99,6 @@ class UserManager extends AbstractManager {
         "birthday" => $user->getBirthday()
         ];
         $query->execute($parameters);
-        $newUser = $this->getUserById($user->getId());
-        return $newUser;
     }
 
     public function deleteUser(User $user) : array {
@@ -89,12 +116,18 @@ class UserManager extends AbstractManager {
         $parameters = [
             "username" => $user->getUsername(),
             "email" => $user->getEmail()
-            ];
-        $query->execute($parameters);
+        ];
         $user = $query->fetch(PDO::FETCH_ASSOC);
-        $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday'], "customer");
-        $newUser->setId($user["id"]);
-        return $newUser;
+        
+        if($user) {
+            $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday'], "customer");
+            $newUser->setId($user["id"]);
+            return $newUser;
+        }
+        
+        else {
+            return null;
+        }
     }
     
     function loadUser(string $username) : User {

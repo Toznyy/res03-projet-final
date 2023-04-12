@@ -1,6 +1,5 @@
 <h1>Formulaire de modification de catégorie</h1>
-
-<form method="post" action="/res03-projet-final/admin/categories/update/<?= $data["id"]; ?>">
+<form method="post" action="/res03-projet-final/admin/categories/update/<?= $data["category"]->getId(); ?>">
     <fieldset class="my-3">
         <label for="title">Titre</label>
         <input type="text" class="form-control" name="title" id="title" required value="<?= $data["category"]->getTitle(); ?>"/>

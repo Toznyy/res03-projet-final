@@ -78,7 +78,7 @@ class User {
         return $this->registration_date;
     }
     
-    public function setRegistrationDate(date $registration_date) : void {
+    public function setRegistrationDate(string $registration_date) : void {
         $this->registration_date = $registration_date;
     }
     
@@ -86,7 +86,7 @@ class User {
         return $this->birthday;
     }
     
-    public function setBirthday(date $birthday) : void {
+    public function setBirthday(string $birthday) : void {
         $this->birthday = $birthday;
     }
     

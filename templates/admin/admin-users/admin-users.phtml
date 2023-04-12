@@ -1,0 +1,46 @@
+<section>
+    <h1>Liste des utilisateurs</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/res03-projet-final/admin/users/addresses">Avec adresses<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/res03-projet-final/admin/users">Sans adresses</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Pseudo</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mot de passe</th>
+                <th scope="col">Date d'inscription</th>
+                <th scope="col">Date d'anniversaire</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($data['users'] as $user) { ?>
+            <tr>
+                <td><?= $user->getUsername(); ?></td>
+                <td><?= $user->getLastName(); ?></td>
+                <td><?= $user->getFirstName(); ?></td>
+                <td><?= $user->getEmail(); ?></td>
+                <td><?= $user->getPassword(); ?></td>
+                <td><?= $user->getRegistrationDate(); ?></td>
+                <td><?= $user->getBirthday(); ?></td>
+
+                <td>
+                    <a href="/res03-projet-final/admin/users/update/<?= $user->getId(); ?>" class="btn btn-primary">Modifier</a>
+                    <a href="/res03-projet-final/admin/users/delete/<?= $user->getId(); ?>" class="btn btn-danger">Supprimer</a>
+                </td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</section>

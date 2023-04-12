@@ -44,7 +44,7 @@ class Product {
         return $this->price;
     }
     
-    public function setFirstName(float $price) : void {
+    public function setPrice(float $price) : void {
         $this->price = $price;
     }
     

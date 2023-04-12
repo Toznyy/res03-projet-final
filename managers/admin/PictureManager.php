@@ -34,7 +34,7 @@ class PictureManager extends AbstractManager {
         
         $query = $this->db->prepare("SELECT * FROM pictures JOIN (categories_pictures JOIN categories ON categories_pictures.picture_id = categories.id) ON pictures.id = categories_pictures.category_id");
         $query->execute();
-        $categories = $query->fetchAll(PDO::FETCH_ASSOC);
+        $query->fetchAll(PDO::FETCH_ASSOC);
     }
     
     public function getPictureByURL(string $URL) : Picture {
@@ -83,12 +83,10 @@ class PictureManager extends AbstractManager {
         $query->execute($parameters);
     }
 
-    public function deletePicture(Picture $picture) : array {
-        
+    public function deletePicture(Picture $picture) : void {
         $query = $this->db->prepare("DELETE FROM pictures WHERE URL = :URL");
         $parameters = ["URL" => $picture->getURL()];
         $query->execute($parameters);
-        return $this->getAllPictures();
     }
 }
 

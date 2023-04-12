@@ -4,12 +4,16 @@ class PageController extends AbstractController {
     private PageManager $pam;
     private CategoryManager $cm;
     private PictureManager $pm;
+    private ProductManager $prm;
+    private UserManager $um;
     
     public function __construct() {
         
         $this->pam = new PageManager();
         $this->cm = new CategoryManager();
         $this->pm = new PictureManager();
+        $this->prm = new ProductManager();
+        $this->um = new UserManager();
     }
     
     public function connexion() {
@@ -44,6 +48,10 @@ class PageController extends AbstractController {
         $this->render("404" , ["page du 404"]); 
     }
     
+    public function adminAccueil() {
+        $this->renderPrivate("admin-accueil" , ["page d'accueil admin"]);
+    }
+    
     public function createCategories() {
         $this->renderPrivate( "admin-categories-create" , ["page de la création d'une catégorie"]); 
     }
@@ -56,6 +64,26 @@ class PageController extends AbstractController {
     
     public function createProducts() {
         $this->renderPrivate("admin-products-create" , ["page de la création d'un produit"]); 
+    }
+    
+    public function updateProducts(string $id) {
+        $product = $this->prm->getProductById(intval($id));
+        $picture = $this->pm->getPictureById(intval($id));
+        $this->renderPrivate("admin-products-update" , ["id" => $id, "product" => $product, "picture" => $picture]);
+    }
+    
+    public function updateUsers(string $id) {
+
+        $user = $this->um->getUserById(intval($id));
+        $this->renderPrivate("admin-users-update" , ["id" => $id, "user" => $user]);
+    }
+    
+    public function updateUsersAddresses(string $id) {
+        
+        $user = $this->um->getUserById(intval($id));
+        var_dump($user);
+        $address = $this->am->getAddressById(intval($id));
+        $this->renderPrivate("admin-users-addresses-update" , ["id" => $id, "user" => $user, "address" => $address]);
     }
 }
 

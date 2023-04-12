@@ -35,7 +35,7 @@ class Picture {
         return $this->caption;
     }
     
-    public function setDescription(string $caption) : void {
+    public function setCaption(string $caption) : void {
         $this->caption = $caption;
     }
     

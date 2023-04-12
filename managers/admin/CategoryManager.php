@@ -62,7 +62,6 @@ class CategoryManager extends AbstractManager {
     
     public function getCategoryByTitle(string $title) : Category {
         
-        var_dump($title);
         $query = $this->db->prepare("SELECT * FROM categories WHERE title = :title");
         $parameters = [
             "title" => $title
@@ -94,7 +93,7 @@ class CategoryManager extends AbstractManager {
         return $newCategory;
     }
 
-    public function updateCategory(Category $category) : Category {
+    public function updateCategory(Category $category) : void {
         
         $query = $this->db->prepare("UPDATE categories SET title = :title, description = :description WHERE id = :id");
         $parameters= [
@@ -103,20 +102,19 @@ class CategoryManager extends AbstractManager {
         "description" => $category->getDescription(),
         ];
         $query->execute($parameters);
-        $categoryId = $category->getId();
-        $newCategory = new Category($category->getTitle(), $category->getDescription());
-        var_dump($newCategory);
-        $newCategory->setId($categoryId);
-        var_dump($newCategory);
-        return $newCategory;
     }
 
-    public function deleteCategory(Category $category) : array {
-        
-        $query = $this->db->prepare("DELETE FROM categories WHERE title = :title");
-        $parameters = ["title" => $category->getTitle()];
+    public function deleteCategory(Category $category) : void {
+        $query = $this->db->prepare("DELETE FROM categories WHERE id = :id");
+        $parameters = ["id" => $category->getId()];
         $query->execute($parameters);
-        return $this->getAllCategories();
+        
+    }
+    
+    public function deleteCategoryPicture(int $id) : void {
+        $query= $this->db->prepare("DELETE FROM categories_pictures WHERE category_id = :category_id");
+        $parameters = ["category_id" => $id ];
+        $query->execute($parameters);
     }
 }
 

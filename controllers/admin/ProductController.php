@@ -1,57 +1,94 @@
 <?php
 
 class ProductController extends AbstractController {
-    private ProductManager $pm;
+    private ProductManager $prm;
+    private PictureManager $pm;
 
     public function __construct()
     {
-        $this->pm = new ProductManager();
+        $this->prm = new ProductManager();
+        $this->pm = new PictureManager();
     }
 
     public function getProducts() {
         
-        $products = $this -> pm->getAllProducts();
-        $productsTab = [];
-        foreach($products as $product) {
-            
-            $productTab = $product->toArray();
-            $productsTab[]=$productTab;
-        }
-        
-        $this->render($productsTab);
+        $products = $this->prm->getAllProductsWithPictures();
+        $this->renderPrivate("admin-products", ["products" => $products]);
     }
 
-    public function getProductById(string $get)
+    public function getProduct(string $get)
     {
         $id = intval($get);
-        $product = $this -> pm->getProductById($id);
+        $product = $this -> prm->getProductById($id);
         $productTab = $product->toArray();
         
-        $this->render($ProductTab);
+        $this->renderPrivate("admin-product", [$productTab]);
     }
 
     public function createProduct(array $post)
     {
-        $newProduct = new Product(null, $post['Productname'], $post['firstName'], $post['lastName'], $post['email']);
-        $product = $this->pm->createProduct($newProduct);
+        $newProduct = new Product($post['name'], $post['description'], $post['price']);
+        $newPicture = new Picture($post['URL'], $post['caption'], "products");
+        
+        $product = $this->prm->createProduct($newProduct);
+        $picture = $this->pm->createPicture($newPicture);
+        $product_picture = $this->prm->ProductsJoinPictures($picture->getId(), $product->getId());
         $createdProduct = $product->toArray();
-        $this->render($createdProduct);
+        $createdPicture = $picture->toArray();
+        
+        $finishedProduct = $createdProduct + $createdPicture;
+        
+        header('Location: /res03-projet-final/admin/products');
     }
 
-    public function updateProduct(array $post)
+    public function updateProduct(array $post, string $get)
     {
-        $newProduct = new Product(null, $post['Productname'], $post['firstName'], $post['lastName'], $post['email']);
-        $product = $this->pm->updateProduct($newProduct);
-        $updatedProduct = $product->toArray();
-        $this->render($updatedProduct);
+        $id = intval($get);
+        $product = $this->prm->getProductById($id);
+        $picture = $this->pm->getPictureById($id);
+        
+        $tab = [];
+        
+        $tab["product"] = $product;
+        $tab["picture"] = $picture;
+        
+        
+        if(isset($post["formName"]))
+        {
+            if(isset($post['name']) && isset($post['description']) && isset($post['price']) && isset($post['URL']) && isset($post['caption']) && !empty($post['name']) && !empty($post['description']) && !empty($post['price']) && !empty($post['URL']) && !empty($post['caption'])) {
+                
+                $productToUpdate = $this->prm->getProductById($id);
+                $pictureToUpdate = $this->pm->getPictureById($id);
+                $productToUpdate->setName($post['name']);
+                $productToUpdate->setDescription($post['description']);
+                $productToUpdate->setPrice($post['price']);
+                $pictureToUpdate->setURL($post['URL']);
+                $pictureToUpdate->setCaption($post['caption']);
+                $this->prm->updateProduct($productToUpdate);
+                $this->pm->updatePicture($pictureToUpdate);
+                header("Location: /res03-projet-final/admin/products");
+            }
+            else {
+                echo "ca marche paaaaaaas<br>";
+            }
+        }
+        else
+        {
+            $this->renderPrivate("admin-products-update", $tab);
+        }
     }
 
-    public function deleteProduct(array $post)
+    public function deleteProduct(string $get) : void
     {
-        $newProduct = new Product(null, $post['Productname'], $post['firstName'], $post['lastName'], $post['email']);
-        $product = $this->pm->deleteProduct($newProduct);
-        $deletedProduct = $product->toArray();
-        return $this->getProducts;
+        $id = intval($get);
+        $productToDelete = $this->prm->getProductById($id);
+        $pictureToDelete = $this->pm->getPictureById($id);
+        
+        $product_picture = $this ->prm->deleteProductPicture($id);
+        $picture = $this->pm->deletePicture($pictureToDelete);
+        $product = $this->prm->deleteProduct($productToDelete);
+
+        header("Location: /res03-projet-final/admin/products");
     }
 }
 
