@@ -80,9 +80,9 @@ class UserController extends AbstractController {
                         $newUser = new User($post['username'], $post['first_name'], $post['last_name'], $post['email'], $hash, $date, $post['birthday'], "customer");
                         $user = $this->um->createUser($newUser);
                         $createdUser = $user->toArray();
-                        $_SESSION["role"] = $recup->getRole();
-                        $_SESSION["username"] = $recup->getUsername();
-                        $_SESSION["email"] = $recup->getEmail();
+                        $_SESSION["role"] = $user->getRole();
+                        $_SESSION["username"] = $user->getUsername();
+                        $_SESSION["email"] = $user->getEmail();
                         header('Location: accueil');
                     }
                 }

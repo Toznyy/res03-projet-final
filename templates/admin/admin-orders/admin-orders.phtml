@@ -1,0 +1,29 @@
+<section>
+    <h1>Liste des commandes</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Utilisateur</th>
+                <th scope="col">Produits</th>
+                <th scope="col">Référence</th>
+                <th scope="col">Date de commande</th>
+                <th scope="col">Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($data['orders'] as $order) { ?>
+            <tr>
+                <td><?= $order['name']; ?></td>
+                <td><?= $order['reference']; ?></td>
+                <td><?= $order['reference']; ?></td>
+                <td><?= $order['date']; ?></td>
+                <td><?= $order['price']; ?></td>
+                <td>
+                    <a href="/res03-projet-final/admin/orders/update/<?= $order['id']; ?>" class="btn btn-primary">Modifier</a>
+                    <a href="/res03-projet-final/admin/orders/delete/<?= $order['id']; ?>" class="btn btn-danger">Supprimer</a>
+                </td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</section>

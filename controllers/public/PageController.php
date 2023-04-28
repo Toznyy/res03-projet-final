@@ -17,35 +17,66 @@ class PageController extends AbstractController {
     }
     
     public function connexion() {
-        $this->render("connexion" , ["page de connexion"]);
+        $this->render("connexion", ["page de connexion"]);
     }
     
     public function creation() {
-        $this->render("creation" , ["page de la création de compte"]); 
+        $this->render("creation", ["page de la création de compte"]); 
     }
     
     public function contact() {
-        $this->render("contact" , ["page de contact"]); 
+        $this->render("contact", ["page de contact"]); 
     }
     
     public function aPropos() {
-        $this->render("info" , ["page d'info"]); 
+        $this->render("info", ["page d'info"]); 
+    }
+    
+    public function monCompte() {
+        $this->render("mon-compte", ["page du compte"]);
     }
     
     public function accueil() {
-        $this->render("accueil" , ["page d'accueil"]); 
+        $this->render("accueil", ["page d'accueil"]); 
+    }
+    
+    public function panier() {
+        $this->render("panier", ["page de panier"]); 
     }
     
     public function nouveautes() {
-        $this->render("nouveautes" , ["page des nouveautes"]); 
+        $this->render("nouveautes", ["page des nouveautes"]); 
     }
     
     public function listeCategories() {
-        $this->render("liste-categories" , ["page de la liste des catégories"]); 
+        $categories = $this->cm->getAllCategoriesWithPictures();
+        $this->render("liste-categories", $categories); 
     }
     
+    public function displayOneCategory(string $slug) {
+        
+        $category = $this->cm->getCategoryByTitle($this->prm->createTitle($slug));
+        $products = $this->prm->getAllProductsWithPicturesByCategory($this->prm->createTitle($slug));
+        $tab = [
+            "category" => $category,
+            "products" => $products
+            ];
+        $this->render("category", $tab);
+    }
+    
+    public function displayOneProduct(int $id) {
+        
+        $product = $this->prm->getProductById($id);
+        $pictures = $this->pm->getPicturesByProduct($product);
+        $tab = [
+            "product" => $product,
+            "pictures" => $pictures
+            ];
+        $this->render("product",$tab);
+    }
+
     public function error404() {
-        $this->render("404" , ["page du 404"]); 
+        $this->render("404", ["page du 404"]); 
     }
     
     public function adminAccueil() {
@@ -53,37 +84,38 @@ class PageController extends AbstractController {
     }
     
     public function createCategories() {
-        $this->renderPrivate( "admin-categories-create" , ["page de la création d'une catégorie"]); 
+        $this->renderPrivate( "admin-categories-create" , ["page de création de catégorie"]); 
     }
     
     public function updateCategories(string $id) {
         $category = $this->cm->getCategoryById(intval($id));
-        $picture = $this->pm->getPictureById(intval($id));
-        $this->renderPrivate("admin-categories-update" , ["id" => $id, "category" => $category, "picture" => $picture]);
+        $pictures = $this->pm->getPicturesByCategory($category);
+        $this->renderPrivate("admin-categories-update", ["id" => $id, "category" => $category, "pictures" => $pictures]);
     }
     
     public function createProducts() {
-        $this->renderPrivate("admin-products-create" , ["page de la création d'un produit"]); 
+        
+        $categories = $this->cm->getAllCategories();
+        $this->renderPrivate("admin-products-create", ["categories" => $categories]); 
     }
     
     public function updateProducts(string $id) {
         $product = $this->prm->getProductById(intval($id));
-        $picture = $this->pm->getPictureById(intval($id));
-        $this->renderPrivate("admin-products-update" , ["id" => $id, "product" => $product, "picture" => $picture]);
+        $pictures = $this->pm->getPicturesByProduct($product);
+        $this->renderPrivate("admin-products-update" , ["id" => $id, "product" => $product, "pictures" => $pictures]);
     }
     
     public function updateUsers(string $id) {
 
         $user = $this->um->getUserById(intval($id));
-        $this->renderPrivate("admin-users-update" , ["id" => $id, "user" => $user]);
+        $this->renderPrivate("admin-users-update", ["id" => $id, "user" => $user]);
     }
     
     public function updateUsersAddresses(string $id) {
         
         $user = $this->um->getUserById(intval($id));
-        var_dump($user);
         $address = $this->am->getAddressById(intval($id));
-        $this->renderPrivate("admin-users-addresses-update" , ["id" => $id, "user" => $user, "address" => $address]);
+        $this->renderPrivate("admin-users-addresses-update", ["id" => $id, "user" => $user, "address" => $address]);
     }
 }
 

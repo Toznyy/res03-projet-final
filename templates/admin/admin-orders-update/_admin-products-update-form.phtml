@@ -14,11 +14,11 @@
     </fieldset>
     <fieldset class="my-3">
         <label for="URL">URL de l'image</label>
-        <input type="URL" name="URL" class="form-control" id="URL" required value="<?= $data["pictures"][0]->getURL(); ?>"/>
+        <input type="URL" name="URL" class="form-control" id="URL" required value="<?= $data["picture"]->getURL(); ?>"/>
     </fieldset>
     <fieldset class="my-3">
-        <label for="caption-product">Caption</label>
-        <input type="text" name="caption" class="form-control" id="caption-product" value="<?= $data["pictures"][0]->getCaption(); ?>"/>
+        <label for="caption">Caption</label>
+        <input type="text" name="caption" class="form-control" id="caption" value="<?= $data["picture"]->getCaption(); ?>"/>
     </fieldset>
     <fieldset>
         <input type="hidden" name="formName" value="update-product">

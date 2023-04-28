@@ -5,13 +5,15 @@ class Order {
     private ?int $id;
     private string $reference;
     private string $date;
+    private string $price;
     private ?int $user_id;
 
-    public function __construct(string $reference, string $date) {
+    public function __construct(string $reference, string $date, float $price) {
         
         $this->id = null;
         $this->reference = $reference;
         $this->date = $date;
+        $this->price = $price;
         $this->user_id = null;
         
     }
@@ -40,6 +42,14 @@ class Order {
         $this->date = $date;
     }
     
+    public function getPrice() : float {
+        return $this->price;
+    }
+    
+    public function setprice(float $price) : void {
+        $this->price = $price;
+    }
+    
     public function getUserId() : int {
         return $this->user_id;
     }
@@ -53,7 +63,8 @@ class Order {
         return [
             "id" => $this->id,
             "reference" => $this->reference,
-            "date" => $this->date
+            "date" => $this->date,
+            "price" => $this->price
         ];
     }
 }

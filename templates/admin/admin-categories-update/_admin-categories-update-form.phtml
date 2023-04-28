@@ -9,12 +9,20 @@
         <textarea name="description" class="form-control" rows="5" cols="30"><?= $data["category"]->getDescription(); ?></textarea>
     </fieldset>
     <fieldset class="my-3">
-        <label for="URL">URL de l'image</label>
-        <input type="URL" name="URL" class="form-control" id="URL" required value="<?= $data["picture"]->getURL(); ?>"/>
+        <label for="URL">Icone</label>
+        <input type="text" name="URL-icone" class="form-control" id="URL-icone" required value="<?= $data["pictures"][0]->getURL(); ?>"/>
     </fieldset>
     <fieldset class="my-3">
-        <label for="caption">Caption</label>
-        <input type="text" name="caption" class="form-control" id="caption" value="<?= $data["picture"]->getCaption(); ?>"/>
+        <label for="caption-icone">Caption Icone</label>
+        <input type="text" name="caption-icone" class="form-control" id="caption-icone" required value="<?= $data["pictures"][0]->getCaption(); ?>"/>
+    </fieldset>
+    <fieldset class="my-3">
+        <label for="URL">Logo</label>
+        <input type="text" name="URL-logo" class="form-control" id="URL-logo" required value="<?= $data["pictures"][1]->getURL(); ?>"/>
+    </fieldset>
+    <fieldset class="my-3">
+        <label for="caption-logo">Caption Logo</label>
+        <input type="text" name="caption-logo" class="form-control" id="caption-logo" required value="<?= $data["pictures"][1]->getCaption(); ?>"/>
     </fieldset>
     <fieldset>
         <input type="hidden" name="formName" value="update-category">

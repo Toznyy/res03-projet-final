@@ -1,1 +1,25 @@
-<h1>Liste des catgéories</h1>
+<h1>Liste des catégories</h1>
+<?php foreach($data['categories'] as $category) { ?>
+  <?php $categoryManager = new CategoryManager();
+  $categorySlug = $categoryManager->createSlug($category['title']); ?>
+  <section>
+    <a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>">
+      <section>
+        <section>
+          <a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>">
+            <img src="<?= $category['icone_url'] ?>" alt="<?= $category['title'] ?>">
+          </a>
+        </section>
+        <section>
+          <section>
+            <h5>
+              <a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>">
+                <?= $category['title'] ?>
+              </a>
+            </h5>
+          </section>
+        </section>
+      </section>
+    </a>
+  </section>
+<?php } ?>

@@ -18,8 +18,7 @@ class Router {
 
     // public constructor
 
-    public
-    function __construct() {
+    public function __construct() {
 
         $this -> pageController = new PageController();
         $this -> userController = new UserController();
@@ -30,9 +29,7 @@ class Router {
 
     }
 
-    public
-    function checkRoute() {
-
+    public function checkRoute() {
 
         if (isset($_GET["path"])) {
 
@@ -81,31 +78,32 @@ class Router {
                 $this -> userController -> deconnexion();
             }
 
+            else if ($route[0] === "accueil") {
+                $this->pageController -> accueil();
+            } 
+            
             else if ($route[0] === "liste-categories") {
-
                 if (!isset($route[1])) {
-                    $this -> pageController -> listeCategories();
+                    $this->categoryController -> getPublicCategories();
                 }
-                else if ($route[1] === "category") {
-
+                else if (isset($route[1])) {
                     if (!isset($route[2])) {
-                        $this -> categoryController -> getCategory($route[1]);
+                        $this->pageController -> displayOneCategory($route[1]);
                     }
-
-                    else if ($route[2] === "product") {
-                        $this -> productController -> getProduct($route[2]);
+                    else if (isset($route[2])) {
+                        $this->pageController -> displayOneProduct($route[2]);
                     }
                 }
             }
-
-            else if ($route[0] === "accueil") {
-                $this -> pageController -> accueil();
+            
+            else if ($route[0] === "panier") {
+                $this->pageController->panier();
             }
 
             else if ($route[0] === "mon-compte") {
 
                 if (!isset($route[1])) {
-                    $this -> userController -> getUser();
+                    $this -> pageController -> monCompte();
                 }
 
                 else if ($route[1] === "modifier") {
@@ -182,6 +180,7 @@ class Router {
                         if (!empty($_POST) && $_POST["formName"] === "create-product") {
 
                             $post = $_POST;
+                            var_dump($post);
                             $this -> productController -> createProduct($post);
                         }
                         else {
@@ -230,6 +229,7 @@ class Router {
                                 $post = $_POST;
                                 $this -> userController -> updateUserAddress($post, $route[4]);
                             }
+                            
                             else {
     
                                 $this -> pageController -> updateUsersAddresses($route[4]);
@@ -249,6 +249,7 @@ class Router {
                             $post = $_POST;
                             $this -> userController -> updateUser($post, $route[3]);
                         }
+                        
                         else {
 
                             $this -> pageController -> updateUsers($route[3]);
@@ -262,30 +263,28 @@ class Router {
 
                 }
 
-                // else if($route[1] === "nouveautes") {
-                //     $this->productController->getNouveautes();
-                // }
-
-                // else if($route[1] === "medias") {
-                //     $this->me->getCategories();
-                // }
-
                 else if ($route[1] === "orders") {
 
                     if (!isset($route[2])) {
-                        $this -> orderController -> getOrders();
+                            $this -> orderController -> getOrders();
+                        }
+
+                    else if ($route[2] === "update") {
+
+                        if (!empty($_POST) && $_POST["formName"] === "update-product") {
+
+                            $post = $_POST;
+                            $this -> productController -> updateProduct($post, $route[3]);
+                        }
+                        else {
+
+                            $this -> pageController -> updateProducts($route[3]);
+                        }
                     }
 
-                    else if ($route[2] === "ajouter") {
-                        $this -> orderController -> createOrder($route[2]);
-                    }
+                    else if ($route[2] === "delete") {
 
-                    else if ($route[2] === "modifier") {
-                        $this -> orderController -> updateOrder($route[2]);
-                    }
-
-                    else if ($route[2] === "supprimer") {
-                        $this -> orderController -> deleteOrder($route[2]);
+                        $this -> productController -> deleteProduct($route[3]);
                     }
                 }
             }

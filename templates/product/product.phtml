@@ -1,0 +1,8 @@
+<section>
+    <h1><?php echo $data['product']->getName(); ?></h1>
+    <p><?php echo $data['product']->getDescription(); ?></p>
+    <p>Prix : <?php echo $data['product']->getPrice(); ?> $</p>
+    <?php if (count($data['pictures']) > 0) { ?>
+        <img src="<?php echo $data['pictures'][0]->getURL(); ?>" alt="<?php echo $data['pictures'][0]->getCaption(); ?>">
+    <?php } ?>
+</section>
