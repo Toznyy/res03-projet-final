@@ -1,33 +1,42 @@
+<!-- Formulaire pour créer les informations d'une catégorie -->
 <h1>Formulaire de création de catégorie</h1>
 
 <form method="post" action="/res03-projet-final/admin/categories/create">
+    <!-- Champ pour le titre de la catégorie -->
     <fieldset>
         <label for="title">Titre</label>
         <input type="text" class="form-control" name="title" id="title" />
     </fieldset>
+    <!-- Champ pour la description de la catégorie -->
     <fieldset>
         <label for="description">Description</label>
         <textarea name="description" rows="5" cols="100"></textarea>
     </fieldset>
+    <!-- Champ pour l'URL de l'icône de la catégorie -->
     <fieldset>
         <label for="URL-icone">Icone</label>
         <input type="text" class="form-control" name="URL-icone" id="URL-icone" />
     </fieldset>
+    <!-- Champ pour la légende de l'icône de la catégorie -->
     <fieldset>
         <label for="caption-icone">Caption Icone</label>
         <input type="text" class="form-control" name="caption-icone" id="caption-icone" />
     </fieldset>
+    <!-- Champ pour l'URL du logo de la catégorie -->
     <fieldset>
         <label for="URL-logo">Logo</label>
         <input type="text" class="form-control" name="URL-logo" id="URL-logo" />
     </fieldset>
+    <!-- Champ pour la légende du logo de la catégorie -->
     <fieldset>
         <label for="caption-logo">Caption Logo</label>
         <input type="text" class="form-control" name="caption-logo" id="caption-logo" />
     </fieldset>
+    <!-- Champ caché pour indiquer que le formulaire est destiné à créer une catégorie -->
     <fieldset>
         <input type="hidden" name="formName" value="create-category">
     </fieldset>
+    <!-- Bouton pour soumettre le formulaire -->
     <fieldset>
         <input type="submit" value="Je crée la licence" />
     </fieldset>

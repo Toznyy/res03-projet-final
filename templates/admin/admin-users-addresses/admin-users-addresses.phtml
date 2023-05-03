@@ -1,5 +1,8 @@
 <section>
+    <!-- Tableau des utilisateurs -->
     <h1>Liste des utilisateurs</h1>
+
+    <!-- Barre de navigation avec deux liens : Avec adresses et Sans adresses -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -12,8 +15,11 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Tableau avec une ligne pour chaque utilisateur -->
     <table class="table">
         <thead>
+            <!-- En-têtes des colonnes du tableau -->
             <tr>
                 <th scope="col">Pseudo</th>
                 <th scope="col">Nom</th>
@@ -26,6 +32,7 @@
         </thead>
         <tbody>
             <?php foreach($data['users'] as $user) { ?>
+            <!-- Ligne du tableau avec les données de l'utilisateur -->
             <tr>
                 <td><?= $user['username']; ?></td>
                 <td><?= $user['first_name']; ?></td>
@@ -35,6 +42,7 @@
                 <td><?= $user['registration_date']; ?></td>
                 <td><?= $user['birthday']; ?></td>
 
+                <!-- Deux boutons pour chaque utilisateur : Modifier et Supprimer -->
                 <td>
                     <a href="/res03-projet-final/admin/users/addresses/update/<?= $user['id']; ?>" class="btn btn-primary">Modifier</a>
                     <a href="/res03-projet-final/admin/users/addresses/delete/<?= $user['id']; ?>" class="btn btn-danger">Supprimer</a>

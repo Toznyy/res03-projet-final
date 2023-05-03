@@ -1,27 +1,42 @@
+<!-- Formulaire pour modifier les informations d'un produit -->
 <h1>Formulaire de modification du produit</h1>
+
 <form method="post" action="/res03-projet-final/admin/products/update/<?= $data["product"]->getId(); ?>">
+    <!-- Champ pour le nom du produit -->
     <fieldset class="my-3">
         <label for="name">Nom</label>
         <input type="text" class="form-control" name="name" id="name" required value="<?= $data["product"]->getName(); ?>"/>
     </fieldset>
+
+    <!-- Champ pour la description du produit -->
     <fieldset class="my-3">
         <label for="description">Description</label>
         <textarea name="description" class="form-control" rows="5" cols="30"><?= $data["product"]->getDescription(); ?></textarea>
     </fieldset>
+
+    <!-- Champ pour le prix du produit -->
     <fieldset class="my-3">
         <label for="price">Prix</label>
         <input type="text" class="form-control" name="price" id="price" required value="<?= $data["product"]->getPrice(); ?>"/>
     </fieldset>
+
+    <!-- Champ pour l'URL de l'image du produit -->
     <fieldset class="my-3">
         <label for="URL">URL de l'image</label>
         <input type="URL" name="URL" class="form-control" id="URL" required value="<?= $data["pictures"][0]->getURL(); ?>"/>
     </fieldset>
+
+    <!-- Champ pour la légende de l'image du produit -->
     <fieldset class="my-3">
         <label for="caption-product">Caption</label>
         <input type="text" name="caption" class="form-control" id="caption-product" value="<?= $data["pictures"][0]->getCaption(); ?>"/>
     </fieldset>
+
+    <!-- Champ caché pour indiquer que le formulaire est destiné à la modification de produit -->
     <fieldset>
         <input type="hidden" name="formName" value="update-product">
     </fieldset>
+
+    <!-- Bouton de soumission du formulaire -->
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
