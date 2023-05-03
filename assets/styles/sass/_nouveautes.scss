@@ -1,0 +1,79 @@
+#nouveautes {
+    font-family: 'Stick No Bills', sans-serif;
+    
+    &>main {
+        min-height: 60vh;
+        
+        &>h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            text-align: center;
+            color: blue;
+            margin: 3rem 0;
+        }
+        
+        &>section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-bottom: 5rem;
+            
+            article {
+                
+                &>section:first-of-type {
+                    
+                    &>a {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-bottom: 1.5rem;
+                        
+                        &>img {
+                            height: 50vh;
+                        }
+                    }
+                }
+                
+                &>section:last-of-type {
+                    
+                    &>h2 {
+                        text-align: center;
+                        font-size: 2rem;
+                        color: blue;
+                        
+                        &>a {
+                            text-decoration: none;
+                            color: blue;
+                            
+                            &:hover {
+                              text-decoration: underline;
+                            }
+                        }
+                    }
+                    
+                    &>section {
+                        display: grid;
+                        grid-template-columns: 0.5fr 1fr;
+                        
+                        &>p {
+                            color: blue;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin-top: 2rem;
+                            font-size: 1.5rem;
+                            
+                            &>a {
+                                text-decoration: none;
+                                color: blue;
+                                
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

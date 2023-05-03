@@ -1,0 +1,204 @@
+@media (min-width: 1230px) {
+    
+    #category {
+        font-family: 'Stick No Bills', sans-serif;
+            
+        &>main {
+            min-height: 60vh;
+            
+            .retour-btn {
+              display: inline-block;
+              padding: 10px 20px;
+              background-color: #0077C2;
+              color: #fff;
+              text-decoration: none;
+              border-radius: 5px;
+              font-size: 18px;
+              font-weight: bold;
+              text-align: center;
+              box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+              transition: background-color 0.2s ease-in-out;
+              margin: 5rem 0 0 5rem;
+              font-size: 1.5rem;
+            }
+            
+            .retour-btn:hover {
+              background-color: #005CA9;
+              cursor: pointer;
+            }
+    
+            &>section:first-of-type {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                margin: 5rem 0;
+                
+                &>h1 {
+                    font-size: 4rem;
+                    font-weight: 800;
+                    margin: 1rem 0;
+                    color: blue;
+                    display: flex;
+                    justify-self: center;
+                    align-self: center;
+                }
+                
+                &>figure {
+                    
+                    display: flex;
+                    justify-self: center;
+                    align-self: center;
+                    
+                    &>img {
+                        
+                        height: 10vw;
+                    }
+                }
+            }
+            
+            &>section:last-of-type {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                margin: 0 0 5rem 4rem;
+                max-width: 100%;
+                
+                &>section {
+                    margin: 0 3rem 5rem 0;
+                    
+                    
+                    &>article {
+                            
+                        &>a {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                                
+                            &>img {
+                                height: 20rem;
+                            }
+                        }
+                        
+                        &>h2 {
+                            text-align: center;
+                            font-size: 2rem;
+                            text-transform: uppercase;
+                            margin: 2rem 0;
+                                
+                            &>a {
+                                text-decoration: none;
+                                color: blue;
+                            }
+                        }
+                        
+                        &>p {
+                            text-align: center;
+                            color: blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 890px) and (max-width: 1230px) {
+    
+    #category {
+        
+        font-family: 'Stick No Bills', sans-serif;
+            
+        &>main {
+            min-height: 60vh;
+            
+            .retour-btn {
+              display: inline-block;
+              padding: 10px 20px;
+              background-color: #0077C2;
+              color: #fff;
+              text-decoration: none;
+              border-radius: 5px;
+              font-size: 18px;
+              font-weight: bold;
+              text-align: center;
+              box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+              transition: background-color 0.2s ease-in-out;
+              margin: 5rem 0 0 5rem;
+              font-size: 2rem;
+            }
+            
+            .retour-btn:hover {
+              background-color: #005CA9;
+              cursor: pointer;
+            }
+    
+            &>section:first-of-type {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                margin: 5rem 0;
+                
+                &>h1 {
+                    font-size: 4rem;
+                    font-weight: 800;
+                    margin: 1rem 0;
+                    color: blue;
+                    display: flex;
+                    justify-self: center;
+                    align-self: center;
+                }
+                
+                &>figure {
+                    
+                    display: flex;
+                    justify-self: center;
+                    align-self: center;
+                    
+                    &>img {
+                        
+                        height: 10vw;
+                    }
+                }
+            }
+            
+            &>section:last-of-type {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                margin: 0 0 5rem 4rem;
+                max-width: 100vw;
+                
+                &>section {
+                    margin: 0 3rem 5rem 0;
+                    
+                    
+                    &>article {
+                            
+                        &>a {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                                
+                            &>img {
+                                height: 20rem;
+                            }
+                        }
+                        
+                        &>h2 {
+                            text-align: center;
+                            font-size: 2rem;
+                            text-transform: uppercase;
+                            margin: 2rem 0;
+                                
+                            &>a {
+                                text-decoration: none;
+                                color: blue;
+                            }
+                        }
+                        
+                        &>p {
+                            text-align: center;
+                            color: blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

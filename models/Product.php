@@ -5,9 +5,9 @@ class Product {
     private ?int $id;
     private string $name;
     private string $description;
-    private float $price;
+    private string $price;
     
-    public function __construct(string $name, string $description, float $price) {
+    public function __construct(string $name, string $description, string $price) {
         
         $this->id = null;
         $this->name = $name;
@@ -40,11 +40,11 @@ class Product {
         $this->description = $description;
     }
     
-    public function getPrice() : float {
+    public function getPrice() : string {
         return $this->price;
     }
     
-    public function setPrice(float $price) : void {
+    public function setPrice(string $price) : void {
         $this->price = $price;
     }
     

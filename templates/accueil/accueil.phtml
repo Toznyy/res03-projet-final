@@ -1,4 +1,25 @@
-<figure>
-    <img src="/res03-projet-final/assets/img/image-fond-accuiel.png" alt="Image de fond.">
-</figure>
-<a href="/res03-projet-final/admin">Page admin</a>
+<?php var_dump($_SESSION); ?>
+<section>
+    <figure>
+        <img src="/res03-projet-final/assets/img/image-fond-accuiel.png" alt="Image de fond">
+    </figure>
+    <h1>Boutique Gintamall</h1>
+    <p>Bienvenue dans ma boutique, petit otaku. Tu trouveras ici tous les meilleurs goodies de tes licences préférées </p>
+    <h2>Les meilleures ventes</h2>
+    <?php $categoryManager = new CategoryManager(); ?>
+    <section>
+        <?php foreach($data as $product) {
+            $categorySlug = $categoryManager->createSlug($product['title']);
+        ?>
+            <article>
+                <section>
+                    <a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>/<?= $product['id'] ?>"><img src="<?php echo $product['URL']; ?>" alt="<?php echo $product['caption']; ?>"></a>
+                </section>
+                <section>
+                    <h2><a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>/<?= $product['id'] ?>"><?php echo $product['name']; ?></a></h2>
+                </section>
+            </article>
+        <?php } ?>
+    </section>
+    
+</section>

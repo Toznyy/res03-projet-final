@@ -73,6 +73,10 @@ class Router {
             else if ($route[0] === "nouveautes") {
                 $this -> pageController -> nouveautes();
             }
+            
+            else if ($route[0] === "newsletter") {
+                $this -> pageController -> newsletter();
+            }
 
             else if ($route[0] === "deconnexion") {
                 $this -> userController -> deconnexion();
@@ -99,8 +103,17 @@ class Router {
             else if ($route[0] === "panier") {
                 $this->pageController->panier();
             }
+            
+            else if ($route[0] === "addPanier") {
+                $this->pageController->addPanier();
+            }
 
             else if ($route[0] === "mon-compte") {
+                
+                if (!isset($_SESSION)) {
+                    
+                    header('Location: /res03-projet-final/connexion');
+                }
 
                 if (!isset($route[1])) {
                     $this -> pageController -> monCompte();
@@ -116,10 +129,6 @@ class Router {
 
                 else if ($route[1] === "favorites") {
                     $this -> userController -> favorites($route[1]);
-                }
-
-                else if ($route[1] === "deconnexion") {
-                    $this -> userController -> deconnexion($route[1]);
                 }
             }
 

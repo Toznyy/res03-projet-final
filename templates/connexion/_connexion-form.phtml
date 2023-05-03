@@ -1,19 +1,35 @@
 <h1>Connexion</h1>
+
+<!-- Affiche un message d'erreur si nécessaire -->
+<section>
+    <?php if (isset($data["errorMessage"]) && !empty($data["errorMessage"])) { ?>
+        <p><?php echo $data["errorMessage"] ?></p>
+    <?php } ?>
+</section>
+
 <form method="post" action="connexion">
+    <!-- Champ pour saisir le nom d'utilisateur -->
     <fieldset>
         <label for="username">Pseudo</label>
         <input type="text" name="username" id="username" />
     </fieldset>
+    
+    <!-- Champ pour saisir le mot de passe -->
     <fieldset>
         <label for="password1">Mot de passe</label>
         <input type="password" name="password" id="password1" />
     </fieldset>
+    
+    <!-- Champ caché pour indiquer que le formulaire est celui de connexion -->
     <Fieldset>
         <input type="hidden" name="formName" value="connexion">
     </Fieldset>
+    
+    <!-- Bouton pour soumettre le formulaire -->
     <fieldset>
         <input type="submit" value="Je me connecte" />
     </fieldset>
     
+    <!-- Lien pour aller vers le formulaire d'inscription -->
     <p>Clique <a href="../creation/creation.phtml">ici</a> pour créer un compte</p>
 </form>

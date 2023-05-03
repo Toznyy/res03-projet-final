@@ -53,6 +53,24 @@ class ProductManager extends AbstractManager {
         return $products;
     }
     
+    public function getNouveautes() : array {
+        
+        $query = $this->db->prepare("SELECT products.id, products.name, pictures.URL, pictures.caption, products.description, products.price, categories.title FROM products JOIN products_pictures ON products.id = products_pictures.product_id JOIN pictures ON products_pictures.picture_id = pictures.id JOIN products_categories ON products.id = products_categories.product_id JOIN categories ON products_categories.category_id = categories.id ORDER BY products.id DESC LIMIT 4");
+        $query->execute();
+        $products = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $products;
+    }
+    
+    public function getCategoryOfProduct(Product $product) {
+        $product_id = $product->getId();
+        $query = $this->db->prepare("SELECT * FROM products JOIN (products_categories JOIN categories ON products_categories.category_id = categories.id) ON products.id = products_categories.product_id WHERE products.id = :product_id");
+        $parameters = ["product_id" => $product_id];
+        $query->execute($parameters);
+        $category = $query->fetch(PDO::FETCH_ASSOC);
+        $newCategory = new Category($category["title"], $category["description"]);
+        return $newCategory;
+    }
+    
     public function getAllProductsWithPicturesByCategory(string $title) : array {
         
         $query = $this->db->prepare("SELECT products.id, categories.title, pictures.URL, products.price, products.name FROM products JOIN products_pictures ON products.id = products_pictures.product_id JOIN pictures ON products_pictures.picture_id = pictures.id JOIN products_categories ON products.id = products_categories.product_id JOIN categories ON products_categories.category_id = categories.id WHERE categories.title = :title");

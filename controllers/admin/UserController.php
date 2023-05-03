@@ -30,63 +30,47 @@ class UserController extends AbstractController {
         $this->renderPrivate("admin-user", [$userTab]);
     }
 
-    public function createUser(array $post) {
-
-        if (empty($post)) {
-            $this -> render("creation", []);
-        }
-
-        else {
+    public function createUser($post) {
+        
+        if (!empty($post)) {
+            $errorMessage = '';
             
-            if ((isset($post["username"]) && empty($post["username"])) || (isset($post["first_name"]) && empty($post["first_name"])) || (isset($post["last_name"]) && empty($post["last_name"])) || (isset($post["email"]) && empty($post["email"])) || (isset($post["password"]) && empty($post["password"])) || (isset($post["confirmPassword"]) && empty($post["confirmPassword"])) || (isset($post["birthday"]) && empty($post["birthday"]))) {
-
-                $this -> render("creation", []);
-                echo "L'un des champs n'est pas rempli.";
-            }
-            
-            else {
-                
-                $date = date("Y-m-d");
-                $newUser = new User($post['username'], $post['first_name'], $post['last_name'], $post['email'], $post['password'], $date, $post['birthday'], "customer");
-                $user = $this->um->getUsernameAndEmail($newUser);
-
-                if ($user !== null) {
-                    
-                    if ($user->getUsername() === $post['username']) {
+            // Vérification des champs obligatoires
+            if (empty($post['username']) || empty($post['email']) || empty($post['password']) || empty($post['confirmpassword'])) {
+                $errorMessage = "L'un des champs n'est pas rempli.";
+            } else {
+                // Vérification de la validité de l'adresse email
+                if (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
+                    $errorMessage = "L'adresse email n'est pas valide.";
+                } else {
+                    // Vérification que les mots de passe sont identiques
+                    if ($post['password'] !== $post['confirmpassword']) {
+                        $errorMessage = "Les mots de passe ne sont pas identiques.";
+                    } else {
+                        // Ajout de l'utilisateur dans la base de données
+                        $user = new User();
+                        $user->setUsername($post['username']);
+                        $user->setEmail($post['email']);
+                        $user->setPassword(password_hash($post['password'], PASSWORD_DEFAULT));
+                        $user->setFirstName($post['first_name']);
+                        $user->setLastName($post['last_name']);
+                        $user->setBirthday($post['birthday']);
                         
-                        $this->render("creation", []);
-                        echo "Le nom d'utilisateur existe déjà.";
-                    }
-                    
-                    else {
-                        
-                        $this->render("creation", []);
-                        echo "L'adresse e-mail existe déjà.";
-                    }
-                    
-                } 
-                
-                else {
-                    
-                    if ($post["password"] !== $post["confirmpassword"]) {
-                        
-                        $this->render("creation", []);
-                        echo "Les deux mots de passe ne sont pas identiques.";
-                    }
-                    else {
-                        
-                        $hash = password_hash($post["password"], PASSWORD_DEFAULT);
-                        $date = date("Y-m-d");
-                        $newUser = new User($post['username'], $post['first_name'], $post['last_name'], $post['email'], $hash, $date, $post['birthday'], "customer");
-                        $user = $this->um->createUser($newUser);
-                        $createdUser = $user->toArray();
-                        $_SESSION["role"] = $user->getRole();
-                        $_SESSION["username"] = $user->getUsername();
-                        $_SESSION["email"] = $user->getEmail();
-                        header('Location: accueil');
+                        try {
+                            $user->save();
+                            $this->render('confirmation', ['message' => 'Votre compte a bien été créé.']);
+                            return;
+                        } catch (\Exception $e) {
+                            $errorMessage = 'Une erreur s\'est produite lors de la création de votre compte.';
+                        }
                     }
                 }
             }
+            
+            // Si une erreur s'est produite, on affiche le formulaire avec le message d'erreur correspondant
+            $this->render('creation', ['errorMessage' => $errorMessage]);
+        } else {
+            $this->render('creation');
         }
     }
 

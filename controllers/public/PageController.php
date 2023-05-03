@@ -33,19 +33,98 @@ class PageController extends AbstractController {
     }
     
     public function monCompte() {
-        $this->render("mon-compte", ["page du compte"]);
+        var_dump($_SESSION);
+        $userId = $_SESSION["id"];
+        $userConnected = $this->um->getUserById($userId);
+        $tab = [
+            "username" => $userConnected->getUsername(),
+            "prenom" => $userConnected->getFirstName(),
+            "nom" => $userConnected->getLastName(),
+            "email" => $userConnected->getEmail(),
+            "date_de_naissance" => $userConnected->getBirthday(),
+            "role" => $userConnected->getRole()
+            ];
+        $this->render("mon-compte", $tab);
     }
     
     public function accueil() {
-        $this->render("accueil", ["page d'accueil"]); 
+        $products = $this->prm->getNouveautes();
+        $this->render("accueil", $products); 
     }
     
     public function panier() {
-        $this->render("panier", ["page de panier"]); 
+        
+        // Récupération du panier
+        $cart = [];
+        if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+            foreach ($_SESSION['cart'] as $product_id => $quantity) {
+                $product = $this->prm->getProductById($product_id);
+                $cart[] = $quantity;
+            }
+        }
+    
+        // Affichage de la page
+        $data = [
+            'cart' => $cart,
+        ];
+        $this->render('panier', $data);
+    }
+
+    public function addPanier() {
+        
+        // Vérifiez si les données de la requête POST ont été envoyées
+        if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
+    
+            // Récupérez les valeurs du formulaire
+            $productId = $_POST['product_id'];
+            $quantity = intval($_POST['quantity']); // normalement ça ça devrait le transformer en int
+    
+            // Vérifiez si le panier existe en session
+            if (!isset($_SESSION['cart'])) {
+                // Si le panier n'existe pas, créez-le sous forme de tableau vide
+                $_SESSION['cart'] = [];
+            }
+    
+            // Vérifiez si le produit est déjà dans le panier
+            if (isset($_SESSION['cart'][$productId])) {
+                // Si le produit est déjà dans le panier, ajoutez la quantité
+                $_SESSION['cart'][$productId] += $quantity;
+            } else {
+                // Sinon, ajoutez le produit et la quantité au panier
+                $_SESSION['cart'][$productId] = $quantity;
+            }
+            
+            echo json_encode("OK");
+    
+            //Redirigez l'utilisateur vers la page du panier
+            //header('Location: /res03-projet-final/panier');
+            //exit();
+        }
+        else{
+            echo json_encode("NOK");
+        }
+    }
+    
+    public function deleteFromCart($id) {
+        
+        foreach ($_SESSION["cart"] as $index => $produit) {
+            if ($produit === $id) {
+                $_SESSION["cart"][$index] = "";
+
+                header("Location: /res03-projet-final/monPanier");
+                die();
+            }
+        }
     }
     
     public function nouveautes() {
-        $this->render("nouveautes", ["page des nouveautes"]); 
+        
+        $products = $this->prm->getNouveautes();
+        $this->render("nouveautes", $products); 
+    }
+    
+    public function newsletter() {
+        $this->render("newsletter", ["page de la newsletter"]);
     }
     
     public function listeCategories() {
@@ -57,9 +136,11 @@ class PageController extends AbstractController {
         
         $category = $this->cm->getCategoryByTitle($this->prm->createTitle($slug));
         $products = $this->prm->getAllProductsWithPicturesByCategory($this->prm->createTitle($slug));
+        $pictures = $this->pm->getPicturesByCategory($category);
         $tab = [
             "category" => $category,
-            "products" => $products
+            "products" => $products,
+            "pictures" => $pictures
             ];
         $this->render("category", $tab);
     }
@@ -67,9 +148,11 @@ class PageController extends AbstractController {
     public function displayOneProduct(int $id) {
         
         $product = $this->prm->getProductById($id);
+        $category = $this->prm->getCategoryOfProduct($product);
         $pictures = $this->pm->getPicturesByProduct($product);
         $tab = [
             "product" => $product,
+            "category" => $category,
             "pictures" => $pictures
             ];
         $this->render("product",$tab);

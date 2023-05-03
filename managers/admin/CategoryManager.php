@@ -119,6 +119,8 @@ class CategoryManager extends AbstractManager {
     }
     
     function createSlug(string $title): string {
+        // Remplacer l'apostrophe par un caractère vide
+        $title = str_replace("'", "", $title);
         // Convertir la chaîne en minuscules
         $slug = strtolower($title);
         // Remplacer les espaces par des tirets

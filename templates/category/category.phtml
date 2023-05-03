@@ -1,15 +1,41 @@
-<h1><?= $data["category"]->getTitle(); ?></h1>
+<!-- Affiche un bouton "Retour à la page des licences" qui est la page précédente-->
+<a href="/res03-projet-final/liste-categories" class="retour-btn"><< Retour à la page des licences</a>
 
-<?php foreach($data["products"] as $product) {
-    
-    $categoryManager = new CategoryManager();
-    $productManager = new ProductManager();
-    $categorySlug = $categoryManager->createSlug($data["category"]->getTitle());
-    $productObject = $productManager->getProductById($product["id"]); ?>
-    
-    <article>
-        <a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>/<?= $productObject->getId() ?>"><img src="<?= $product["URL"] ?>"></a>
-        <h2><a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>/<?= $productObject->getId() ?>"><?= $productObject->getName() ?></a></h2>
-    </article>
-    
-<?php } ?>
+<!-- Affiche le titre de la catégorie et une image correspondante -->
+<section>
+    <h1><?= $data["category"]->getTitle(); ?></h1>
+    <figure>
+        <img src="<?= $data["pictures"][1]->getURL() ?>">
+    </figure>
+</section>
+
+<!-- Affiche une section pour chaque produit de la catégorie -->
+<section>
+    <?php foreach($data["products"] as $product) {
+        
+        // Crée une instance de la classe Category
+        $categoryManager = new CategoryManager();
+        
+        // Crée une instance de la classe Product
+        $productManager = new ProductManager();
+        
+        // Crée un slug pour la catégorie
+        $categorySlug = $categoryManager->createSlug($data["category"]->getTitle());
+        
+        // Récupère un objet produit à partir de l'ID du produit
+        $productObject = $productManager->getProductById($product["id"]); ?>
+        
+        <!-- Affiche une section pour le produit -->
+        <section>
+            <article>
+                <!-- Affiche une image cliquable menant à la page du produit -->
+                <a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>/<?= $productObject->getId() ?>"><img src="<?= $product["URL"] ?>"></a>
+                <!-- Affiche le nom du produit cliquable menant à la page du produit -->
+                <h2><a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>/<?= $productObject->getId() ?>"><?= $productObject->getName() ?></a></h2>
+                <!-- Affiche le prix du produit -->
+                <p><?php echo $product['price']; ?> €</p>
+            </article>
+        </section>
+        
+    <?php } ?>
+</section>

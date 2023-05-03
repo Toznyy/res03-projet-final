@@ -19,11 +19,11 @@
                 <td><?= $product['name']; ?></td>
                 <td>
                     <figure>
-                        <img src="<?= $product['URL']; ?>" alt="<?= $product['caption']; ?>">
+                        <img src="<?= $product['URL']; ?>" alt="<?= $product['caption']; ?>" class="img-fluid">
                     </figure>
                 </td>
                 <td><?= $product['caption']; ?></td>
-                <td><?= $product['description']; ?></td>
+                <td><?= nl2br($product['description']); ?></td>
                 <td><?= $product['price']; ?></td>
                 <td><?= $product['title']; ?></td>
                 <td>

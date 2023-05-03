@@ -26,7 +26,7 @@ class LoginController extends AbstractController {
                     $_SESSION["id"] = $recup->getId();
                     $_SESSION["username"] = $recup->getUsername();
                     $_SESSION["email"] = $recup->getEmail();
-                    header('Location: accueil');
+                    header('Location: /res03-projet-final/accueil');
                 }
     
                 else {

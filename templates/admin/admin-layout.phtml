@@ -13,16 +13,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
     <body id= <?php echo $template ?>>
-    
-    
-    <?php
-    require 'partials/_adminHeader.phtml';
-    
-    require "templates/admin/".$template."/".$template.".phtml";
-    
-    ?>
-    
-    <script type="module" src="/res03-projet-final/assets/js/script.js"></script>
+        
+        <!-- Inclure le header de la page admin -->
+        <?php require 'partials/_adminHeader.phtml'; ?>
+        
+        <main>
+            <!-- Inclure le contenu principal de la page, qui est défini dans le fichier correspondant à la variable $template -->
+            <?php require "templates/admin/".$template."/".$template.".phtml"; ?>
+        </main>
     
     </body>
 </html>

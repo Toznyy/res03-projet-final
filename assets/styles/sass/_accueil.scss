@@ -1,0 +1,88 @@
+#accueil {
+    overflow-x: hidden;
+    font-family: 'Stick No Bills', sans-serif;
+    
+    &>main {
+        min-height: 80vh;
+        
+        &>section {
+            width: 100vw;
+            
+            &>figure {
+                margin-top: 5px;
+    
+                &>img {
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+            
+            &>h1 {
+                font-size: 4rem;
+                font-weight: 800;
+                margin: 3rem 0;
+                color: blue;
+                text-align: center;
+            }
+            
+            &>p {
+                color: blue;
+                text-align: center;
+                font-size: 2rem;
+            }
+            
+            &>h2 {
+                font-size: 3rem;
+                font-weight: 800;
+                margin: 10rem 0 3rem 0;
+                color: blue;
+                text-align: center;
+            }
+            
+            &>section {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                margin-bottom: 5rem;
+                
+                article {
+                    
+                    &>section:first-of-type {
+                        
+                        &>a {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin-bottom: 1.5rem;
+                            
+                            &>img {
+                                width: auto;
+                                height: 30vh;
+                            }
+                        }
+                    }
+                    
+                    &>section:last-of-type {
+                        
+                        &>h2 {
+                            text-align: center;
+                            font-size: 2rem;
+                            color: blue;
+                            
+                            &>a {
+                                text-decoration: none;
+                                color: blue;
+                                
+                                &:hover {
+                                  text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+    

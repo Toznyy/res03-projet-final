@@ -1,8 +1,27 @@
 <section>
-    <h1><?php echo $data['product']->getName(); ?></h1>
-    <p><?php echo $data['product']->getDescription(); ?></p>
-    <p>Prix : <?php echo $data['product']->getPrice(); ?> $</p>
-    <?php if (count($data['pictures']) > 0) { ?>
-        <img src="<?php echo $data['pictures'][0]->getURL(); ?>" alt="<?php echo $data['pictures'][0]->getCaption(); ?>">
-    <?php } ?>
+    <section>
+        <figure>
+            <?php if (count($data['pictures']) > 0) { ?>
+                <img src="<?php echo $data['pictures'][0]->getURL(); ?>" alt="<?php echo $data['pictures'][0]->getCaption(); ?>">
+            <?php } ?>
+        </figure>
+    </section>
+    <section>
+        <section>
+            <h1><?php echo $data['product']->getName(); ?></h1>
+            <p>Prix : <?php echo $data['product']->getPrice(); ?> €</p>
+            <p>Catégorie : <?php echo $data['category']->getTitle(); ?></p>
+        </section>
+        <section>
+            <p><?php echo $data['product']->getDescription(); ?></p>
+        </section>
+        
+        <section>
+            <form method="post" action="/res03-projet-final/panier">
+                <input type="hidden" name="product_id" value="<?php echo $data['product']->getId(); ?>">
+                <input type="number" name="quantity" id="quantity" value="1" min="1">
+                <button class="paniers" data-product-id="<?php echo $data['product']->getId(); ?>">Ajouter au panier</button>
+            </form>
+        </section>
+    </section>
 </section>
