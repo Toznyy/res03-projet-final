@@ -31,48 +31,48 @@ class UserController extends AbstractController {
     }
 
     public function createUser($post) {
-        
-        if (!empty($post)) {
-            $errorMessage = '';
-            
-            // Vérification des champs obligatoires
-            if (empty($post['username']) || empty($post['email']) || empty($post['password']) || empty($post['confirmpassword'])) {
-                $errorMessage = "L'un des champs n'est pas rempli.";
+    if (!empty($post)) {
+        $errorMessage = '';
+
+        // Vérification des champs obligatoires
+        if (empty($post['username']) || empty($post['email']) || empty($post['password']) || empty($post['confirmpassword'])) {
+            $errorMessage = "L'un des champs n'est pas rempli.";
+        } else {
+            // Vérification de la validité de l'adresse email
+            if (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
+                $errorMessage = "L'adresse email n'est pas valide.";
             } else {
-                // Vérification de la validité de l'adresse email
-                if (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
-                    $errorMessage = "L'adresse email n'est pas valide.";
+                // Vérification que les mots de passe sont identiques
+                if ($post['password'] !== $post['confirmpassword']) {
+                    $errorMessage = "Les mots de passe ne sont pas identiques.";
                 } else {
-                    // Vérification que les mots de passe sont identiques
-                    if ($post['password'] !== $post['confirmpassword']) {
-                        $errorMessage = "Les mots de passe ne sont pas identiques.";
-                    } else {
-                        // Ajout de l'utilisateur dans la base de données
-                        $user = new User();
-                        $user->setUsername($post['username']);
-                        $user->setEmail($post['email']);
-                        $user->setPassword(password_hash($post['password'], PASSWORD_DEFAULT));
-                        $user->setFirstName($post['first_name']);
-                        $user->setLastName($post['last_name']);
-                        $user->setBirthday($post['birthday']);
-                        
-                        try {
-                            $user->save();
-                            $this->render('confirmation', ['message' => 'Votre compte a bien été créé.']);
-                            return;
-                        } catch (\Exception $e) {
-                            $errorMessage = 'Une erreur s\'est produite lors de la création de votre compte.';
-                        }
+                    // Création d'un nouvel utilisateur
+                    $date = date("Y-m-d");
+                    $user = new User($post['username'], $post['first_name'], $post['last_name'], $post['email'], $post['password'], $date , $post['birthday'], "customer");
+                    $user->setUsername($post['username']);
+                    $user->setEmail($post['email']);
+                    $user->setPassword(password_hash($post['password'], PASSWORD_DEFAULT));
+                    $user->setFirstName($post['first_name']);
+                    $user->setLastName($post['last_name']);
+                    $user->setBirthday($post['birthday']);
+
+                    try {
+                        $this->um->createUser($user);
+                        $this->render('accueil', ['message' => 'Votre compte a bien été créé.']);
+                        return;
+                    } catch (\Exception $e) {
+                        $errorMessage = 'Une erreur s\'est produite lors de la création de votre compte.';
                     }
                 }
             }
-            
-            // Si une erreur s'est produite, on affiche le formulaire avec le message d'erreur correspondant
-            $this->render('creation', ['errorMessage' => $errorMessage]);
-        } else {
-            $this->render('creation');
         }
+
+        // Si une erreur s'est produite, on affiche le formulaire avec le message d'erreur correspondant
+        $this->render('creation', ['errorMessage' => $errorMessage]);
+    } else {
+        $this->render('creation');
     }
+}
 
     public function updateUser(array $post, string $get) {
 
