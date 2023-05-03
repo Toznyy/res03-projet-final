@@ -1,3 +1,11 @@
+<?php
+// Initialisation d'un objet CategoryManager pour créer des slugs
+$categoryManager = new CategoryManager();
+// Création du slug à partir du titre de la catégorie
+$categorySlug = $categoryManager->createSlug($data['category']->getTitle()); ?>
+
+<a href="/res03-projet-final/liste-categories/$categorySlug" class="retour-btn"><< Retour à la page de <?=$data['category']->getTitle(); ?></a>
+
 <section>
     <section>
         <figure>

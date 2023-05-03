@@ -1,0 +1,66 @@
+@media (min-width: 1230px) {
+    #error404 {
+        font-family: 'Stick No Bills', sans-serif;
+        
+        &>main {
+            min-height: 53vh;
+            
+            &>h1 {
+                font-size: 4rem;
+                color: blue;
+                text-align: center;
+                margin: 3rem 0;
+            }
+            
+            &>p {
+                text-align: center;
+                color: blue;
+            }
+            
+            &>figure {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 5rem;
+                    
+                &>img {
+                    height: 50%;
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1230px) {
+    #error404 {
+        font-family: 'Stick No Bills', sans-serif;
+        
+        &>main {
+            min-height: 40vh;
+            
+            &>h1 {
+                font-size: 4rem;
+                color: blue;
+                text-align: center;
+                margin: 3rem 0;
+            }
+            
+            &>p {
+                text-align: center;
+                color: blue;
+            }
+            
+            &>figure {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                &>img {
+                    height: 50%;
+                    width: auto;
+                }
+            }
+        }
+    }
+}

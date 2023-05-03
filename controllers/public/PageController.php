@@ -33,7 +33,6 @@ class PageController extends AbstractController {
     }
     
     public function monCompte() {
-        var_dump($_SESSION);
         $userId = $_SESSION["id"];
         $userConnected = $this->um->getUserById($userId);
         $tab = [
@@ -159,7 +158,7 @@ class PageController extends AbstractController {
     }
 
     public function error404() {
-        $this->render("404", ["page du 404"]); 
+        $this->render("error404", ["page de l'error 404"]); 
     }
     
     public function adminAccueil() {

@@ -334,7 +334,7 @@ class Router {
             }
 
             else {
-                header('Location: /res03-projet-final/accueil');
+                $this->pageController->error404();
             }
         }
     }
