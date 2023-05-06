@@ -1215,142 +1215,491 @@ table {
   font-size: 2.2rem;
 }
 
-#mon-compte {
-  font-family: "Stick No Bills", sans-serif;
+@media (min-width: 1230px) {
+  #mon-compte {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #mon-compte > main > h1 {
+    font-size: 4rem;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #mon-compte > main > section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #mon-compte > main > section > section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #mon-compte > main > section > section > ul {
+    list-style: none;
+  }
+  #mon-compte > main > section > section > ul > li {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: blue;
+    text-align: center;
+    line-height: 3rem;
+  }
+  #mon-compte > main > section > section > ul > li > strong {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  #mon-compte > main > section > figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #mon-compte > main > section > figure > img {
+    height: 50vh;
+  }
+  #mon-compte > main > a {
+    display: inline-block;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 2rem 0 5rem 20rem;
+    font-size: 3rem;
+  }
+  #mon-compte > main > a > :hover {
+    font-size: 2.2rem;
+  }
 }
-#mon-compte > main > h1 {
-  font-size: 4rem;
-  color: blue;
-  text-align: center;
-  margin: 3rem 0;
+@media (min-width: 890px) and (max-width: 1230px) {
+  #mon-compte {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #mon-compte > main > h1 {
+    font-size: 4rem;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #mon-compte > main > section > section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #mon-compte > main > section > section > ul {
+    list-style: none;
+  }
+  #mon-compte > main > section > section > ul > li {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: blue;
+    text-align: center;
+    line-height: 3rem;
+  }
+  #mon-compte > main > section > section > ul > li > strong {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  #mon-compte > main > section > figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #mon-compte > main > section > figure > img {
+    height: 40vh;
+  }
+  #mon-compte > main > a {
+    display: inline-block;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 2rem 0 5rem 20rem;
+    font-size: 3rem;
+  }
+  #mon-compte > main > a > :hover {
+    font-size: 2.2rem;
+  }
 }
-#mon-compte > main > section {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+@media (min-width: 1230px) {
+  #creation {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #creation > main > h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #creation > main > section > p {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 3px;
+    color: #721c24;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+  }
+  #creation > main > form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  #creation > main > form > fieldset {
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #creation > main > form > fieldset > label {
+    display: block;
+    font-size: 2rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #creation > main > form > fieldset > input {
+    width: 20%;
+  }
+  #creation > main > form > section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  #creation > main > form > section > fieldset {
+    width: 48%;
+    /* Divise l'espace disponible entre les deux fieldsets */
+    text-align: center;
+  }
+  #creation > main > form > section > fieldset > label {
+    display: block;
+    font-size: 2rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #creation > main > form > section > fieldset > input {
+    width: 40%;
+  }
+  #creation > main > form > fieldset:last-of-type {
+    margin: 0 0;
+  }
+  #creation > main > form > fieldset:last-of-type > input {
+    background-color: blue;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #creation > main > form > fieldset:last-of-type > input > :hover {
+    background-color: navy;
+  }
+  #creation > main > form > p {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  #creation > main > form > p > a {
+    text-decoration: none;
+    color: blue;
+  }
 }
-#mon-compte > main > section > section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (min-width: 890px) and (max-width: 1230px) {
+  #creation {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #creation > main > h1 {
+    font-size: 6rem;
+    font-weight: 800;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #creation > main > section > p {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 3px;
+    color: #721c24;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+  }
+  #creation > main > form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  #creation > main > form > fieldset {
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #creation > main > form > fieldset > label {
+    display: block;
+    font-size: 5rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #creation > main > form > fieldset > input {
+    width: 40%;
+    height: 2rem;
+  }
+  #creation > main > form > section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  #creation > main > form > section > fieldset {
+    width: 48%;
+    /* Divise l'espace disponible entre les deux fieldsets */
+    text-align: center;
+  }
+  #creation > main > form > section > fieldset > label {
+    display: block;
+    font-size: 5rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #creation > main > form > section > fieldset > input {
+    width: 60%;
+    height: 2rem;
+  }
+  #creation > main > form > fieldset:last-of-type {
+    margin: 0 0;
+  }
+  #creation > main > form > fieldset:last-of-type > input {
+    background-color: blue;
+    color: white;
+    padding: 1rem 5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 4rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 5rem;
+    width: 90%;
+  }
+  #creation > main > form > fieldset:last-of-type > input > :hover {
+    background-color: navy;
+  }
+  #creation > main > form > p {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  #creation > main > form > p > a {
+    text-decoration: none;
+    color: blue;
+  }
 }
-#mon-compte > main > section > section > ul {
-  list-style: none;
+@media (min-width: 1230px) {
+  #connexion {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #connexion > main > h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #connexion > main > section > p {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 3px;
+    color: #721c24;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+  }
+  #connexion > main > form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  #connexion > main > form > fieldset {
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #connexion > main > form > fieldset > label {
+    display: block;
+    font-size: 2rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #connexion > main > form > fieldset > input {
+    width: 20%;
+  }
+  #connexion > main > form > section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  #connexion > main > form > section > fieldset {
+    width: 48%;
+    /* Divise l'espace disponible entre les deux fieldsets */
+    text-align: center;
+  }
+  #connexion > main > form > section > fieldset > label {
+    display: block;
+    font-size: 2rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #connexion > main > form > section > fieldset > input {
+    width: 40%;
+  }
+  #connexion > main > form > fieldset:last-of-type {
+    margin: 0 0;
+  }
+  #connexion > main > form > fieldset:last-of-type > input {
+    background-color: blue;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #connexion > main > form > fieldset:last-of-type > input > :hover {
+    background-color: navy;
+  }
+  #connexion > main > form > p {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  #connexion > main > form > p > a {
+    text-decoration: none;
+    color: blue;
+  }
 }
-#mon-compte > main > section > section > ul > li {
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-  color: blue;
-  text-align: center;
-  line-height: 3rem;
+@media (min-width: 890px) and (max-width: 1230px) {
+  #connexion {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #connexion > main > h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #connexion > main > section > p {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 3px;
+    color: #721c24;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+  }
+  #connexion > main > form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  #connexion > main > form > fieldset {
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #connexion > main > form > fieldset > label {
+    display: block;
+    font-size: 2rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #connexion > main > form > fieldset > input {
+    width: 20%;
+  }
+  #connexion > main > form > fieldset:last-of-type {
+    margin: 0 0;
+  }
+  #connexion > main > form > fieldset:last-of-type > input {
+    background-color: blue;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #connexion > main > form > fieldset:last-of-type > input > :hover {
+    background-color: navy;
+  }
+  #connexion > main > form > p {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  #connexion > main > form > p > a {
+    text-decoration: none;
+    color: blue;
+  }
 }
-#mon-compte > main > section > section > ul > li > strong {
-  font-weight: bold;
-  margin-right: 0.5rem;
+@media (min-width: 890px) and (max-width: 1230px) {
+  #connexion {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #connexion > main > h1 {
+    font-size: 6rem;
+    font-weight: 800;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #connexion > main > section > p {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 3px;
+    color: #721c24;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+  }
+  #connexion > main > form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  #connexion > main > form > fieldset {
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #connexion > main > form > fieldset > label {
+    display: block;
+    font-size: 5rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #connexion > main > form > fieldset > input {
+    width: 40%;
+    height: 2rem;
+  }
+  #connexion > main > form > fieldset:last-of-type {
+    margin: 0 0;
+  }
+  #connexion > main > form > fieldset:last-of-type > input {
+    background-color: blue;
+    color: white;
+    padding: 1rem 5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 4rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 5rem;
+    width: 90%;
+  }
+  #connexion > main > form > fieldset:last-of-type > input > :hover {
+    background-color: navy;
+  }
+  #connexion > main > form > p {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  #connexion > main > form > p > a {
+    text-decoration: none;
+    color: blue;
+  }
 }
-#mon-compte > main > section > figure {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#mon-compte > main > section > figure > img {
-  height: 50vh;
-}
-#mon-compte > main > a {
-  display: inline-block;
-  background-color: blue;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin: 2rem 0 5rem 20rem;
-  font-size: 3rem;
-}
-#mon-compte > main > a > :hover {
-  font-size: 2.2rem;
-}
-
-#creation {
-  font-family: "Stick No Bills", sans-serif;
-}
-#creation > main > h1 {
-  font-size: 4rem;
-  font-weight: 800;
-  color: blue;
-  text-align: center;
-  margin: 3rem 0;
-}
-#creation > main > section > p {
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  border-radius: 3px;
-  color: #721c24;
-  margin-bottom: 20px;
-  padding: 10px;
-  text-align: center;
-}
-#creation > main > form {
-  width: 80%;
-  margin: 0 auto;
-}
-#creation > main > form > fieldset {
-  text-align: center;
-  margin: 3rem 0;
-}
-#creation > main > form > fieldset > label {
-  display: block;
-  font-size: 2rem;
-  color: blue;
-  margin-bottom: 1rem;
-}
-#creation > main > form > fieldset > input {
-  width: 20%;
-}
-#creation > main > form > section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-}
-#creation > main > form > section > fieldset {
-  width: 48%;
-  /* Divise l'espace disponible entre les deux fieldsets */
-  text-align: center;
-}
-#creation > main > form > section > fieldset > label {
-  display: block;
-  font-size: 2rem;
-  color: blue;
-  margin-bottom: 1rem;
-}
-#creation > main > form > section > fieldset > input {
-  width: 40%;
-}
-#creation > main > form > fieldset:last-of-type {
-  margin: 0 0;
-}
-#creation > main > form > fieldset:last-of-type > input {
-  background-color: blue;
-  color: white;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-#creation > main > form > fieldset:last-of-type > input > :hover {
-  background-color: navy;
-}
-#creation > main > form > p {
-  text-align: center;
-  margin-bottom: 5rem;
-}
-#creation > main > form > p > a {
-  text-decoration: none;
-  color: blue;
-}
-
 #panier {
   font-family: "Stick No Bills", sans-serif;
 }

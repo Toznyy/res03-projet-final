@@ -197,7 +197,7 @@ class Router {
                 }
 
                 // Vérifier si le premier segment de l'URL est "products"
-                if ($route[1] === "products") {
+                else if ($route[1] === "products") {
                 
                     // Si aucun segment supplémentaire n'est spécifié, appeler la méthode getProducts() du contrôleur des produits
                     if (!isset($route[2])) {
