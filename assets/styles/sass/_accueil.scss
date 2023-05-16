@@ -4,8 +4,14 @@
         overflow-x: hidden;
         font-family: 'Stick No Bills', sans-serif;
         
+        
+        
         &>main {
             min-height: 80vh;
+            
+            &>h1 {
+                display: none;
+            }
             
             &>section {
                 width: 100vw;
@@ -21,7 +27,7 @@
                     }
                 }
                 
-                &>h1 {
+                &>h2 {
                     font-size: 4rem;
                     font-weight: 800;
                     margin: 3rem 0;
@@ -35,7 +41,7 @@
                     font-size: 2rem;
                 }
                 
-                &>h2 {
+                &>h3 {
                     font-size: 3rem;
                     font-weight: 800;
                     margin: 10rem 0 3rem 0;
@@ -48,9 +54,21 @@
                     grid-template-columns: repeat(4, 1fr);
                     margin-bottom: 5rem;
                     
-                    article {
+                    &>h2 {
+                        display: none;
+                    }
+                    
+                    &>article {
+                        
+                        &>h2 {
+                            display: none;
+                        }
                         
                         &>section:first-of-type {
+                            
+                            &>h3 {
+                                display: none;
+                            }
                             
                             &>a {
                                 display: flex;
@@ -97,6 +115,10 @@
 
         &>main {
             min-height: 80vh;
+            
+            &>h1 {
+                display: none;
+            }
 
             &>section {
                 width: 100vw;
@@ -112,7 +134,7 @@
                     }
                 }
 
-                &>h1 {
+                &>h2 {
                     font-size: 4rem;
                     font-weight: 800;
                     margin: 3rem 0;
@@ -126,7 +148,7 @@
                     font-size: 2rem;
                 }
 
-                &>h2 {
+                &>h3 {
                     font-size: 3rem;
                     font-weight: 800;
                     margin: 10rem 0 3rem 0;
@@ -138,11 +160,23 @@
                     display: grid;
                     grid-template-columns: repeat(2, 1fr);
                     margin-bottom: 5rem;
+                    
+                    &>h2 {
+                        display: none;
+                    }
 
-                    article {
-
+                    &>article {
+                        
+                        &>h2 {
+                            display: none;
+                        }
+                        
                         &>section:first-of-type {
-
+                            
+                            &>h3 {
+                                display: none;
+                            }
+                            
                             &>a {
                                 display: flex;
                                 justify-content: center;
