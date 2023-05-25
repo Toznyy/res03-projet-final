@@ -18,10 +18,22 @@
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
                 margin-bottom: 5rem;
+                
+                &>h2 {
+                    display: none;
+                }
 
                 &>article {
-
+                        
+                    &>h2 {
+                        display: none;
+                    }
+                        
                     &>section:first-of-type {
+                        
+                        &>h3 {
+                            display: none;
+                        }
 
                         &>a {
                             display: flex;
@@ -54,6 +66,10 @@
                         }
 
                         &>section {
+                            
+                            &>h2 {
+                                display: none;
+                            }
 
                             &>p {
                                 color: blue;
@@ -89,10 +105,22 @@
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 margin-bottom: 5rem;
+                
+                &>h2 {
+                    display: none;
+                }
 
-                article {
-
+                &>article {
+                        
+                    &>h2 {
+                        display: none;
+                    }
+                    
                     &>section:first-of-type {
+                        
+                        &>h3 {
+                            display: none;
+                        }
 
                         &>a {
                             display: flex;
@@ -125,6 +153,10 @@
                         }
 
                         &>section {
+                            
+                            &>h2 {
+                                display: none;
+                            }
 
                             &>p {
                                 color: blue;

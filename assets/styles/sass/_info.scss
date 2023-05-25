@@ -17,6 +17,10 @@
             justify-content: center;
             height: 100vh;
             font-family: 'Stick No Bills', sans-serif;
+            
+            &>h2 {
+                display: none;
+            }
     
             &>p {
                 font-size: 2rem;

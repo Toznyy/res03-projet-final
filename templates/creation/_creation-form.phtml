@@ -2,6 +2,7 @@
 
 <!-- Affiche un message d'erreur si nécessaire -->
 <section>
+    <h2>Affichage d'un message d'erreur si il y a une erreur</h2>
     <?php if (isset($data["errorMessage"]) && !empty($data["errorMessage"])) { ?>
         <p><?php echo $data["errorMessage"] ?></p>
     <?php } ?>
@@ -24,6 +25,7 @@
 
     <!-- Champs pour le prénom et le mot de passe de l'utilisateur -->
     <section>
+        <h2>Affichage du formulaire pour le prénom et le nom</h2>
         <fieldset>
             <label for="firstname">Prénom</label>
             <input type="text" name="first_name" id="firstname" />
@@ -34,8 +36,9 @@
         </fieldset>
     </section>
 
-    <!-- Champs pour le nom et la confirmation du mot de passe de l'utilisateur -->
+    <!-- Champs pour le mot de passe et la confirmation du mot de passe de l'utilisateur -->
     <section>
+        <h2>Affichage du formulaire pour le mot de passe et la confirmation du mot de passe</h2>
         <fieldset>
             <label for="lastname">Nom</label>
             <input type="lastname" name="last_name" id="lastname" />

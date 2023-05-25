@@ -1,15 +1,16 @@
+<h1>Accueil</h1>
 <section>
   <!-- Image de fond -->
   <figure>
-    <img src="/res03-projet-final/assets/img/image-fond-accuiel.png" alt="Image de fond">
+    <img src="/res03-projet-final/assets/img/images-de-fond/image-fond-accueil.png" alt="Image de fond">
   </figure>
   
   <!-- Titre et description de la boutique -->
-  <h1>Boutique Gintamall</h1>
+  <h2>Boutique Gintamall</h2>
   <p>Bienvenue dans ma boutique, petit otaku. Tu trouveras ici tous les meilleurs goodies de tes licences préférées</p>
   
   <!-- Section des meilleures ventes -->
-  <h2>Les meilleures ventes</h2>
+  <h3>Les meilleures ventes</h3>
   
   <?php
     // Initialisation d'un objet CategoryManager pour créer des slugs
@@ -17,6 +18,7 @@
   ?>
   
   <section>
+    <h2>Affichage de tous les articles</h2>
     <?php
       // Boucle à travers les produits passés en paramètre
       foreach($data as $product) {
@@ -27,7 +29,9 @@
     
     <!-- Article correspondant à un produit -->
     <article>
+      <h2>Affichage de l'article de la nouveauté</h2>
       <section>
+        <h3>Affichage de l'image de la nouveauté</h3>
         <!-- Image du produit -->
         <a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>/<?= $product['id'] ?>">
           <img src="<?php echo $product['URL']; ?>" alt="<?php echo $product['caption']; ?>">

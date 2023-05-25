@@ -258,6 +258,15 @@ class ProductManager extends AbstractManager {
         $query->execute($parameters);
     }
     
+    // Suppression dans la table products_categories
+    public function deleteProductCategory(int $id) : void {
+        
+        // Prépare une autre requête SQL pour supprimer l'élément de la table products_categories
+        $query= $this->db->prepare("DELETE FROM products_categories WHERE product_id = :product_id");
+        $parameters = ["product_id" => $id ];
+        $query->execute($parameters);
+    }
+    
     // Création d'un titre à la place d'un slug
     function createTitle(string $slug): string {
         // Remplace les tirets par des espaces

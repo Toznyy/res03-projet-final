@@ -12,7 +12,12 @@
                 text-align: center;
                 margin: 3rem 0;
             }
+            
             &>section {
+                
+                &>h2 {
+                    display: none;
+                }
                 
                 &>p {
                     background-color: #f8d7da;
@@ -116,7 +121,12 @@
                 text-align: center;
                 margin: 3rem 0;
             }
+            
             &>section {
+                
+                &>h2 {
+                    display: none;
+                }
                 
                 &>p {
                     background-color: #f8d7da;
@@ -196,7 +206,12 @@
                 text-align: center;
                 margin: 3rem 0;
             }
+            
             &>section {
+                
+                &>h2 {
+                    display: none;
+                }
                 
                 &>p {
                     background-color: #f8d7da;

@@ -39,9 +39,9 @@ class CategoryController extends AbstractController {
     
     public function createCategory(array $post)
     {
-        $newCategory = new Category($post['title'], $post['description']);
-        $newIcone = new Picture($post['URL-icone'], $post['caption-icone'], "icone");
-        $newLogo = new Picture($post['URL-logo'], $post['caption-logo'], "logo");
+        $newCategory = new Category($this->clean($post['title']), $this->clean($post['description']));
+        $newIcone = new Picture($this->clean($post['URL-icone']), $this->clean($post['caption-icone']), "icone");
+        $newLogo = new Picture($this->clean($post['URL-logo']), $this->clean($post['caption-logo']), "logo");
 
         $category = $this->cm->createCategory($newCategory);
         $icone = $this->pm->createPicture($newIcone);
@@ -73,8 +73,8 @@ class CategoryController extends AbstractController {
             if(isset($post['title']) && isset($post['description']) && !empty($post['title']) && !empty($post['description'])) {
                 
                 $categoryToUpdate = $this->cm->getCategoryById($id);
-                $categoryToUpdate->setTitle($post['title']);
-                $categoryToUpdate->setDescription($post['description']);
+                $categoryToUpdate->setTitle($this->clean($post['title']));
+                $categoryToUpdate->setDescription($this->clean($post['description']));
                 $this->cm->updateCategory($categoryToUpdate);
                 
                 foreach($pictures as $picture) { 
@@ -102,9 +102,10 @@ class CategoryController extends AbstractController {
         
         $id = intval($get);
         $categoryToDelete = $this->cm->getCategoryById($id);
-        $picturesToDelete = $this->pm->getPicturesByCategoryId($id);
+        $pictureToDelete = $this->pm->getPicturesByCategoryId($id);
+        var_dump($pictureToDelete);
         $category_picture = $this->cm->deleteCategoryPicture($id);
-        $this->pm->deletePictures($picturesToDelete);
+        $picture = $this->pm->deletePictures($pictureToDelete);
         $category = $this->cm->deleteCategory($categoryToDelete);
     
         header("Location: /res03-projet-final/admin/categories");

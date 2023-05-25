@@ -89,6 +89,31 @@ class UserManager extends AbstractManager {
         return $newUser;
     }
     
+    // Retourne un utilisateur par son pseudo
+    public function getUserByUsername(string $username) : ?User {
+            
+        // Prépare la requête SQL pour récupérer un utilsateur en fonction de son pseudo
+        $query = $this->db->prepare("SELECT * FROM users WHERE username = :username");
+        // Définit les paramètres de la requête SQL
+        $parameters = [
+            "username" => $username
+            ];
+        // Exécute la requête SQL avec les paramètres définis
+        $exe = $query->execute($parameters);
+        // Récupére l'utilsateur sous forme d'un tableau associatif
+        $user = $query->fetch(PDO::FETCH_ASSOC);
+        // Créer un nouvel objet User
+        if($user !== false)
+        {
+            $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday'], $user['role']);
+            $newUser->setId($user['id']);
+            // Retourne l'utilisateur créé sous forme d'objet
+            return $newUser;
+        }
+        
+        return null;
+    }
+    
     // Création d'un utilisateur
     public function createUser(User $user) : User {
         
@@ -188,7 +213,7 @@ class UserManager extends AbstractManager {
     }
     
     // Récupérer un utilisateur pour le connecter
-    function loadUser(string $username) : User {
+    function loadUser(string $username) : ?User {
         
         // Prépare une autre requête SQL pour récupérer l'utilisateur par son pseudo
         $query = $this->db->prepare("SELECT * FROM users WHERE username = :username");
@@ -199,10 +224,14 @@ class UserManager extends AbstractManager {
         // Récupére l'utilsateur sous forme d'un tableau associatif
         $user = $query->fetch(PDO::FETCH_ASSOC);
         // Crée un nouvel objet User
-        $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'], $user['birthday'], $user['role']);
-        $newUser->setId($user["id"]);
-        // Retourne l'utilisateur créé sous forme d'objet
-        return $newUser;
+        if($user !== false)
+        {
+            $newUser = new User($user['username'], $user['first_name'], $user['last_name'], $user['email'], $user['password'], $user['registration_date'],$user['birthday'], $user['role']);
+            $newUser->setId($user["id"]);
+            // Retourne l'utilisateur créé sous forme d'objet
+            return $newUser;
+        }
+        return null;
     }
     
     // Récupérer les produits favoris de l'utilisateur

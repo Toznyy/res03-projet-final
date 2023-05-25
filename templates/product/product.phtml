@@ -1,13 +1,16 @@
+<h1>Le produit</h1>
 <?php
 // Initialisation d'un objet CategoryManager pour créer des slugs
 $categoryManager = new CategoryManager();
 // Création du slug à partir du titre de la catégorie
 $categorySlug = $categoryManager->createSlug($data['category']->getTitle()); ?>
 
-<a href="/res03-projet-final/liste-categories/$categorySlug" class="retour-btn"><< Retour à la page de <?=$data['category']->getTitle(); ?></a>
+<a href="/res03-projet-final/liste-categories/<?=$categorySlug?>" class="retour-btn"><< Retour à la page de <?=$data['category']->getTitle(); ?></a>
 
 <section>
+    <h2>Affichage de la fiche produit</h2>
     <section>
+        <h2>Affichage de l'image du produit</h2>
         <figure>
             <?php if (count($data['pictures']) > 0) { ?>
                 <img src="<?php echo $data['pictures'][0]->getURL(); ?>" alt="<?php echo $data['pictures'][0]->getCaption(); ?>">
@@ -15,16 +18,19 @@ $categorySlug = $categoryManager->createSlug($data['category']->getTitle()); ?>
         </figure>
     </section>
     <section>
+        <h2>Affichage des informations du produit</h2>
         <section>
             <h1><?php echo $data['product']->getName(); ?></h1>
             <p>Prix : <?php echo $data['product']->getPrice(); ?> €</p>
             <p>Catégorie : <?php echo $data['category']->getTitle(); ?></p>
         </section>
         <section>
+            <h2>Affichage de la description du produit</h2>
             <p><?php echo $data['product']->getDescription(); ?></p>
         </section>
         
         <section>
+            <h2>Affichage du formulaire pour ajouter au panier</h2>
             <form method="post" action="/res03-projet-final/panier">
                 <input type="hidden" name="product_id" value="<?php echo $data['product']->getId(); ?>">
                 <input type="number" name="quantity" id="quantity" value="1" min="1">

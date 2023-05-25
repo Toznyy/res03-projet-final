@@ -146,6 +146,13 @@ class PictureManager extends AbstractManager {
         $query->execute($parameters);
     }
 
+    public function deletePicture(Picture $picture): void {
+        
+        $query = $this->db->prepare("DELETE FROM pictures WHERE id = :id");
+        $parameters = ["id" => $picture->getId()];
+        $query->execute($parameters);
+    }
+    
     public function deletePictures(array $pictures): void {
         
         foreach ($pictures as $picture) {

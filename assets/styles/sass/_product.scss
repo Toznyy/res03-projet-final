@@ -4,8 +4,11 @@
     font-family: 'Stick No Bills', sans-serif;
   
     &>main {
-  
       min-height: 90vh;
+      
+      &>h1 {
+        display: none;
+      }
   
       .retour-btn {
         display: inline-block;
@@ -33,7 +36,15 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         
+        &>h2 {
+          display: none;
+        }
+        
         &>section:first-of-type {
+          
+          &>h2 {
+            display: none;
+          }
           
           &>figure {
             margin: 3rem 0;
@@ -53,6 +64,10 @@
           display: grid;
           grid-template-rows: repeat(2,1fr) 0.1fr;
           
+          &>h2 {
+            display: none;
+          }
+          
           &>section:first-of-type {
             
             &>h1 {
@@ -71,6 +86,10 @@
           }
           
           &>section:nth-of-type(2) {
+            
+            &>h2 {
+              display: none;
+            }
   
             &>p {
               color: blue;
@@ -80,6 +99,10 @@
           }
           
           &>section:last-of-type {
+            
+            &>h2 {
+              display: none;
+            }
             
             &>form {
               display: flex;
@@ -116,8 +139,11 @@
     font-family: 'Stick No Bills', sans-serif;
   
     &>main {
-  
       min-height: 90vh;
+      
+      &>h1 {
+        display: none;
+      }
   
       .retour-btn {
         display: inline-block;
@@ -143,6 +169,10 @@
       &>section {
         height: 100%;
         
+        &>h2 {
+          display: none;
+        }
+        
         &>section:first-of-type {
           margin-top: 5rem;
           
@@ -161,6 +191,10 @@
         &>section:last-of-type {
           display: grid;
           grid-template-rows: repeat(2,1fr) 0.1fr;
+          
+          &>h2 {
+            display: none;
+          }
           
           &>section:first-of-type {
             margin-bottom: 5rem;
@@ -182,6 +216,10 @@
           
           &>section:nth-of-type(2) {
             
+            &>h2 {
+              display: none;
+            }
+            
             &>p {
               color: blue;
               font-size: 2.5rem;
@@ -192,6 +230,10 @@
           
           &>section:last-of-type {
             margin-bottom: 5rem;
+            
+            &>h2 {
+              display: none;
+            }
             
             &>form {
               display: flex;

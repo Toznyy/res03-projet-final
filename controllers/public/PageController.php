@@ -1,7 +1,6 @@
 <?php
 
 class PageController extends AbstractController {
-    private PageManager $pam;
     private CategoryManager $cm;
     private PictureManager $pm;
     private ProductManager $prm;
@@ -9,7 +8,6 @@ class PageController extends AbstractController {
     
     public function __construct() {
         
-        $this->pam = new PageManager();
         $this->cm = new CategoryManager();
         $this->pm = new PictureManager();
         $this->prm = new ProductManager();

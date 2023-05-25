@@ -28,6 +28,10 @@
             align-items: center;
             margin: 5rem 0;
             
+            &>h2 {
+                display: none;
+            }
+            
             &>span {
                 font-size: 10rem;
             }

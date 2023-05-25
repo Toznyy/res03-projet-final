@@ -41,8 +41,8 @@ class ProductController extends AbstractController {
 
     public function createProduct(array $post)
     {
-        $newProduct = new Product($post['name'], $post['description'], $post['price']);
-        $newPicture = new Picture($post['URL'], $post['caption-product'], "products");
+        $newProduct = new Product($this->clean($post['name']), $this->clean($post['description']), $this->clean($post['price']));
+        $newPicture = new Picture($this->clean($post['URL']), $this->clean($post['caption-product']), "products");
         
         $product = $this->prm->createProduct($newProduct);
         $picture = $this->pm->createPicture($newPicture);
@@ -73,11 +73,11 @@ class ProductController extends AbstractController {
                 
                 $productToUpdate = $this->prm->getProductById($id);
                 $pictureToUpdate = $this->pm->getPicturesByProductId($id);
-                $productToUpdate->setName($post['name']);
-                $productToUpdate->setDescription($post['description']);
-                $productToUpdate->setPrice($post['price']);
-                $pictureToUpdate->setURL($post['URL']);
-                $pictureToUpdate->setCaption($post['caption']);
+                $productToUpdate->setName($this->clean($post['name']));
+                $productToUpdate->setDescription($this->clean($post['description']));
+                $productToUpdate->setPrice($this->clean($post['price']));
+                $pictureToUpdate->setURL($this->clean($post['URL']));
+                $pictureToUpdate->setCaption($this->clean($post['caption']));
                 $productUpdated = $this->prm->updateProduct($productToUpdate);
                 $pictureUpdated = $this->pm->updatePicture($pictureToUpdate);
                 header("Location: /res03-projet-final/admin/products");
@@ -96,9 +96,10 @@ class ProductController extends AbstractController {
     {
         $id = intval($get);
         $productToDelete = $this->prm->getProductById($id);
-        $pictureToDelete = $this->pm->getPictureById($id);
+        $pictureToDelete = $this->pm->getPicturesByProductId($id);
         
         $product_picture = $this ->prm->deleteProductPicture($id);
+        $product_category = $this ->prm->deleteProductCategory($id);
         $picture = $this->pm->deletePicture($pictureToDelete);
         $product = $this->prm->deleteProduct($productToDelete);
 

@@ -2,6 +2,7 @@
 
 <!-- Affiche un message d'erreur si nécessaire -->
 <section>
+    <h2>Affichage d'un message d'erreur si il y a une erreur</h2>
     <?php if (isset($data["errorMessage"]) && !empty($data["errorMessage"])) { ?>
         <p><?php echo $data["errorMessage"] ?></p>
     <?php } ?>

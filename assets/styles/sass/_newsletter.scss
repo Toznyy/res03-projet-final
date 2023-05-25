@@ -60,7 +60,15 @@
             grid-row: 2/3;
             grid-column: 2/3;
             
+            &>h2 {
+                display: none;
+            }
+            
             &>figure {
+                
+                &>h3 {
+                    display: none;
+                }
                 
                 &>img {
                     margin: 0 auto;

@@ -18,7 +18,6 @@ require "controllers/admin/CategoryController.php";
 require "controllers/admin/ProductController.php";
 require "controllers/admin/OrderController.php";
 
-require "managers/public/PageManager.php";
 require "managers/admin/UserManager.php";
 require "managers/admin/CategoryManager.php";
 require "managers/admin/PictureManager.php";

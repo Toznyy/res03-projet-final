@@ -1,3 +1,4 @@
+<h1>Produits par licence</h1>
 <!-- Affiche un bouton "Retour à la page des licences" qui est la page précédente-->
 <a href="/res03-projet-final/liste-categories" class="retour-btn"><< Retour à la page des licences</a>
 
@@ -11,6 +12,7 @@
 
 <!-- Affiche une section pour chaque produit de la catégorie -->
 <section>
+    <h2>Affichage des produits par licence</h2>
     <?php foreach($data["products"] as $product) {
         
         // Crée une instance de la classe Category
@@ -27,6 +29,7 @@
         
         <!-- Affiche une section pour le produit -->
         <section>
+            <h2>Affichage du produit</h2>
             <article>
                 <!-- Affiche une image cliquable menant à la page du produit -->
                 <a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>/<?= $productObject->getId() ?>"><img src="<?= $product["URL"] ?>"></a>

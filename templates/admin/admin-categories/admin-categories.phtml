@@ -6,7 +6,7 @@
     <a href="/res03-projet-final/admin/categories/create" class="btn btn-primary">Créer une licence</a>
     
     <!-- Tableau qui affiche toutes les licences -->
-    <table class="table">
+    <table class="table-responsive">
         <thead>
             <tr>
                 <th scope="col">Nom</th>
@@ -30,7 +30,7 @@
                 <td>
                     <!-- Image du logo de la licence -->
                     <figure>
-                        <img src="<?= $category['logo_url']; ?>" alt="logo de <?= $category['title']; ?>">
+                        <img src="<?= $category['logo_url']; ?>" class="img-fluid" alt="logo de <?= $category['title']; ?>">
                     </figure>
                 </td>
                 <!-- Description de la licence -->

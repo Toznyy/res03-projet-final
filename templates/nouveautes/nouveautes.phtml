@@ -1,5 +1,6 @@
 <h1>Les dernières nouveautés</h1>
 <section>
+    <h2>Affichage des nouveautés</h2>
 <?php 
     $categoryManager = new CategoryManager(); // Crée une instance de la classe Category
     // Boucle sur chaque produit dans le tableau de données
@@ -10,7 +11,9 @@
         ?>
 
     <article>
+        <h2>Affichage de l'article de la nouveauté</h2>
         <section>
+            <h3>Affichage de l'image de la nouveauté</h3>
             <a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>/<?= $product['id'] ?>"><img src="<?php echo $product['URL']; ?>" alt="<?php echo $product['caption']; ?>"></a>
             <!-- Affiche l'image du produit en tant que lien vers sa page de détails -->
         </section>
@@ -22,6 +25,7 @@
             </h2>
             <!-- Affiche le nom du produit en tant que lien vers sa page de détails -->
             <section>
+                <h2>Affichage du prix et de la catégorie</h2>
                 <p>
                     <?php echo $product['price']; ?> €</p>
                 <!-- Affiche le prix du produit -->

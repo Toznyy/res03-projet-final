@@ -1,7 +1,7 @@
 <?php  
    
-abstract class AbstractController  
-{  
+abstract class AbstractController {
+    
     protected function render(string $view, array $values) : void {
         
         $template = $view;
@@ -16,6 +16,11 @@ abstract class AbstractController
         $data = $values;
         
         require 'templates/admin/admin-layout.phtml';
+    }
+    
+    protected function clean(string $unsafe) : string {
+        
+        return htmlspecialchars($unsafe);
     }
 }
 

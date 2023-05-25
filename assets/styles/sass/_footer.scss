@@ -13,6 +13,10 @@
                 align-items: center;
                 justify-content: center;
             
+            &>h2 {
+                display: none;
+            }
+            
             &>figure {
                 
                 &>img {
@@ -39,6 +43,10 @@
             grid-column: 4/5;
             border-bottom: 1rem;
             
+            &>h2 {
+                display: none;
+            }
+            
             &>a {
                 text-decoration: none;
                 color: #fff;
@@ -61,6 +69,10 @@
             display: flex;
                 align-items: center;
                 justify-content: center;
+                
+            &>h2 {
+                display: none;
+            }
             
             &>figure {
                 
@@ -88,6 +100,10 @@
             grid-column: 4/5;
             border-bottom: 1rem;
             
+            &>h2 {
+                display: none;
+            }
+            
             &>a {
                 text-decoration: none;
                 color: #fff;
@@ -110,6 +126,10 @@
             display: flex;
                 align-items: center;
                 justify-content: center;
+            
+            &>h2 {
+                display: none;
+            }
             
             &>figure {
                 
@@ -137,6 +157,10 @@
             grid-column: 4/5;
             border-bottom: 1rem;
             
+            &>h2 {
+                display: none;
+            }
+            
             &>a {
                 text-decoration: none;
                 color: #fff;
@@ -159,6 +183,10 @@
             display: flex;
                 align-items: center;
                 justify-content: center;
+                
+            &>h2 {
+                display: none;
+            }
             
             &>figure {
                 
@@ -186,6 +214,10 @@
             grid-column: 4/5;
             border-bottom: 1rem;
             
+            &>h2 {
+                display: none;
+            }
+            
             &>a {
                 text-decoration: none;
                 color: #fff;
@@ -209,6 +241,10 @@
             display: flex;
                 align-items: center;
                 justify-content: center;
+                
+            &>h2 {
+                display: none;
+            }
             
             &>figure {
                 
@@ -235,6 +271,10 @@
         &>section:last-of-type {
             grid-column: 4/5;
             border-bottom: 1rem;
+            
+            &>h2 {
+                display: none;
+            }
             
             &>a {
                 text-decoration: none;

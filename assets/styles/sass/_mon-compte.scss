@@ -4,6 +4,7 @@
         font-family: 'Stick No Bills', sans-serif;
         
         &>main {
+            min-height: 70vh;
             
             &>h1 {
                 font-size: 4rem;
@@ -16,10 +17,18 @@
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 
+                &>h2 {
+                    display: none;
+                }
+                
                 &>section {
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    
+                    &>h2 {
+                        display: none;
+                    }
                             
                     &>ul {
                         list-style: none;
@@ -76,6 +85,7 @@
         font-family: 'Stick No Bills', sans-serif;
         
         &>main {
+            min-height: 70vh;
             
             &>h1 {
                 font-size: 4rem;
@@ -85,12 +95,19 @@
             }
             
             &>section {
-
+                
+                &>h2 {
+                    display: none;
+                }
                 
                 &>section {
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    
+                    &>h2 {
+                        display: none;
+                    }
                             
                     &>ul {
                         list-style: none;

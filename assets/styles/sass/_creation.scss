@@ -11,7 +11,12 @@
                 text-align: center;
                 margin: 3rem 0;
             }
+            
             &>section {
+                
+                &>h2 {
+                    display: none;
+                }
                 
                 &>p {
                     background-color: #f8d7da;
@@ -49,6 +54,10 @@
                     flex-wrap: wrap;
                     justify-content: space-between;
                     margin-bottom: 2rem;
+                    
+                    &>h2 {
+                        display: none;
+                    }
     
                     &>fieldset {
                         width: 48%;
@@ -115,7 +124,12 @@
                 text-align: center;
                 margin: 3rem 0;
             }
+            
             &>section {
+                
+                &>h2 {
+                    display: none;
+                }
                 
                 &>p {
                     background-color: #f8d7da;
@@ -154,6 +168,10 @@
                     flex-wrap: wrap;
                     justify-content: space-between;
                     margin-bottom: 2rem;
+                    
+                    &>h2 {
+                        display: none;
+                    }
     
                     &>fieldset {
                         width: 48%;
