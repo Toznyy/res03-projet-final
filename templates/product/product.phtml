@@ -29,6 +29,8 @@ $categorySlug = $categoryManager->createSlug($data['category']->getTitle()); ?>
             <p><?php echo $data['product']->getDescription(); ?></p>
         </section>
         
+        <?php if($_SESSION) { ?>
+        
         <section>
             <h2>Affichage du formulaire pour ajouter au panier</h2>
             <form method="post" action="/res03-projet-final/panier">
@@ -37,5 +39,8 @@ $categorySlug = $categoryManager->createSlug($data['category']->getTitle()); ?>
                 <button class="paniers" data-product-id="<?php echo $data['product']->getId(); ?>">Ajouter au panier</button>
             </form>
         </section>
+        
+        <?php } ?>
+        
     </section>
 </section>

@@ -9,18 +9,18 @@
 </section>
 
 <!-- Formulaire pour créer un nouveau compte utilisateur -->
-<form method="post" action="creation">
+<form method="post" action="creation" id="creation">
 
     <!-- Champ pour le pseudo de l'utilisateur client -->
     <fieldset>
         <label for="username">Pseudo</label>
-        <input type="text" name="username" id="username" />
+        <input type="text" name="username" id="registerUsername" />
     </fieldset>
 
     <!-- Champ pour l'adresse e-mail de l'utilisateur -->
     <fieldset>
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" />
+        <input type="text" name="email" id="registerEmail" />
     </fieldset>
 
     <!-- Champs pour le prénom et le mot de passe de l'utilisateur -->
@@ -28,11 +28,11 @@
         <h2>Affichage du formulaire pour le prénom et le nom</h2>
         <fieldset>
             <label for="firstname">Prénom</label>
-            <input type="text" name="first_name" id="firstname" />
+            <input type="text" name="first_name" id="registerFirstname" />
         </fieldset>
         <fieldset>
             <label for="password">Mot de passe</label>
-            <input type="password" name="password" id="password" />
+            <input type="password" name="password" id="registerPassword" />
         </fieldset>
     </section>
 
@@ -41,18 +41,18 @@
         <h2>Affichage du formulaire pour le mot de passe et la confirmation du mot de passe</h2>
         <fieldset>
             <label for="lastname">Nom</label>
-            <input type="lastname" name="last_name" id="lastname" />
+            <input type="lastname" name="last_name" id="registerLastname" />
         </fieldset>
         <fieldset>
             <label for="confirmpassword">Confirmation mot de passe</label>
-            <input type="password" name="confirmpassword" id="confirmpassword" />
+            <input type="password" name="confirmpassword" id="registerConfirmPassword" />
         </fieldset>
     </section>
 
     <!-- Champ pour la date d'anniversaire de l'utilisateur -->
     <fieldset>
         <label for="birthday">Anniversaire</label>
-        <input type="date" name="birthday" id="birthday" />
+        <input type="date" name="birthday" id="registerBirthday" />
     </fieldset>
 
     <!-- Champ caché pour indiquer que le formulaire de création a été soumis -->
@@ -66,5 +66,5 @@
     </fieldset>
 
     <!-- Lien pour se connecter à un compte existant -->
-    <p>Clique <a href="../connexion/connexion.phtml">ici</a> pour te connecter</p>
+    <p>Clique <a href="../res03-projet-final/connexion">ici</a> pour te connecter</p>
 </form>

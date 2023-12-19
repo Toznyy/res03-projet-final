@@ -1,9 +1,9 @@
 @media (min-width: 1230px) {
     #creation {
         font-family: 'Stick No Bills', sans-serif;
-    
+
         &>main {
-    
+
             &>h1 {
                 font-size: 4rem;
                 font-weight: 800;
@@ -11,13 +11,13 @@
                 text-align: center;
                 margin: 3rem 0;
             }
-            
+
             &>section {
-                
+
                 &>h2 {
                     display: none;
                 }
-                
+
                 &>p {
                     background-color: #f8d7da;
                     border: 1px solid #f5c6cb;
@@ -28,58 +28,67 @@
                     text-align: center;
                 }
             }
-            
+
             &>form {
                 width: 80%;
                 margin: 0 auto;
-    
+
+                .error-message {
+                    color: red;
+                    display: block;
+                }
+
+                .field-error {
+                    border-color: red;
+                }
+
                 &>fieldset {
                     text-align: center;
                     margin: 3rem 0;
-    
+
                     &>label {
                         display: block;
                         font-size: 2rem;
                         color: blue;
                         margin-bottom: 1rem;
                     }
-    
+
                     &>input {
                         width: 20%;
                     }
                 }
-                
+
                 &>section {
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: space-between;
                     margin-bottom: 2rem;
-                    
+
                     &>h2 {
                         display: none;
                     }
-    
+
                     &>fieldset {
                         width: 48%;
                         /* Divise l'espace disponible entre les deux fieldsets */
                         text-align: center;
-    
+
                         &>label {
                             display: block;
                             font-size: 2rem;
                             color: blue;
                             margin-bottom: 1rem;
                         }
-                        
+
                         &>input {
                             width: 40%;
                         }
                     }
                 }
-                
+
                 &>fieldset:last-of-type {
                     margin: 0 0;
-                    
+
                     &>input {
                         background-color: blue;
                         color: white;
@@ -89,17 +98,17 @@
                         font-size: 1.5rem;
                         cursor: pointer;
                         transition: background-color 0.3s ease;
-                        
+
                         &>:hover {
                             background-color: navy;
                         }
                     }
                 }
-                
+
                 &>p {
                     text-align: center;
                     margin-bottom: 5rem;
-                    
+
                     &>a {
                         text-decoration: none;
                         color: blue;
@@ -145,6 +154,15 @@
             &>form {
                 width: 80%;
                 margin: 0 auto;
+                
+                .error-message {
+                    color: red;
+                    display: block;
+                }
+
+                .field-error {
+                    border-color: red;
+                }
     
                 &>fieldset {
                     text-align: center;

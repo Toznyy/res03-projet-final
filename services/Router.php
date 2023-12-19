@@ -31,12 +31,17 @@ class Router {
     
     public function checkRoute() {
     
-        if (isset($_GET["path"])) {
+        if (!isset($_GET["path"])) {
+            // Afficher la page "accueil"
+            $this -> pageController -> accueil();
+        }
+        
+        else {
     
             $route = explode("/", $_GET["path"]);
     
             // Pages publiques gérées par -> PageController
-            if ($route[0] === "connexion") {
+            if ($route[0] === "connexion" and !$_SESSION) {
     
                 // Si le formulaire de connexion est soumis
                 if (!empty($_POST) && $_POST["formName"] === "connexion") {
@@ -49,7 +54,7 @@ class Router {
                 }
             }
     
-            else if ($route[0] === "creation") {
+            else if ($route[0] === "creation" and !$_SESSION) {
     
                 // Si le formulaire de création d'utilisateur est soumis
                 if (!empty($_POST) && $_POST["formName"] === "creation") {
@@ -72,7 +77,7 @@ class Router {
                 $this -> pageController -> aPropos();
             }
     
-            else if ($route[0] === "nouveautes") {
+            else if ($route[0] === "nouveautes" and $_SESSION) {
                 // Afficher la page des nouveautés
                 $this -> pageController -> nouveautes();
             }
@@ -109,17 +114,17 @@ class Router {
                 }
             }
     
-            else if ($route[0] === "panier") {
+            else if ($route[0] === "panier" and $_SESSION) {
                 // Afficher le panier
                 $this->pageController->panier();
             }
     
-            else if ($route[0] === "addPanier") {
+            else if ($route[0] === "addPanier" and $_SESSION) {
                 // Ajouter un produit au panier
                 $this->pageController->addPanier();
             }
 
-            else if ($route[0] === "mon-compte") {
+            else if ($route[0] === "mon-compte" and $_SESSION) {
     
                 // Vérifie si l'utilisateur est connecté
                 if (!isset($_SESSION)) {

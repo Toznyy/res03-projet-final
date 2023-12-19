@@ -73,13 +73,13 @@ table {
     justify-content: center;
   }
   #header ul:first-of-type li a {
-    font-size: 2.2rem;
+    font-size: 4rem;
     text-decoration: none;
     color: #fff;
   }
   #header ul:first-of-type li a:hover {
     text-decoration: underline;
-    font-size: 2.5rem;
+    font-size: 4.4rem;
   }
   #header img {
     max-width: 80%;
@@ -87,7 +87,7 @@ table {
   }
   #header ul:last-of-type {
     display: grid;
-    grid-template-columns: repeat(2, 1fr) 0.5fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   #header ul:last-of-type li {
     display: flex;
@@ -95,13 +95,13 @@ table {
     justify-content: center;
   }
   #header ul:last-of-type li a {
-    font-size: 2.2rem;
+    font-size: 4rem;
     text-decoration: none;
     color: #fff;
   }
   #header ul:last-of-type li a:hover {
     text-decoration: underline;
-    font-size: 2.5rem;
+    font-size: 4.4rem;
   }
 }
 @media (min-width: 500px) and (max-width: 1230px) {
@@ -145,6 +145,98 @@ table {
     font-size: 3.5rem;
   }
 }
+@media (min-width: 1230px) {
+  #user-header {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr;
+    width: 100vw;
+    text-align: center;
+    background-color: #4471af;
+    justify-content: center;
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #user-header ul:first-of-type {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #user-header ul:first-of-type li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #user-header ul:first-of-type li a {
+    font-size: 4rem;
+    text-decoration: none;
+    color: #fff;
+  }
+  #user-header ul:first-of-type li a:hover {
+    text-decoration: underline;
+    font-size: 4.4rem;
+  }
+  #user-header img {
+    max-width: 80%;
+    height: auto;
+  }
+  #user-header ul:last-of-type {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 0.5fr;
+  }
+  #user-header ul:last-of-type li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #user-header ul:last-of-type li a {
+    font-size: 3rem;
+    text-decoration: none;
+    color: #fff;
+  }
+  #user-header ul:last-of-type li a:hover {
+    text-decoration: underline;
+    font-size: 3.5rem;
+  }
+}
+@media (min-width: 500px) and (max-width: 1230px) {
+  #user-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4471af;
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #user-header figure {
+    margin-top: 0; /* remplace margin-top: 20px; */
+    margin-bottom: 2rem;
+    order: -1; /* ajoute cette ligne pour changer l'ordre */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #user-header img {
+    max-width: 110%;
+    height: auto;
+  }
+  #user-header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #user-header ul li {
+    margin-bottom: 2rem;
+  }
+  #user-header ul li a {
+    font-size: 3rem;
+    text-decoration: none;
+    color: #fff;
+  }
+  #user-header ul li a:hover {
+    text-decoration: underline;
+    font-size: 3.5rem;
+  }
+}
 @media (min-width: 950px) {
   #footer {
     display: grid;
@@ -170,7 +262,7 @@ table {
     text-decoration: none;
   }
   #footer > section > a > h2 {
-    font-size: 2.2rem;
+    font-size: 3.5rem;
     color: #fff;
   }
   #footer > section > a > :hover {
@@ -368,6 +460,15 @@ table {
   #accueil > main {
     min-height: 80vh;
   }
+  #accueil > main .scroll-animation {
+    opacity: 0;
+    transform: translateX(-300px);
+    transition: opacity 2s ease-out, transform 2s ease-out;
+  }
+  #accueil > main .scroll-animation.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
   #accueil > main > h1 {
     display: none;
   }
@@ -403,15 +504,28 @@ table {
     text-align: center;
   }
   #accueil > main > section > section {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    justify-content: center;
     margin-bottom: 5rem;
   }
   #accueil > main > section > section > h2 {
     display: none;
   }
+  #accueil > main > section > section > article {
+    background-color: #4471af;
+    border-radius: 10px;
+    width: 30%;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
   #accueil > main > section > section > article > h2 {
     display: none;
+  }
+  #accueil > main > section > section > article > section:first-of-type {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   #accueil > main > section > section > article > section:first-of-type > h3 {
     display: none;
@@ -426,16 +540,38 @@ table {
     width: auto;
     height: 30vh;
   }
-  #accueil > main > section > section > article > section:last-of-type > h2 {
+  #accueil > main > section > section > article > section:nth-of-type(2) {
+    height: 10%;
+  }
+  #accueil > main > section > section > article > section:nth-of-type(2) > h2 {
     text-align: center;
-    font-size: 2rem;
-    color: blue;
+    font-size: 2.4rem;
+    color: white;
   }
-  #accueil > main > section > section > article > section:last-of-type > h2 > a {
+  #accueil > main > section > section > article > section:nth-of-type(2) > h2 > a {
     text-decoration: none;
-    color: blue;
+    color: white;
   }
-  #accueil > main > section > section > article > section:last-of-type > h2 > a:hover {
+  #accueil > main > section > section > article > section:nth-of-type(2) > h2 > a:hover {
+    text-decoration: underline;
+  }
+  #accueil > main > section > section > article > section:last-of-type {
+    margin-top: 15%;
+    margin-bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #accueil > main > section > section > article > section:last-of-type > h3 {
+    text-align: center;
+    font-size: 4rem;
+    color: white;
+  }
+  #accueil > main > section > section > article > section:last-of-type > h3 > a {
+    text-decoration: none;
+    color: white;
+  }
+  #accueil > main > section > section > article > section:last-of-type > h3 > a:hover {
     text-decoration: underline;
   }
 }
@@ -1515,6 +1651,13 @@ table {
     width: 80%;
     margin: 0 auto;
   }
+  #creation > main > form .error-message {
+    color: red;
+    display: block;
+  }
+  #creation > main > form .field-error {
+    border-color: red;
+  }
   #creation > main > form > fieldset {
     text-align: center;
     margin: 3rem 0;
@@ -1602,6 +1745,13 @@ table {
   #creation > main > form {
     width: 80%;
     margin: 0 auto;
+  }
+  #creation > main > form .error-message {
+    color: red;
+    display: block;
+  }
+  #creation > main > form .field-error {
+    border-color: red;
   }
   #creation > main > form > fieldset {
     text-align: center;
@@ -1695,6 +1845,13 @@ table {
     width: 80%;
     margin: 0 auto;
   }
+  #connexion > main > form .error-message {
+    color: red;
+    display: block;
+  }
+  #connexion > main > form .field-error {
+    border-color: red;
+  }
   #connexion > main > form > fieldset {
     text-align: center;
     margin: 3rem 0;
@@ -1779,6 +1936,13 @@ table {
   #connexion > main > form {
     width: 80%;
     margin: 0 auto;
+  }
+  #connexion > main > form .error-message {
+    color: red;
+    display: block;
+  }
+  #connexion > main > form .field-error {
+    border-color: red;
   }
   #connexion > main > form > fieldset {
     text-align: center;
@@ -2041,6 +2205,7 @@ table {
   #error404 > main > p {
     text-align: center;
     color: blue;
+    margin-bottom: 1rem;
   }
   #error404 > main > figure {
     display: flex;

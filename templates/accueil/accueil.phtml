@@ -28,7 +28,7 @@
     ?>
     
     <!-- Article correspondant à un produit -->
-    <article>
+    <article class = "scroll-animation">
       <h2>Affichage de l'article de la nouveauté</h2>
       <section>
         <h3>Affichage de l'image de la nouveauté</h3>
@@ -44,6 +44,14 @@
             <?php echo $product['name']; ?>
           </a>
         </h2>
+      </section>
+      <section>
+        <!-- Prix du produit -->
+        <h3>
+          <a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>/<?= $product['id'] ?>">
+            <?php echo $product['price']; ?> €
+          </a>
+        </h3>
       </section>
     </article>
     

@@ -4,7 +4,6 @@ $cart = [];
 if (isset($_SESSION["cart"]) && !empty($_SESSION["cart"])) {
     // Parcours du panier et récupération des produits
     foreach ($_SESSION["cart"] as $id => $quantity) {
-        var_dump($cart);
         if ($quantity > 0) { // Vérifie que la quantité est supérieure à 0
             $productManager = new ProductManager();
             $product = $productManager->getProductById($id);

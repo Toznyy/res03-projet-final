@@ -3,11 +3,13 @@
 class CategoryController extends AbstractController {
     private CategoryManager $cm;
     private PictureManager $pm;
+    private ProductManager $prm;
 
     public function __construct()
     {
         $this->cm = new CategoryManager();
         $this->pm = new PictureManager();
+        $this->prm = new ProductManager();
     }
 
     public function getCategories() {
@@ -99,14 +101,26 @@ class CategoryController extends AbstractController {
     }
 
     public function deleteCategory(string $get): void {
-        
         $id = intval($get);
         $categoryToDelete = $this->cm->getCategoryById($id);
         $pictureToDelete = $this->pm->getPicturesByCategoryId($id);
-        var_dump($pictureToDelete);
-        $category_picture = $this->cm->deleteCategoryPicture($id);
-        $picture = $this->pm->deletePictures($pictureToDelete);
-        $category = $this->cm->deleteCategory($categoryToDelete);
+        $title = $categoryToDelete->getTitle();
+        $productsToDelete = $this->prm->getAllProductsWithPicturesByCategory($title);
+    
+        foreach ($productsToDelete as $product) {
+            // Supprimer les images du produit
+            $this->prm->deleteProductPicture($product['id']);
+            
+            // Supprimer la relation produit-catégorie
+            $this->prm->deleteProductCategory($product['id']);
+            
+            // Ici, ajoutez toute autre logique de suppression nécessaire pour le produit
+        }
+    
+        // Supprimer les images de la catégorie et la catégorie elle-même
+        $this->cm->deleteCategoryPicture($id);
+        $this->pm->deletePictures($pictureToDelete);
+        $this->cm->deleteCategory($categoryToDelete);
     
         header("Location: /res03-projet-final/admin/categories");
     }

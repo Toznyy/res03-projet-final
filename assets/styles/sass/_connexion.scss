@@ -33,6 +33,15 @@
             &>form {
                 width: 80%;
                 margin: 0 auto;
+                
+                .error-message {
+                    color: red;
+                    display: block;
+                }
+
+                .field-error {
+                    border-color: red;
+                }
     
                 &>fieldset {
                     text-align: center;
@@ -142,6 +151,15 @@
             &>form {
                 width: 80%;
                 margin: 0 auto;
+                
+                .error-message {
+                    color: red;
+                    display: block;
+                }
+
+                .field-error {
+                    border-color: red;
+                }
     
                 &>fieldset {
                     text-align: center;
