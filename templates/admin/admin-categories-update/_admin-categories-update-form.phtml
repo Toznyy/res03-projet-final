@@ -1,0 +1,50 @@
+<!-- Formulaire pour modifier les informations d'une catégorie -->
+<h1>Formulaire de modification de catégorie</h1>
+
+<form method="post" action="/res03-projet-final/admin/categories/update/<?= $data["category"]->getId(); ?>">
+    
+    <!-- Champ pour le titre de la catégorie -->
+    <fieldset class="my-3">
+        <label for="title">Titre</label>
+        <input type="text" class="form-control" name="title" id="title" required value="<?= $data["category"]->getTitle(); ?>"/>
+    </fieldset>
+    
+    <!-- Champ pour la description de la catégorie -->
+    <fieldset class="my-3">
+        <label for="description">Description</label>
+        <textarea name="description" class="form-control" rows="5" cols="30"><?= $data["category"]->getDescription(); ?></textarea>
+    </fieldset>
+    
+    <!-- Champ pour l'URL de l'icône de la catégorie -->
+    <fieldset class="my-3">
+        <label for="URL">Icone</label>
+        <input type="text" name="URL-icone" class="form-control" id="URL-icone" required value="<?= $data["pictures"][0]->getURL(); ?>"/>
+    </fieldset>
+    
+    <!-- Champ pour la légende de l'icône de la catégorie -->
+    <fieldset class="my-3">
+        <label for="caption-icone">Caption Icone</label>
+        <input type="text" name="caption-icone" class="form-control" id="caption-icone" required value="<?= $data["pictures"][0]->getCaption(); ?>"/>
+    </fieldset>
+    
+    <!-- Champ pour l'URL du logo de la catégorie -->
+    <fieldset class="my-3">
+        <label for="URL">Logo</label>
+        <input type="text" name="URL-logo" class="form-control" id="URL-logo" required value="<?= $data["pictures"][1]->getURL(); ?>"/>
+    </fieldset>
+    
+    <!-- Champ pour la légende du logo de la catégorie -->
+    <fieldset class="my-3">
+        <label for="caption-logo">Caption Logo</label>
+        <input type="text" name="caption-logo" class="form-control" id="caption-logo" required value="<?= $data["pictures"][1]->getCaption(); ?>"/>
+    </fieldset>
+    
+        <!-- Champ caché pour indiquer que le formulaire est destiné à la modification de catégorie -->
+    <fieldset>
+        <input type="hidden" name="formName" value="update-category">
+    </fieldset>
+    
+    <!-- Bouton de soumission du formulaire -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+</form>

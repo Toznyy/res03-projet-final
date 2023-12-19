@@ -1,0 +1,70 @@
+<h1>Inscription</h1>
+
+<!-- Affiche un message d'erreur si nécessaire -->
+<section>
+    <h2>Affichage d'un message d'erreur si il y a une erreur</h2>
+    <?php if (isset($data["errorMessage"]) && !empty($data["errorMessage"])) { ?>
+        <p><?php echo $data["errorMessage"] ?></p>
+    <?php } ?>
+</section>
+
+<!-- Formulaire pour créer un nouveau compte utilisateur -->
+<form method="post" action="creation" id="creation">
+
+    <!-- Champ pour le pseudo de l'utilisateur client -->
+    <fieldset>
+        <label for="username">Pseudo</label>
+        <input type="text" name="username" id="registerUsername" />
+    </fieldset>
+
+    <!-- Champ pour l'adresse e-mail de l'utilisateur -->
+    <fieldset>
+        <label for="email">Email</label>
+        <input type="text" name="email" id="registerEmail" />
+    </fieldset>
+
+    <!-- Champs pour le prénom et le mot de passe de l'utilisateur -->
+    <section>
+        <h2>Affichage du formulaire pour le prénom et le nom</h2>
+        <fieldset>
+            <label for="firstname">Prénom</label>
+            <input type="text" name="first_name" id="registerFirstname" />
+        </fieldset>
+        <fieldset>
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="registerPassword" />
+        </fieldset>
+    </section>
+
+    <!-- Champs pour le mot de passe et la confirmation du mot de passe de l'utilisateur -->
+    <section>
+        <h2>Affichage du formulaire pour le mot de passe et la confirmation du mot de passe</h2>
+        <fieldset>
+            <label for="lastname">Nom</label>
+            <input type="lastname" name="last_name" id="registerLastname" />
+        </fieldset>
+        <fieldset>
+            <label for="confirmpassword">Confirmation mot de passe</label>
+            <input type="password" name="confirmpassword" id="registerConfirmPassword" />
+        </fieldset>
+    </section>
+
+    <!-- Champ pour la date d'anniversaire de l'utilisateur -->
+    <fieldset>
+        <label for="birthday">Anniversaire</label>
+        <input type="date" name="birthday" id="registerBirthday" />
+    </fieldset>
+
+    <!-- Champ caché pour indiquer que le formulaire de création a été soumis -->
+    <fieldset>
+        <input type="hidden" name="formName" value="creation">
+    </fieldset>
+
+    <!-- Bouton pour soumettre le formulaire -->
+    <fieldset>
+        <input type="submit" value="Je crée mon compte" />
+    </fieldset>
+
+    <!-- Lien pour se connecter à un compte existant -->
+    <p>Clique <a href="../res03-projet-final/connexion">ici</a> pour te connecter</p>
+</form>

@@ -1,0 +1,285 @@
+@media (min-width: 950px) { 
+    
+    #footer {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        width: 100vw;
+        text-align: center;
+        background-color: #4471af;
+        font-family: 'Stick No Bills', sans-serif;
+        
+        &>section {
+            display: flex;
+                align-items: center;
+                justify-content: center;
+            
+            &>h2 {
+                display: none;
+            }
+            
+            &>figure {
+                
+                &>img {
+                    max-width: 70%;
+                    height: auto;
+                }
+            }
+             
+            &>a {
+                text-decoration: none;
+                
+                &>h2 {
+                    font-size: 3.5rem;
+                    color: #fff;
+                }
+                
+                &>:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        
+        &>section:last-of-type {
+            grid-column: 4/5;
+            border-bottom: 1rem;
+            
+            &>h2 {
+                display: none;
+            }
+            
+            &>a {
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+    }
+}
+
+@media (min-width: 800px) and (max-width: 950px) {
+    
+    #footer {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        width: 100vw;
+        text-align: center;
+        background-color: #4471af;
+        font-family: 'Stick No Bills', sans-serif;
+        
+        &>section {
+            display: flex;
+                align-items: center;
+                justify-content: center;
+                
+            &>h2 {
+                display: none;
+            }
+            
+            &>figure {
+                
+                &>img {
+                    max-width: 80%;
+                    height: auto;
+                }
+            }
+             
+            &>a {
+                text-decoration: none;
+                
+                &>h2 {
+                    font-size: 2rem;
+                    color: #fff;
+                }
+                
+                &>:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        
+        &>section:last-of-type {
+            grid-column: 4/5;
+            border-bottom: 1rem;
+            
+            &>h2 {
+                display: none;
+            }
+            
+            &>a {
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+    }
+}
+
+@media (min-width: 640px) and (max-width: 800px) {
+    
+    #footer {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        width: 100vw;
+        text-align: center;
+        background-color: #4471af;
+        font-family: 'Stick No Bills', sans-serif;
+        
+        &>section {
+            display: flex;
+                align-items: center;
+                justify-content: center;
+            
+            &>h2 {
+                display: none;
+            }
+            
+            &>figure {
+                
+                &>img {
+                    max-width: 80%;
+                    height: auto;
+                }
+            }
+             
+            &>a {
+                text-decoration: none;
+                
+                &>h2 {
+                    font-size: 1.6rem;
+                    color: #fff;
+                }
+                
+                &>:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        
+        &>section:last-of-type {
+            grid-column: 4/5;
+            border-bottom: 1rem;
+            
+            &>h2 {
+                display: none;
+            }
+            
+            &>a {
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+    }
+}
+
+@media (min-width: 480px) and (max-width: 640px) {
+    
+    #footer {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        width: 100vw;
+        text-align: center;
+        background-color: #4471af;
+        font-family: 'Stick No Bills', sans-serif;
+        
+        &>section {
+            display: flex;
+                align-items: center;
+                justify-content: center;
+                
+            &>h2 {
+                display: none;
+            }
+            
+            &>figure {
+                
+                &>img {
+                    max-width: 80%;
+                    height: auto;
+                }
+            }
+             
+            &>a {
+                text-decoration: none;
+                
+                &>h2 {
+                    font-size: 1.2rem;
+                    color: #fff;
+                }
+                
+                &>:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        
+        &>section:last-of-type {
+            grid-column: 4/5;
+            border-bottom: 1rem;
+            
+            &>h2 {
+                display: none;
+            }
+            
+            &>a {
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 480px) {
+    
+    #footer {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        width: 100vw;
+        text-align: center;
+        background-color: #4471af;
+        font-family: 'Stick No Bills', sans-serif;
+        
+        &>section {
+            display: flex;
+                align-items: center;
+                justify-content: center;
+                
+            &>h2 {
+                display: none;
+            }
+            
+            &>figure {
+                
+                &>img {
+                    max-width: 80%;
+                    height: auto;
+                }
+            }
+             
+            &>a {
+                text-decoration: none;
+                
+                &>h2 {
+                    font-size: 1rem;
+                    color: #fff;
+                }
+                
+                &>:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        
+        &>section:last-of-type {
+            grid-column: 4/5;
+            border-bottom: 1rem;
+            
+            &>h2 {
+                display: none;
+            }
+            
+            &>a {
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+    }
+}

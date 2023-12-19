@@ -1,0 +1,52 @@
+<?php
+// Récupération du panier
+$cart = [];
+if (isset($_SESSION["cart"]) && !empty($_SESSION["cart"])) {
+    // Parcours du panier et récupération des produits
+    foreach ($_SESSION["cart"] as $id => $quantity) {
+        if ($quantity > 0) { // Vérifie que la quantité est supérieure à 0
+            $productManager = new ProductManager();
+            $product = $productManager->getProductById($id);
+            array_push($cart, $product);
+        }
+    }
+}
+?>
+<h1>Mon panier</h1>
+<?php
+if (!empty($cart)) { // Vérifie que le panier n'est pas vide
+?>
+    <table>
+        <thead>
+            <tr>
+                <th>Produit</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($cart as $product) {
+                // Récupération de la quantité de chaque produit
+                $quantity = intval($_SESSION["cart"][$product->getId()]);
+            ?>
+                <tr>
+                    <td><?= $product->getName() ?></td>
+                    <td><?= $product->getPrice() ?> €</td>
+                    <td><?= $quantity ?></td>
+                    <td><?= $product->getPrice() * $quantity ?> €</td>
+                </tr>
+            <?php } ?>
+            <tr>
+                <td colspan="3">Total</td>
+                <td><?= array_sum(array_map(function($product) { 
+                    return $product->getPrice() * $_SESSION["cart"][$product->getId()]; 
+                }, $cart)) ?> €</td>
+            </tr>
+        </tbody>
+    </table>
+<?php }
+else { // Affichage d'un message si le panier est vide
+?>
+    <p>Votre panier est vide.</p>
+<?php } ?>

@@ -1,0 +1,29 @@
+<h1>Mon Compte</h1>
+
+<section>
+    <h2>Affichage de la page mon compte</h2>
+    <!-- Section avec des informations personnelles de l'utilisateur -->
+    <section>
+        <h2>Affichage des informations de l'utilisateur</h2>
+        <ul>
+            <!-- Nom d'utilisateur -->
+            <li><strong>Nom d'utilisateur :</strong> <?= $data["username"] ?></li>
+            <!-- Prénom -->
+            <li><strong>Prénom :</strong> <?= $data["prenom"] ?></li>
+            <!-- Nom -->
+            <li><strong>Nom :</strong> <?= $data["nom"] ?></li>
+            <!-- Email -->
+            <li><strong>Email :</strong> <?= $data["email"] ?></li>
+            <?php setlocale(LC_TIME, "fr_FR.utf8"); ?>
+            <!-- Date de naissance -->
+            <li><strong>Date de naissance :</strong> <?= date("d/m/Y", strtotime($data["date_de_naissance"])) ?></li>
+        </ul>
+    </section>
+    <!-- Figure avec une image -->
+    <figure>
+        <img src = "/res03-projet-final/assets/img/images-de-fond/cd36da0dcec0037b19ad3470a4e63a0c-removebg-preview.png" alt = "image page mon compte">
+    </figure>
+</section>
+
+<!-- Lien de déconnexion -->
+<a href="deconnexion">Déconnexion</a>

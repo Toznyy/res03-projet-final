@@ -1,0 +1,30 @@
+<h1>Formulaire de création d'un produit</h1>
+
+<form method="post" action="/res03-projet-final/admin/products/create">
+    <fieldset>
+        <label for="name">Nom</label>
+        <input type="text" class="form-control" name="name" id="name" />
+    </fieldset>
+    <fieldset>
+        <label for="description">Description</label>
+        <textarea name="description" class="form-control" rows="5" cols="100" placeholder="Décris le produit avec détails"></textarea>
+    </fieldset>
+    <fieldset>
+        <label for="number">Prix</label>
+        <input type="text" class="form-control" name="price" id="price" />
+    </fieldset>
+    <fieldset>
+        <label for="URL">URL de l'image</label>
+        <input type="URL" class="form-control" name="URL" id="URL" />
+    </fieldset>
+    <fieldset>
+        <label for="caption">Caption</label>
+        <input type="text" class="form-control" name="caption" id="caption" />
+    </fieldset>
+    <fieldset>
+        <input type="hidden" name="formName" value="create-product">
+    </fieldset>
+    <fieldset>
+        <input type="submit" value="Je crée le produit" />
+    </fieldset>
+</form>

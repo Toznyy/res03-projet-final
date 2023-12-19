@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta property="og:title" content="Gintamall">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://anthonycormier.sites.3wa.io/res03-projet-final/accueil">
+    <meta property="og:image" content="https://anthonycormier.sites.3wa.io/res03-projet-final/assets/img/logo2.png">
+    <meta property="og:description" content="Site de ventes de goodies mangas">
+    <title>Gintamall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Stick+No+Bills&family=Wallpoet&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/res03-projet-final/assets/styles/css/style.css">
+</head>
+
+    <body class="cart-open" id=<?php echo $template ?> >
+        <!-- La classe "cart-open" est ajoutée au body pour indiquer que le panier est ouvert -->
+    
+        <?php
+        if($_SESSION) {
+            // Si l'utilisateur est connecté, inclure le header utilisateur
+            require 'partials/_userHeader.phtml';
+        }
+        else {
+            // Sinon, inclure le header standard
+            require 'partials/_header.phtml';
+        } ?>
+    
+            <main>
+                <!-- Inclure le contenu principal de la page, qui est défini dans le fichier correspondant à la variable $template -->
+                <?php require "templates/".$template."/".$template.".phtml"; ?>
+            </main>
+    
+            <!-- Inclure le footer de la page -->
+            <?php require 'partials/_footer.phtml'; ?>
+    
+            <!-- Ajout du script principal de la page -->
+            <script type="module" src="/res03-projet-final/assets/javascript/main.js"></script>
+    </body>
+</html>

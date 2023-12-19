@@ -1,0 +1,41 @@
+<!-- Formulaire pour modifier les informations d'un utilisateur -->
+<h1>Formulaire de modification de l'utilisateur</h1>
+
+<form method="post" action="/res03-projet-final/admin/users/update/<?= $data["user"]->getId(); ?>">
+    <!-- Champ pour le pseudo de l'utilisateur -->
+    <fieldset class="my-3">
+        <label for="username">Pseudo</label>
+        <input type="text" class="form-control" name="username" id="username" required value="<?= $data["user"]->getUsername(); ?>"/>
+    </fieldset>
+    <!-- Champ pour le nom de famille de l'utilisateur -->
+    <fieldset class="my-3">
+        <label for="last_name">Nom</label>
+        <input type="text" name="last_name" class="form-control" id="last_name" value="<?= $data["user"]->getLastName(); ?>"/>
+    </fieldset>
+    <!-- Champ pour le prénom de l'utilisateur -->
+    <fieldset class="my-3">
+        <label for="first_name">Prénom</label>
+        <input type="text" class="form-control" name="first_name" id="first_name" required value="<?= $data["user"]->getFirstName(); ?>"/>
+    </fieldset>
+    <!-- Champ pour l'adresse email de l'utilisateur -->
+    <fieldset class="my-3">
+        <label for="email">Email</label>
+        <input type="email" name="email" class="form-control" id="email" value="<?= $data["user"]->getEmail(); ?>"/>
+    </fieldset>
+    <!-- Champ pour le mot de passe de l'utilisateur -->
+    <fieldset class="my-3">
+        <label for="password">Mot de passe</label>
+        <input type="password" class="form-control" name="password" id="password" required value="<?= $data["user"]->getPassword(); ?>"/>
+    </fieldset>
+    <!-- Champ pour la date de naissance de l'utilisateur -->
+    <fieldset class="my-3">
+        <label for="birthday">Date d'anniversiare</label>
+        <input type="text" class="form-control" name="birthday" id="birthday" required value="<?= $data["user"]->getBirthday(); ?>"/>
+    </fieldset>
+    <!-- Champ caché pour indiquer que le formulaire est destiné à la modification d'utilisateur -->
+    <fieldset>
+        <input type="hidden" name="formName" value="update-user">
+    </fieldset>
+    <!-- Bouton pour soumettre le formulaire -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,21 @@
+<h1>Liste des catégories</h1>
+<section>
+  <h2>Affichage des catégories</h2>
+  <?php foreach($data['categories'] as $category) { ?>
+  
+  <?php
+    // Crée une instance de CategoryManager pour pouvoir utiliser la méthode createSlug()
+    $categoryManager = new CategoryManager();
+    // Crée un slug à partir du titre de la catégorie
+    $categorySlug = $categoryManager->createSlug($category["title"]);
+  ?>
+
+  <section>
+    <!-- Affiche l'icône de la catégorie avec un lien vers la liste des produits de cette catégorie -->
+    <a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>"><img class="radius" src="<?= $category['icone_url'] ?>" alt="<?= $category['title'] ?>"></a>
+    <!-- Affiche le titre de la catégorie avec un lien vers la liste des produits de cette catégorie -->
+    <h2><a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>"><?= $category['title'] ?></a></h2>
+  </section>
+  
+  <?php } ?>
+</section>

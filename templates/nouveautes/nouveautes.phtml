@@ -1,0 +1,42 @@
+<h1>Les dernières nouveautés</h1>
+<section>
+    <h2>Affichage des nouveautés</h2>
+<?php 
+    $categoryManager = new CategoryManager(); // Crée une instance de la classe Category
+    // Boucle sur chaque produit dans le tableau de données
+    foreach($data as $product) {
+        $categorySlug = $categoryManager->createSlug($product['title']); // Crée un slug pour la catégorie du produit
+
+        // Affiche les détails du produit dans un élément article
+        ?>
+
+    <article>
+        <h2>Affichage de l'article de la nouveauté</h2>
+        <section>
+            <h3>Affichage de l'image de la nouveauté</h3>
+            <a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>/<?= $product['id'] ?>"><img src="<?php echo $product['URL']; ?>" alt="<?php echo $product['caption']; ?>"></a>
+            <!-- Affiche l'image du produit en tant que lien vers sa page de détails -->
+        </section>
+        <section>
+            <h2>
+                <a href="https://anthonycormier.sites.3wa.io/res03-projet-final/liste-categories/<?= $categorySlug ?>/<?= $product['id'] ?>">
+                    <?php echo $product['name']; ?>
+                </a>
+            </h2>
+            <!-- Affiche le nom du produit en tant que lien vers sa page de détails -->
+            <section>
+                <h2>Affichage du prix et de la catégorie</h2>
+                <p>
+                    <?php echo $product['price']; ?> €</p>
+                <!-- Affiche le prix du produit -->
+                <p>Catégorie :&nbsp;
+                    <a href="/res03-projet-final/liste-categories/<?= $categorySlug ?>">
+                        <?php echo $product['title']; ?>
+                    </a>
+                </p>
+                <!-- Affiche le titre de la catégorie du produit en tant que lien vers la page de liste des produits de cette catégorie -->
+            </section>
+        </section>
+    </article>
+<?php } ?>
+</section>

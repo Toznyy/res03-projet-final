@@ -1,0 +1,48 @@
+<section>
+    <!-- Tableau des licences -->
+    <h1>Liste des licences</h1>
+    
+    <!-- Bouton pour créer une nouvelle licence -->
+    <a href="/res03-projet-final/admin/categories/create" class="btn btn-primary">Créer une licence</a>
+    
+    <!-- Tableau qui affiche toutes les licences -->
+    <table class="table-responsive">
+        <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Icone</th>
+                <th scope="col">Logo</th>
+                <th scope="col">Description</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($data['categories'] as $category) { ?>
+            <tr>
+                <!-- Titre de la licence -->
+                <td><?= $category['title']; ?></td>
+                <td>
+                    <!-- Image de l'icone de la licence -->
+                    <figure>
+                        <img src="<?= $category['icone_url']; ?>" alt="icone de <?= $category['title']; ?>">
+                    </figure>
+                </td>
+                <td>
+                    <!-- Image du logo de la licence -->
+                    <figure>
+                        <img src="<?= $category['logo_url']; ?>" class="img-fluid" alt="logo de <?= $category['title']; ?>">
+                    </figure>
+                </td>
+                <!-- Description de la licence -->
+                <td><?= $category['description']; ?></td>
+                
+                <!-- Deux boutons pour chaque utilisateur : Modifier et Supprimer -->
+                <td>
+                    <a href="/res03-projet-final/admin/categories/update/<?= $category['id']; ?>" class="btn btn-primary">Modifier</a>
+                    <a href="/res03-projet-final/admin/categories/delete/<?= $category['id']; ?>" class="btn btn-danger">Supprimer</a>
+                </td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</section>

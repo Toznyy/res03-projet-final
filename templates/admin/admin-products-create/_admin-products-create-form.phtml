@@ -1,0 +1,51 @@
+<!-- Formulaire pour créer les informations d'un produit -->
+<h1>Formulaire de création d'un produit</h1>
+
+<form method="post" action="/res03-projet-final/admin/products/create">
+    <!-- Champ pour le nom du produit -->
+    <fieldset>
+        <label for="aname">Nom</label>
+        <input type="text" class="form-control" name="name" id="aname" />
+    </fieldset>
+    <!-- Champ pour la description du produit -->
+    <fieldset>
+        <label for="description">Description</label>
+        <textarea name="description" class="form-control" rows="5" cols="100" placeholder="Décris le produit"></textarea>
+    </fieldset>
+    <!-- Champ pour le prix du produit -->
+    <fieldset>
+        <label for="number">Prix</label>
+        <input type="float" class="form-control" name="price" id="price" />
+    </fieldset>
+    <!-- Champ pour l'URL de l'image du produit -->
+    <fieldset>
+        <label for="URL">URL de l'image</label>
+        <input type="text" class="form-control" name="URL" id="URL" />
+    </fieldset>
+    <!-- Champ pour la légende du produit -->
+    <fieldset>
+        <label for="caption-product">Caption</label>
+        <input type="text" class="form-control" name="caption-product" id="caption-product" />
+    </fieldset>
+    <!-- Champ pour la catégorie du produit -->
+    <fieldset>
+        <div class="form-group">
+            <select class="custom-select" required name="title">
+                <!-- Option "Licences" par défaut -->
+                <option value="categories">Licences</option>
+                <?php foreach($data['categories'] as $category) { ?>
+                    <!-- Options pour les autres catégories -->
+                    <option value="<?= $category->getTitle() ?>"><?= $category->getTitle(); ?></option>
+                <?php } ?>
+            </select>
+        </div>
+    </fieldset>
+    <!-- Champ caché pour indiquer que le formulaire est destiné à la création de produit -->
+    <fieldset>
+        <input type="hidden" name="formName" value="create-product">
+    </fieldset>
+    <!-- Bouton pour soumettre le formulaire -->
+    <fieldset>
+        <input type="submit" value="Je crée le produit" />
+    </fieldset>
+</form>

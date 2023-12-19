@@ -1,0 +1,182 @@
+@media (min-width: 1230px) {
+
+    #nouveautes {
+        font-family: 'Stick No Bills', sans-serif;
+
+        &>main {
+            min-height: 60vh;
+
+            &>h1 {
+                font-size: 4rem;
+                font-weight: 800;
+                text-align: center;
+                color: blue;
+                margin: 3rem 0;
+            }
+
+            &>section {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                margin-bottom: 5rem;
+                
+                &>h2 {
+                    display: none;
+                }
+
+                &>article {
+                        
+                    &>h2 {
+                        display: none;
+                    }
+                        
+                    &>section:first-of-type {
+                        
+                        &>h3 {
+                            display: none;
+                        }
+
+                        &>a {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin-bottom: 1.5rem;
+
+                            &>img {
+                                width: auto;
+                                height: 30vh;
+                            }
+                        }
+                    }
+
+                    &>section:last-of-type {
+
+                        &>h2 {
+                            text-align: center;
+                            font-size: 2rem;
+                            color: blue;
+
+                            &>a {
+                                text-decoration: none;
+                                color: blue;
+
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+
+                        &>section {
+                            
+                            &>h2 {
+                                display: none;
+                            }
+
+                            &>p {
+                                color: blue;
+                                text-align: center;
+                                font-size: 1.5rem;
+                                margin: 3rem 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1230px) {
+
+    #nouveautes {
+        font-family: 'Stick No Bills', sans-serif;
+
+        &>main {
+            min-height: 60vh;
+
+            &>h1 {
+                font-size: 4rem;
+                font-weight: 800;
+                text-align: center;
+                color: blue;
+                margin: 3rem 0;
+            }
+
+            &>section {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                margin-bottom: 5rem;
+                
+                &>h2 {
+                    display: none;
+                }
+
+                &>article {
+                        
+                    &>h2 {
+                        display: none;
+                    }
+                    
+                    &>section:first-of-type {
+                        
+                        &>h3 {
+                            display: none;
+                        }
+
+                        &>a {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin-bottom: 1.5rem;
+
+                            &>img {
+                                width: auto;
+                                height: 20vh;
+                            }
+                        }
+                    }
+
+                    &>section:last-of-type {
+
+                        &>h2 {
+                            text-align: center;
+                            font-size: 2rem;
+                            color: blue;
+
+                            &>a {
+                                text-decoration: none;
+                                color: blue;
+
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+
+                        &>section {
+                            
+                            &>h2 {
+                                display: none;
+                            }
+
+                            &>p {
+                                color: blue;
+                                text-align: center;
+                                font-size: 1.5rem;
+                                margin: 3rem 0;
+                                
+                                &>a {
+                                    text-decoration: none;
+                                    color: blue;
+                                    
+                                    &>:hover {
+                                        text-décoration: underline;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

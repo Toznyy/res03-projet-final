@@ -1,0 +1,260 @@
+@media (min-width: 1230px) {
+
+    #accueil {
+        overflow-x: hidden;
+        font-family: 'Stick No Bills', sans-serif;
+
+
+
+        &>main {
+            min-height: 80vh;
+            
+            .scroll-animation {
+                opacity: 0;
+                transform: translateX(-300px);
+                transition: opacity 2s ease-out, transform 2s ease-out;
+                
+                &.active {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            &>h1 {
+                display: none;
+            }
+
+            &>section {
+                width: 100vw;
+
+                &>figure {
+                    margin-top: 5px;
+
+                    &>img {
+                        display: block;
+                        margin: 0 auto;
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+
+                &>h2 {
+                    font-size: 4rem;
+                    font-weight: 800;
+                    margin: 3rem 0;
+                    color: blue;
+                    text-align: center;
+                }
+
+                &>p {
+                    color: blue;
+                    text-align: center;
+                    font-size: 2rem;
+                }
+
+                &>h3 {
+                    font-size: 3rem;
+                    font-weight: 800;
+                    margin: 10rem 0 3rem 0;
+                    color: blue;
+                    text-align: center;
+                }
+
+                &>section {
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 5rem;
+
+                    &>h2 {
+                        display: none;
+                    }
+
+                    &>article {
+                        
+                        background-color: #4471af;
+                        border-radius: 10px;
+                        width: 30%;
+                        margin-right: 10px;
+                        margin-left: 10px;
+
+                        &>h2 {
+                            display: none;
+                        }
+
+                        &>section:first-of-type {
+                            margin-top: 5%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            &>h3 {
+                                display: none;
+                            }
+
+                            &>a {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                margin-bottom: 1.5rem;
+
+                                &>img {
+                                    width: auto;
+                                    height: 30vh;
+                                }
+                            }
+                        }
+
+                        &>section:nth-of-type(2) {
+                            height: 10%;
+
+                            &>h2 {
+                                text-align: center;
+                                font-size: 2.4rem;
+                                color: white;
+
+                                &>a {
+                                    text-decoration: none;
+                                    color: white;
+
+                                    &:hover {
+                                        text-decoration: underline;
+                                    }
+                                }
+                            }
+                        }
+
+                        &>section:last-of-type {
+                            margin-top: 15%;
+                            margin-bottom: 10%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            &>h3 {
+                                text-align: center;
+                                font-size: 4rem;
+                                color: white;
+
+                                &>a {
+                                    text-decoration: none;
+                                    color: white;
+
+                                    &:hover {
+                                        text-decoration: underline;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 890px) and (max-width: 1230px) {
+
+    #accueil {
+        overflow-x: hidden;
+        font-family: 'Stick No Bills', sans-serif;
+
+        &>main {
+            min-height: 80vh;
+
+            &>h1 {
+                display: none;
+            }
+
+            &>section {
+                width: 100vw;
+
+                &>figure {
+                    margin-top: 5px;
+
+                    &>img {
+                        display: block;
+                        margin: 0 auto;
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+
+                &>h2 {
+                    font-size: 4rem;
+                    font-weight: 800;
+                    margin: 3rem 0;
+                    color: blue;
+                    text-align: center;
+                }
+
+                &>p {
+                    color: blue;
+                    text-align: center;
+                    font-size: 2rem;
+                }
+
+                &>h3 {
+                    font-size: 3rem;
+                    font-weight: 800;
+                    margin: 10rem 0 3rem 0;
+                    color: blue;
+                    text-align: center;
+                }
+
+                &>section {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    margin-bottom: 5rem;
+
+                    &>h2 {
+                        display: none;
+                    }
+
+                    &>article {
+
+                        &>h2 {
+                            display: none;
+                        }
+
+                        &>section:first-of-type {
+
+                            &>h3 {
+                                display: none;
+                            }
+
+                            &>a {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                margin-bottom: 1.5rem;
+
+                                &>img {
+                                    width: auto;
+                                    height: 20vh;
+                                }
+                            }
+                        }
+
+                        &>section:last-of-type {
+
+                            &>h2 {
+                                text-align: center;
+                                font-size: 2rem;
+                                color: blue;
+
+                                &>a {
+                                    text-decoration: none;
+                                    color: blue;
+
+                                    &:hover {
+                                        text-decoration: underline;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

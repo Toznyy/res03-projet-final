@@ -1,0 +1,2249 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@media (min-width: 1230px) {
+  #header {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr;
+    width: 100vw;
+    text-align: center;
+    background-color: #4471af;
+    justify-content: center;
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #header ul:first-of-type {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #header ul:first-of-type li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #header ul:first-of-type li a {
+    font-size: 4rem;
+    text-decoration: none;
+    color: #fff;
+  }
+  #header ul:first-of-type li a:hover {
+    text-decoration: underline;
+    font-size: 4.4rem;
+  }
+  #header img {
+    max-width: 80%;
+    height: auto;
+  }
+  #header ul:last-of-type {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #header ul:last-of-type li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #header ul:last-of-type li a {
+    font-size: 4rem;
+    text-decoration: none;
+    color: #fff;
+  }
+  #header ul:last-of-type li a:hover {
+    text-decoration: underline;
+    font-size: 4.4rem;
+  }
+}
+@media (min-width: 500px) and (max-width: 1230px) {
+  #header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4471af;
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #header figure {
+    margin-top: 0; /* remplace margin-top: 20px; */
+    margin-bottom: 2rem;
+    order: -1; /* ajoute cette ligne pour changer l'ordre */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #header img {
+    max-width: 110%;
+    height: auto;
+  }
+  #header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #header ul li {
+    margin-bottom: 2rem;
+  }
+  #header ul li a {
+    font-size: 3rem;
+    text-decoration: none;
+    color: #fff;
+  }
+  #header ul li a:hover {
+    text-decoration: underline;
+    font-size: 3.5rem;
+  }
+}
+@media (min-width: 1230px) {
+  #user-header {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr;
+    width: 100vw;
+    text-align: center;
+    background-color: #4471af;
+    justify-content: center;
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #user-header ul:first-of-type {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #user-header ul:first-of-type li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #user-header ul:first-of-type li a {
+    font-size: 4rem;
+    text-decoration: none;
+    color: #fff;
+  }
+  #user-header ul:first-of-type li a:hover {
+    text-decoration: underline;
+    font-size: 4.4rem;
+  }
+  #user-header img {
+    max-width: 80%;
+    height: auto;
+  }
+  #user-header ul:last-of-type {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 0.5fr;
+  }
+  #user-header ul:last-of-type li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #user-header ul:last-of-type li a {
+    font-size: 3rem;
+    text-decoration: none;
+    color: #fff;
+  }
+  #user-header ul:last-of-type li a:hover {
+    text-decoration: underline;
+    font-size: 3.5rem;
+  }
+}
+@media (min-width: 500px) and (max-width: 1230px) {
+  #user-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4471af;
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #user-header figure {
+    margin-top: 0; /* remplace margin-top: 20px; */
+    margin-bottom: 2rem;
+    order: -1; /* ajoute cette ligne pour changer l'ordre */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #user-header img {
+    max-width: 110%;
+    height: auto;
+  }
+  #user-header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #user-header ul li {
+    margin-bottom: 2rem;
+  }
+  #user-header ul li a {
+    font-size: 3rem;
+    text-decoration: none;
+    color: #fff;
+  }
+  #user-header ul li a:hover {
+    text-decoration: underline;
+    font-size: 3.5rem;
+  }
+}
+@media (min-width: 950px) {
+  #footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100vw;
+    text-align: center;
+    background-color: #4471af;
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #footer > section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #footer > section > h2 {
+    display: none;
+  }
+  #footer > section > figure > img {
+    max-width: 70%;
+    height: auto;
+  }
+  #footer > section > a {
+    text-decoration: none;
+  }
+  #footer > section > a > h2 {
+    font-size: 3.5rem;
+    color: #fff;
+  }
+  #footer > section > a > :hover {
+    text-decoration: underline;
+  }
+  #footer > section:last-of-type {
+    grid-column: 4/5;
+    border-bottom: 1rem;
+  }
+  #footer > section:last-of-type > h2 {
+    display: none;
+  }
+  #footer > section:last-of-type > a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+@media (min-width: 800px) and (max-width: 950px) {
+  #footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100vw;
+    text-align: center;
+    background-color: #4471af;
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #footer > section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #footer > section > h2 {
+    display: none;
+  }
+  #footer > section > figure > img {
+    max-width: 80%;
+    height: auto;
+  }
+  #footer > section > a {
+    text-decoration: none;
+  }
+  #footer > section > a > h2 {
+    font-size: 2rem;
+    color: #fff;
+  }
+  #footer > section > a > :hover {
+    text-decoration: underline;
+  }
+  #footer > section:last-of-type {
+    grid-column: 4/5;
+    border-bottom: 1rem;
+  }
+  #footer > section:last-of-type > h2 {
+    display: none;
+  }
+  #footer > section:last-of-type > a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+@media (min-width: 640px) and (max-width: 800px) {
+  #footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100vw;
+    text-align: center;
+    background-color: #4471af;
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #footer > section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #footer > section > h2 {
+    display: none;
+  }
+  #footer > section > figure > img {
+    max-width: 80%;
+    height: auto;
+  }
+  #footer > section > a {
+    text-decoration: none;
+  }
+  #footer > section > a > h2 {
+    font-size: 1.6rem;
+    color: #fff;
+  }
+  #footer > section > a > :hover {
+    text-decoration: underline;
+  }
+  #footer > section:last-of-type {
+    grid-column: 4/5;
+    border-bottom: 1rem;
+  }
+  #footer > section:last-of-type > h2 {
+    display: none;
+  }
+  #footer > section:last-of-type > a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+@media (min-width: 480px) and (max-width: 640px) {
+  #footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100vw;
+    text-align: center;
+    background-color: #4471af;
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #footer > section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #footer > section > h2 {
+    display: none;
+  }
+  #footer > section > figure > img {
+    max-width: 80%;
+    height: auto;
+  }
+  #footer > section > a {
+    text-decoration: none;
+  }
+  #footer > section > a > h2 {
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  #footer > section > a > :hover {
+    text-decoration: underline;
+  }
+  #footer > section:last-of-type {
+    grid-column: 4/5;
+    border-bottom: 1rem;
+  }
+  #footer > section:last-of-type > h2 {
+    display: none;
+  }
+  #footer > section:last-of-type > a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+@media (max-width: 480px) {
+  #footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100vw;
+    text-align: center;
+    background-color: #4471af;
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #footer > section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #footer > section > h2 {
+    display: none;
+  }
+  #footer > section > figure > img {
+    max-width: 80%;
+    height: auto;
+  }
+  #footer > section > a {
+    text-decoration: none;
+  }
+  #footer > section > a > h2 {
+    font-size: 1rem;
+    color: #fff;
+  }
+  #footer > section > a > :hover {
+    text-decoration: underline;
+  }
+  #footer > section:last-of-type {
+    grid-column: 4/5;
+    border-bottom: 1rem;
+  }
+  #footer > section:last-of-type > h2 {
+    display: none;
+  }
+  #footer > section:last-of-type > a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+@media (min-width: 1230px) {
+  #accueil {
+    overflow-x: hidden;
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #accueil > main {
+    min-height: 80vh;
+  }
+  #accueil > main .scroll-animation {
+    opacity: 0;
+    transform: translateX(-300px);
+    transition: opacity 2s ease-out, transform 2s ease-out;
+  }
+  #accueil > main .scroll-animation.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #accueil > main > h1 {
+    display: none;
+  }
+  #accueil > main > section {
+    width: 100vw;
+  }
+  #accueil > main > section > figure {
+    margin-top: 5px;
+  }
+  #accueil > main > section > figure > img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  #accueil > main > section > h2 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin: 3rem 0;
+    color: blue;
+    text-align: center;
+  }
+  #accueil > main > section > p {
+    color: blue;
+    text-align: center;
+    font-size: 2rem;
+  }
+  #accueil > main > section > h3 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 10rem 0 3rem 0;
+    color: blue;
+    text-align: center;
+  }
+  #accueil > main > section > section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+  }
+  #accueil > main > section > section > h2 {
+    display: none;
+  }
+  #accueil > main > section > section > article {
+    background-color: #4471af;
+    border-radius: 10px;
+    width: 30%;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  #accueil > main > section > section > article > h2 {
+    display: none;
+  }
+  #accueil > main > section > section > article > section:first-of-type {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #accueil > main > section > section > article > section:first-of-type > h3 {
+    display: none;
+  }
+  #accueil > main > section > section > article > section:first-of-type > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  #accueil > main > section > section > article > section:first-of-type > a > img {
+    width: auto;
+    height: 30vh;
+  }
+  #accueil > main > section > section > article > section:nth-of-type(2) {
+    height: 10%;
+  }
+  #accueil > main > section > section > article > section:nth-of-type(2) > h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    color: white;
+  }
+  #accueil > main > section > section > article > section:nth-of-type(2) > h2 > a {
+    text-decoration: none;
+    color: white;
+  }
+  #accueil > main > section > section > article > section:nth-of-type(2) > h2 > a:hover {
+    text-decoration: underline;
+  }
+  #accueil > main > section > section > article > section:last-of-type {
+    margin-top: 15%;
+    margin-bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #accueil > main > section > section > article > section:last-of-type > h3 {
+    text-align: center;
+    font-size: 4rem;
+    color: white;
+  }
+  #accueil > main > section > section > article > section:last-of-type > h3 > a {
+    text-decoration: none;
+    color: white;
+  }
+  #accueil > main > section > section > article > section:last-of-type > h3 > a:hover {
+    text-decoration: underline;
+  }
+}
+@media (min-width: 890px) and (max-width: 1230px) {
+  #accueil {
+    overflow-x: hidden;
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #accueil > main {
+    min-height: 80vh;
+  }
+  #accueil > main > h1 {
+    display: none;
+  }
+  #accueil > main > section {
+    width: 100vw;
+  }
+  #accueil > main > section > figure {
+    margin-top: 5px;
+  }
+  #accueil > main > section > figure > img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  #accueil > main > section > h2 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin: 3rem 0;
+    color: blue;
+    text-align: center;
+  }
+  #accueil > main > section > p {
+    color: blue;
+    text-align: center;
+    font-size: 2rem;
+  }
+  #accueil > main > section > h3 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 10rem 0 3rem 0;
+    color: blue;
+    text-align: center;
+  }
+  #accueil > main > section > section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 5rem;
+  }
+  #accueil > main > section > section > h2 {
+    display: none;
+  }
+  #accueil > main > section > section > article > h2 {
+    display: none;
+  }
+  #accueil > main > section > section > article > section:first-of-type > h3 {
+    display: none;
+  }
+  #accueil > main > section > section > article > section:first-of-type > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  #accueil > main > section > section > article > section:first-of-type > a > img {
+    width: auto;
+    height: 20vh;
+  }
+  #accueil > main > section > section > article > section:last-of-type > h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: blue;
+  }
+  #accueil > main > section > section > article > section:last-of-type > h2 > a {
+    text-decoration: none;
+    color: blue;
+  }
+  #accueil > main > section > section > article > section:last-of-type > h2 > a:hover {
+    text-decoration: underline;
+  }
+}
+@media (min-width: 1230px) {
+  #liste-categories {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #liste-categories > main {
+    min-height: 60vh;
+  }
+  #liste-categories > main > h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin: 1rem 0;
+    text-align: center;
+    color: blue;
+    margin: 3rem 0;
+  }
+  #liste-categories > main > section {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin: 0 0 5rem 0;
+  }
+  #liste-categories > main > section > h2 {
+    display: none;
+  }
+  #liste-categories > main > section > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #liste-categories > main > section > section > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  #liste-categories > main > section > section > a > img {
+    height: 15vh;
+    border-radius: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+  #liste-categories > main > section > section > a:hover > img {
+    transform: scale(1.1);
+  }
+  #liste-categories > main > section > section > h2 {
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+  #liste-categories > main > section > section > h2 > a {
+    text-decoration: none;
+    color: blue;
+  }
+  #liste-categories > main > section > section > h2 > a:hover {
+    text-decoration: underline;
+  }
+}
+@media (min-width: 890px) and (max-width: 1230px) {
+  #liste-categories {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #liste-categories > main {
+    min-height: 60vh;
+  }
+  #liste-categories > main > h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    color: blue;
+    margin: 3rem 0;
+  }
+  #liste-categories > main > section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 0 5rem 0;
+  }
+  #liste-categories > main > section > h2 {
+    display: none;
+  }
+  #liste-categories > main > section > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+  #liste-categories > main > section > section > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  #liste-categories > main > section > section > a > img {
+    height: 15vh;
+    border-radius: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+  #liste-categories > main > section > section > a:hover > img {
+    transform: scale(1.1);
+  }
+  #liste-categories > main > section > section > h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+  }
+  #liste-categories > main > section > section > h2 > a {
+    text-decoration: none;
+    color: blue;
+  }
+  #liste-categories > main > section > section > h2 > a:hover {
+    text-decoration: underline;
+  }
+}
+@media (min-width: 730px) and (max-width: 890px) {
+  #liste-categories {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #liste-categories > main {
+    min-height: 60vh;
+  }
+  #liste-categories > main > h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 1rem 0;
+    text-align: center;
+    color: blue;
+    margin: 3rem 0;
+  }
+  #liste-categories > main > section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 0 5rem 0;
+  }
+  #liste-categories > main > section > h2 {
+    display: none;
+  }
+  #liste-categories > main > section > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  #liste-categories > main > section > section > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  #liste-categories > main > section > section > a > img {
+    height: 15vh;
+    border-radius: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+  #liste-categories > main > section > section > a:hover > img {
+    transform: scale(1.1);
+  }
+  #liste-categories > main > section > section > h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+  }
+  #liste-categories > main > section > section > h2 > a {
+    text-decoration: none;
+    color: blue;
+  }
+  #liste-categories > main > section > section > h2 > a:hover {
+    text-decoration: underline;
+  }
+}
+@media (min-width: 480px) and (max-width: 730px) {
+  #liste-categories {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #liste-categories > main {
+    min-height: 60vh;
+  }
+  #liste-categories > main > h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 1rem 0;
+    text-align: center;
+    color: blue;
+    margin: 3rem 0;
+  }
+  #liste-categories > main > section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 0 5rem 0;
+  }
+  #liste-categories > main > section > h2 {
+    display: none;
+  }
+  #liste-categories > main > section > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  #liste-categories > main > section > section > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  #liste-categories > main > section > section > a > img {
+    height: 15vh;
+    border-radius: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+  #liste-categories > main > section > section > a:hover > img {
+    transform: scale(1.1);
+  }
+  #liste-categories > main > section > section > h2 {
+    text-align: center;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+  }
+  #liste-categories > main > section > section > h2 > a {
+    text-decoration: none;
+    color: blue;
+  }
+  #liste-categories > main > section > section > h2 > a:hover {
+    text-decoration: underline;
+  }
+}
+@media (max-width: 480px) {
+  #liste-categories {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #liste-categories > main {
+    min-height: 60vh;
+  }
+  #liste-categories > main > h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 1rem 0;
+    text-align: center;
+    color: blue;
+    margin: 3rem 0;
+  }
+  #liste-categories > main > section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 0 5rem 0;
+  }
+  #liste-categories > main > section > h2 {
+    display: none;
+  }
+  #liste-categories > main > section > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  #liste-categories > main > section > section > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  #liste-categories > main > section > section > a > img {
+    height: 15vh;
+    border-radius: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+  #liste-categories > main > section > section > a:hover > img {
+    transform: scale(1.1);
+  }
+  #liste-categories > main > section > section > h2 {
+    text-align: center;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+  #liste-categories > main > section > section > h2 > a {
+    text-decoration: none;
+    color: blue;
+  }
+  #liste-categories > main > section > section > h2 > a:hover {
+    text-decoration: underline;
+  }
+}
+@media (min-width: 1230px) {
+  #category {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #category > main {
+    min-height: 60vh;
+  }
+  #category > main > h1 {
+    display: none;
+  }
+  #category > main .retour-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077C2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.2s ease-in-out;
+    margin: 5rem 0 0 5rem;
+    font-size: 1.5rem;
+  }
+  #category > main .retour-btn:hover {
+    background-color: #005CA9;
+    cursor: pointer;
+  }
+  #category > main > section:first-of-type {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 5rem 0;
+  }
+  #category > main > section:first-of-type > h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin: 1rem 0;
+    color: blue;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+  }
+  #category > main > section:first-of-type > figure {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+  }
+  #category > main > section:first-of-type > figure > img {
+    height: 10vw;
+  }
+  #category > main > section:last-of-type {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 0 5rem 4rem;
+    max-width: 100%;
+  }
+  #category > main > section:last-of-type > h2 {
+    display: none;
+  }
+  #category > main > section:last-of-type > section {
+    margin: 0 3rem 5rem 0;
+  }
+  #category > main > section:last-of-type > section > h2 {
+    display: none;
+  }
+  #category > main > section:last-of-type > section > article > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #category > main > section:last-of-type > section > article > a > img {
+    height: 20rem;
+  }
+  #category > main > section:last-of-type > section > article > h2 {
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin: 2rem 0;
+  }
+  #category > main > section:last-of-type > section > article > h2 > a {
+    text-decoration: none;
+    color: blue;
+  }
+  #category > main > section:last-of-type > section > article > p {
+    text-align: center;
+    color: blue;
+  }
+}
+@media (min-width: 890px) and (max-width: 1230px) {
+  #category {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #category > main {
+    min-height: 60vh;
+  }
+  #category > main > h1 {
+    display: none;
+  }
+  #category > main .retour-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077C2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.2s ease-in-out;
+    margin: 5rem 0 0 5rem;
+    font-size: 2rem;
+  }
+  #category > main .retour-btn:hover {
+    background-color: #005CA9;
+    cursor: pointer;
+  }
+  #category > main > section:first-of-type {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 5rem 0;
+  }
+  #category > main > section:first-of-type > h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin: 1rem 0;
+    color: blue;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+  }
+  #category > main > section:first-of-type > figure {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+  }
+  #category > main > section:first-of-type > figure > img {
+    height: 10vw;
+  }
+  #category > main > section:last-of-type {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 0 5rem 4rem;
+    max-width: 100vw;
+  }
+  #category > main > section:last-of-type > h2 {
+    display: none;
+  }
+  #category > main > section:last-of-type > section {
+    margin: 0 3rem 5rem 0;
+  }
+  #category > main > section:last-of-type > section > h2 {
+    display: none;
+  }
+  #category > main > section:last-of-type > section > article > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #category > main > section:last-of-type > section > article > a > img {
+    height: 20rem;
+  }
+  #category > main > section:last-of-type > section > article > h2 {
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin: 2rem 0;
+  }
+  #category > main > section:last-of-type > section > article > h2 > a {
+    text-decoration: none;
+    color: blue;
+  }
+  #category > main > section:last-of-type > section > article > p {
+    text-align: center;
+    color: blue;
+  }
+}
+@media (min-width: 1230px) {
+  #product {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #product > main {
+    min-height: 90vh;
+  }
+  #product > main > h1 {
+    display: none;
+  }
+  #product > main .retour-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077C2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.2s ease-in-out;
+    margin: 5rem 0 0 5rem;
+    font-size: 1.5rem;
+  }
+  #product > main .retour-btn:hover {
+    background-color: #005CA9;
+    cursor: pointer;
+  }
+  #product > main > section {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #product > main > section > h2 {
+    display: none;
+  }
+  #product > main > section > section:first-of-type > h2 {
+    display: none;
+  }
+  #product > main > section > section:first-of-type > figure {
+    margin: 3rem 0;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+  }
+  #product > main > section > section:first-of-type > figure > img {
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+  }
+  #product > main > section > section:last-of-type {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr) 0.1fr;
+  }
+  #product > main > section > section:last-of-type > h2 {
+    display: none;
+  }
+  #product > main > section > section:last-of-type > section:first-of-type > h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin: 3rem 0;
+    color: blue;
+    text-align: center;
+  }
+  #product > main > section > section:last-of-type > section:first-of-type > p {
+    color: blue;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  #product > main > section > section:last-of-type > section:nth-of-type(2) > h2 {
+    display: none;
+  }
+  #product > main > section > section:last-of-type > section:nth-of-type(2) > p {
+    color: blue;
+    font-size: 2rem;
+    white-space: pre-line;
+  }
+  #product > main > section > section:last-of-type > section:last-of-type > h2 {
+    display: none;
+  }
+  #product > main > section > section:last-of-type > section:last-of-type > form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  #product > main > section > section:last-of-type > section:last-of-type > form > input[type=number] {
+    width: 5rem;
+    padding: 1rem;
+    font-size: 2rem;
+    margin-right: 10px;
+  }
+  #product > main > section > section:last-of-type > section:last-of-type > form > button.paniers {
+    background-color: blue;
+    color: white;
+    font-size: 2rem;
+    border: none;
+    padding: 1.4rem 4rem;
+    cursor: pointer;
+  }
+}
+@media (min-width: 890px) and (max-width: 1230px) {
+  #product {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #product > main {
+    min-height: 90vh;
+  }
+  #product > main > h1 {
+    display: none;
+  }
+  #product > main .retour-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077C2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.2s ease-in-out;
+    margin: 5rem 0 0 5rem;
+    font-size: 2rem;
+  }
+  #product > main .retour-btn:hover {
+    background-color: #005CA9;
+    cursor: pointer;
+  }
+  #product > main > section {
+    height: 100%;
+  }
+  #product > main > section > h2 {
+    display: none;
+  }
+  #product > main > section > section:first-of-type {
+    margin-top: 5rem;
+  }
+  #product > main > section > section:first-of-type > figure {
+    display: flex; /* ajoutez cette ligne */
+    justify-content: center; /* ajoutez cette ligne */
+  }
+  #product > main > section > section:first-of-type > figure > img {
+    margin: 0 auto;
+    width: 60%;
+    height: auto;
+  }
+  #product > main > section > section:last-of-type {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr) 0.1fr;
+  }
+  #product > main > section > section:last-of-type > h2 {
+    display: none;
+  }
+  #product > main > section > section:last-of-type > section:first-of-type {
+    margin-bottom: 5rem;
+  }
+  #product > main > section > section:last-of-type > section:first-of-type > h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin: 3rem 0;
+    color: blue;
+    text-align: center;
+  }
+  #product > main > section > section:last-of-type > section:first-of-type > p {
+    color: blue;
+    font-size: 2rem;
+    text-align: center;
+  }
+  #product > main > section > section:last-of-type > section:nth-of-type(2) > h2 {
+    display: none;
+  }
+  #product > main > section > section:last-of-type > section:nth-of-type(2) > p {
+    color: blue;
+    font-size: 2.5rem;
+    margin: 0 3rem;
+    white-space: pre-line;
+  }
+  #product > main > section > section:last-of-type > section:last-of-type {
+    margin-bottom: 5rem;
+  }
+  #product > main > section > section:last-of-type > section:last-of-type > h2 {
+    display: none;
+  }
+  #product > main > section > section:last-of-type > section:last-of-type > form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  #product > main > section > section:last-of-type > section:last-of-type > form > input[type=number] {
+    width: 5rem;
+    padding: 1rem;
+    font-size: 2rem;
+    margin-right: 10px;
+  }
+  #product > main > section > section:last-of-type > section:last-of-type > form > button.paniers {
+    background-color: blue;
+    color: white;
+    font-size: 2rem;
+    border: none;
+    padding: 1.4rem 4rem;
+    cursor: pointer;
+  }
+}
+@media (min-width: 1230px) {
+  #nouveautes {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #nouveautes > main {
+    min-height: 60vh;
+  }
+  #nouveautes > main > h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    text-align: center;
+    color: blue;
+    margin: 3rem 0;
+  }
+  #nouveautes > main > section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 5rem;
+  }
+  #nouveautes > main > section > h2 {
+    display: none;
+  }
+  #nouveautes > main > section > article > h2 {
+    display: none;
+  }
+  #nouveautes > main > section > article > section:first-of-type > h3 {
+    display: none;
+  }
+  #nouveautes > main > section > article > section:first-of-type > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  #nouveautes > main > section > article > section:first-of-type > a > img {
+    width: auto;
+    height: 30vh;
+  }
+  #nouveautes > main > section > article > section:last-of-type > h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: blue;
+  }
+  #nouveautes > main > section > article > section:last-of-type > h2 > a {
+    text-decoration: none;
+    color: blue;
+  }
+  #nouveautes > main > section > article > section:last-of-type > h2 > a:hover {
+    text-decoration: underline;
+  }
+  #nouveautes > main > section > article > section:last-of-type > section > h2 {
+    display: none;
+  }
+  #nouveautes > main > section > article > section:last-of-type > section > p {
+    color: blue;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 3rem 0;
+  }
+}
+@media (max-width: 1230px) {
+  #nouveautes {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #nouveautes > main {
+    min-height: 60vh;
+  }
+  #nouveautes > main > h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    text-align: center;
+    color: blue;
+    margin: 3rem 0;
+  }
+  #nouveautes > main > section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 5rem;
+  }
+  #nouveautes > main > section > h2 {
+    display: none;
+  }
+  #nouveautes > main > section > article > h2 {
+    display: none;
+  }
+  #nouveautes > main > section > article > section:first-of-type > h3 {
+    display: none;
+  }
+  #nouveautes > main > section > article > section:first-of-type > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  #nouveautes > main > section > article > section:first-of-type > a > img {
+    width: auto;
+    height: 20vh;
+  }
+  #nouveautes > main > section > article > section:last-of-type > h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: blue;
+  }
+  #nouveautes > main > section > article > section:last-of-type > h2 > a {
+    text-decoration: none;
+    color: blue;
+  }
+  #nouveautes > main > section > article > section:last-of-type > h2 > a:hover {
+    text-decoration: underline;
+  }
+  #nouveautes > main > section > article > section:last-of-type > section > h2 {
+    display: none;
+  }
+  #nouveautes > main > section > article > section:last-of-type > section > p {
+    color: blue;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 3rem 0;
+  }
+  #nouveautes > main > section > article > section:last-of-type > section > p > a {
+    text-decoration: none;
+    color: blue;
+  }
+  #nouveautes > main > section > article > section:last-of-type > section > p > a > :hover {
+    text-décoration: underline;
+  }
+}
+#info {
+  font-family: "Stick No Bills", sans-serif;
+}
+#info > main > h1 {
+  font-size: 4rem;
+  text-align: center;
+  margin-top: 3rem;
+  color: blue;
+}
+#info > main > section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Stick No Bills", sans-serif;
+}
+#info > main > section > h2 {
+  display: none;
+}
+#info > main > section > p {
+  font-size: 2rem;
+  line-height: 1.5;
+  color: blue;
+  margin-bottom: 1rem;
+  text-align: justify;
+  max-width: 60vw;
+  text-align: center;
+}
+#info > main > section > p:first-of-type {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: blue;
+}
+#info > main > section > p:not(:last-of-type) {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 1rem;
+}
+#info > main > section > p:last-of-type > a {
+  display: inline-block;
+  background-color: blue;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 5rem;
+}
+#info > main > section > p:last-of-type > a > :hover {
+  font-size: 2.2rem;
+}
+
+@media (min-width: 1230px) {
+  #mon-compte {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #mon-compte > main {
+    min-height: 70vh;
+  }
+  #mon-compte > main > h1 {
+    font-size: 4rem;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #mon-compte > main > section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #mon-compte > main > section > h2 {
+    display: none;
+  }
+  #mon-compte > main > section > section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #mon-compte > main > section > section > h2 {
+    display: none;
+  }
+  #mon-compte > main > section > section > ul {
+    list-style: none;
+  }
+  #mon-compte > main > section > section > ul > li {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: blue;
+    text-align: center;
+    line-height: 3rem;
+  }
+  #mon-compte > main > section > section > ul > li > strong {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  #mon-compte > main > section > figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #mon-compte > main > section > figure > img {
+    height: 50vh;
+  }
+  #mon-compte > main > a {
+    display: inline-block;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 2rem 0 5rem 20rem;
+    font-size: 3rem;
+  }
+  #mon-compte > main > a > :hover {
+    font-size: 2.2rem;
+  }
+}
+@media (min-width: 890px) and (max-width: 1230px) {
+  #mon-compte {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #mon-compte > main {
+    min-height: 70vh;
+  }
+  #mon-compte > main > h1 {
+    font-size: 4rem;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #mon-compte > main > section > h2 {
+    display: none;
+  }
+  #mon-compte > main > section > section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #mon-compte > main > section > section > h2 {
+    display: none;
+  }
+  #mon-compte > main > section > section > ul {
+    list-style: none;
+  }
+  #mon-compte > main > section > section > ul > li {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: blue;
+    text-align: center;
+    line-height: 3rem;
+  }
+  #mon-compte > main > section > section > ul > li > strong {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  #mon-compte > main > section > figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #mon-compte > main > section > figure > img {
+    height: 40vh;
+  }
+  #mon-compte > main > a {
+    display: inline-block;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 2rem 0 5rem 20rem;
+    font-size: 3rem;
+  }
+  #mon-compte > main > a > :hover {
+    font-size: 2.2rem;
+  }
+}
+@media (min-width: 1230px) {
+  #creation {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #creation > main > h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #creation > main > section > h2 {
+    display: none;
+  }
+  #creation > main > section > p {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 3px;
+    color: #721c24;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+  }
+  #creation > main > form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  #creation > main > form .error-message {
+    color: red;
+    display: block;
+  }
+  #creation > main > form .field-error {
+    border-color: red;
+  }
+  #creation > main > form > fieldset {
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #creation > main > form > fieldset > label {
+    display: block;
+    font-size: 2rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #creation > main > form > fieldset > input {
+    width: 20%;
+  }
+  #creation > main > form > section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  #creation > main > form > section > h2 {
+    display: none;
+  }
+  #creation > main > form > section > fieldset {
+    width: 48%;
+    /* Divise l'espace disponible entre les deux fieldsets */
+    text-align: center;
+  }
+  #creation > main > form > section > fieldset > label {
+    display: block;
+    font-size: 2rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #creation > main > form > section > fieldset > input {
+    width: 40%;
+  }
+  #creation > main > form > fieldset:last-of-type {
+    margin: 0 0;
+  }
+  #creation > main > form > fieldset:last-of-type > input {
+    background-color: blue;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #creation > main > form > fieldset:last-of-type > input > :hover {
+    background-color: navy;
+  }
+  #creation > main > form > p {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  #creation > main > form > p > a {
+    text-decoration: none;
+    color: blue;
+  }
+}
+@media (min-width: 890px) and (max-width: 1230px) {
+  #creation {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #creation > main > h1 {
+    font-size: 6rem;
+    font-weight: 800;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #creation > main > section > h2 {
+    display: none;
+  }
+  #creation > main > section > p {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 3px;
+    color: #721c24;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+  }
+  #creation > main > form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  #creation > main > form .error-message {
+    color: red;
+    display: block;
+  }
+  #creation > main > form .field-error {
+    border-color: red;
+  }
+  #creation > main > form > fieldset {
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #creation > main > form > fieldset > label {
+    display: block;
+    font-size: 5rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #creation > main > form > fieldset > input {
+    width: 40%;
+    height: 2rem;
+  }
+  #creation > main > form > section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  #creation > main > form > section > h2 {
+    display: none;
+  }
+  #creation > main > form > section > fieldset {
+    width: 48%;
+    /* Divise l'espace disponible entre les deux fieldsets */
+    text-align: center;
+  }
+  #creation > main > form > section > fieldset > label {
+    display: block;
+    font-size: 5rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #creation > main > form > section > fieldset > input {
+    width: 60%;
+    height: 2rem;
+  }
+  #creation > main > form > fieldset:last-of-type {
+    margin: 0 0;
+  }
+  #creation > main > form > fieldset:last-of-type > input {
+    background-color: blue;
+    color: white;
+    padding: 1rem 5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 4rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 5rem;
+    width: 90%;
+  }
+  #creation > main > form > fieldset:last-of-type > input > :hover {
+    background-color: navy;
+  }
+  #creation > main > form > p {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  #creation > main > form > p > a {
+    text-decoration: none;
+    color: blue;
+  }
+}
+@media (min-width: 1230px) {
+  #connexion {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #connexion > main > h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #connexion > main > section > h2 {
+    display: none;
+  }
+  #connexion > main > section > p {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 3px;
+    color: #721c24;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+  }
+  #connexion > main > form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  #connexion > main > form .error-message {
+    color: red;
+    display: block;
+  }
+  #connexion > main > form .field-error {
+    border-color: red;
+  }
+  #connexion > main > form > fieldset {
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #connexion > main > form > fieldset > label {
+    display: block;
+    font-size: 2rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #connexion > main > form > fieldset > input {
+    width: 20%;
+  }
+  #connexion > main > form > section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  #connexion > main > form > section > fieldset {
+    width: 48%;
+    /* Divise l'espace disponible entre les deux fieldsets */
+    text-align: center;
+  }
+  #connexion > main > form > section > fieldset > label {
+    display: block;
+    font-size: 2rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #connexion > main > form > section > fieldset > input {
+    width: 40%;
+  }
+  #connexion > main > form > fieldset:last-of-type {
+    margin: 0 0;
+  }
+  #connexion > main > form > fieldset:last-of-type > input {
+    background-color: blue;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #connexion > main > form > fieldset:last-of-type > input > :hover {
+    background-color: navy;
+  }
+  #connexion > main > form > p {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  #connexion > main > form > p > a {
+    text-decoration: none;
+    color: blue;
+  }
+}
+@media (min-width: 890px) and (max-width: 1230px) {
+  #connexion {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #connexion > main > h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #connexion > main > section > h2 {
+    display: none;
+  }
+  #connexion > main > section > p {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 3px;
+    color: #721c24;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+  }
+  #connexion > main > form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  #connexion > main > form .error-message {
+    color: red;
+    display: block;
+  }
+  #connexion > main > form .field-error {
+    border-color: red;
+  }
+  #connexion > main > form > fieldset {
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #connexion > main > form > fieldset > label {
+    display: block;
+    font-size: 2rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #connexion > main > form > fieldset > input {
+    width: 20%;
+  }
+  #connexion > main > form > fieldset:last-of-type {
+    margin: 0 0;
+  }
+  #connexion > main > form > fieldset:last-of-type > input {
+    background-color: blue;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #connexion > main > form > fieldset:last-of-type > input > :hover {
+    background-color: navy;
+  }
+  #connexion > main > form > p {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  #connexion > main > form > p > a {
+    text-decoration: none;
+    color: blue;
+  }
+}
+@media (min-width: 890px) and (max-width: 1230px) {
+  #connexion {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #connexion > main > h1 {
+    font-size: 6rem;
+    font-weight: 800;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #connexion > main > section > h2 {
+    display: none;
+  }
+  #connexion > main > section > p {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 3px;
+    color: #721c24;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+  }
+  #connexion > main > form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  #connexion > main > form > fieldset {
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #connexion > main > form > fieldset > label {
+    display: block;
+    font-size: 5rem;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #connexion > main > form > fieldset > input {
+    width: 40%;
+    height: 2rem;
+  }
+  #connexion > main > form > fieldset:last-of-type {
+    margin: 0 0;
+  }
+  #connexion > main > form > fieldset:last-of-type > input {
+    background-color: blue;
+    color: white;
+    padding: 1rem 5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 4rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 5rem;
+    width: 90%;
+  }
+  #connexion > main > form > fieldset:last-of-type > input > :hover {
+    background-color: navy;
+  }
+  #connexion > main > form > p {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  #connexion > main > form > p > a {
+    text-decoration: none;
+    color: blue;
+  }
+}
+#panier {
+  font-family: "Stick No Bills", sans-serif;
+}
+#panier > main {
+  max-width: 80%;
+  min-height: 53vh;
+  margin: 0 auto;
+  padding: 20px;
+}
+#panier > main > h1 {
+  font-size: 4em;
+  text-align: center;
+  color: blue;
+  margin: 3rem 0;
+}
+#panier > main > table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#panier > main > table > thead > tr > th {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black;
+  background-color: #ccc;
+  font-size: 3rem;
+}
+#panier > main > table > tbody > tr > td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black;
+  font-size: 2rem;
+}
+#panier > main > table > tbody > tr > tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#contact {
+  font-family: "Stick No Bills", sans-serif;
+}
+#contact > main {
+  min-height: 53vh;
+}
+#contact > main > h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin: 1rem 0;
+  text-align: center;
+  color: blue;
+  margin: 3rem 0;
+}
+#contact > main > p {
+  font-size: 2rem;
+  line-height: 1.5;
+  color: blue;
+  margin-bottom: 1rem;
+  text-align: justify;
+  text-align: center;
+}
+#contact > main > section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 0;
+}
+#contact > main > section > h2 {
+  display: none;
+}
+#contact > main > section > span {
+  font-size: 10rem;
+}
+#contact > main > section > span:not(:last-child) {
+  margin-right: 5rem;
+}
+
+#newsletter {
+  font-family: "Stick No Bills", sans-serif;
+}
+#newsletter > main {
+  min-height: 50vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 0.1fr 1fr;
+}
+#newsletter > main > h1 {
+  grid-row: 1/2;
+  grid-column: 1/3;
+  font-size: 4rem;
+  text-align: center;
+  margin-top: 3rem;
+  color: blue;
+}
+#newsletter > main > form {
+  width: 80%;
+  margin: 0 auto;
+  grid-row: 2/3;
+  grid-column: 1/2;
+}
+#newsletter > main > form > fieldset:first-of-type {
+  text-align: center;
+  margin: 5rem 0;
+}
+#newsletter > main > form > fieldset:first-of-type > label {
+  display: block;
+  font-size: 2rem;
+  color: blue;
+  margin-bottom: 1rem;
+}
+#newsletter > main > form > fieldset:first-of-type > input {
+  width: 30%;
+  height: 2rem;
+}
+#newsletter > main > form > fieldset:last-of-type {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+#newsletter > main > form > fieldset:last-of-type > input {
+  background-color: blue;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 2rem;
+}
+#newsletter > main > section {
+  margin: 5rem 0;
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+#newsletter > main > section > h2 {
+  display: none;
+}
+#newsletter > main > section > figure > h3 {
+  display: none;
+}
+#newsletter > main > section > figure > img {
+  margin: 0 auto;
+}
+
+@media (min-width: 1230px) {
+  #error404 {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #error404 > main {
+    min-height: 53vh;
+  }
+  #error404 > main > h1 {
+    font-size: 4rem;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #error404 > main > p {
+    text-align: center;
+    color: blue;
+    margin-bottom: 1rem;
+  }
+  #error404 > main > figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+  #error404 > main > figure > img {
+    height: 50%;
+    width: auto;
+  }
+}
+@media (max-width: 1230px) {
+  #error404 {
+    font-family: "Stick No Bills", sans-serif;
+  }
+  #error404 > main {
+    min-height: 40vh;
+  }
+  #error404 > main > h1 {
+    font-size: 4rem;
+    color: blue;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  #error404 > main > p {
+    text-align: center;
+    color: blue;
+  }
+  #error404 > main > figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #error404 > main > figure > img {
+    height: 50%;
+    width: auto;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
